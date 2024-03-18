@@ -72,4 +72,4 @@ your secret data.
 
 Once you’ve safely stored your secret using Secrets Manager, you can
 [add secrets to pods as environment variables or
-files](../../../deploy/managing-secrets/mounting-secrets.md).
+files](../../deploy/managing-secrets/mounting-secrets.md).

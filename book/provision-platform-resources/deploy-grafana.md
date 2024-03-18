@@ -41,7 +41,7 @@ infra/
 Apply [prometheus-workspace
 module](https://github.com/thoughtbot/flightdeck/tree/main/aws/prometheus-workspace)
 from Flightdeck in the [Operations
-account](../../conventions-and-expectations/account-conventions.md).
+account](../conventions-and-expectations/account-conventions.md).
 
 Update your production workload platform configuration to use the
 Prometheus workspace:

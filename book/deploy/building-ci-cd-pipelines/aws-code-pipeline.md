@@ -8,7 +8,7 @@ and
 ## Common Resources
 
 In the [infrastructure
-repository](../../../conventions-and-expectations/repository-conventions/infrastructure-repository.md),
+repository](../../conventions-and-expectations/repository-conventions/infrastructure-repository.md),
 create a root module for common CI/CD resources:
 
 <div class="code panel pdl" style="border-width: 1px;">
@@ -41,7 +41,7 @@ In order to deploy CI/CD pipelines on AWS, you will need the following:
     module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/codestar-connection).
 
 These resources should be provisioned in the [Operations
-account](../../../conventions-and-expectations/account-conventions.md).
+account](../../conventions-and-expectations/account-conventions.md).
 
 After adding these modules to your root module, apply the module. Once
 the module has completed successfully, you will need to sign into the
@@ -53,12 +53,12 @@ to complete the connection.
 ## Continuous Integration
 
 For each [application
-repository](../../../conventions-and-expectations/repository-conventions/application-repository.md),
+repository](../../conventions-and-expectations/repository-conventions/application-repository.md),
 create CodeBuild projects to build Docker images and generate manifests.
 These projects can be triggered when pull requests are opened using
 webhooks. Build projects and related resources should be provisioned in
 the [Operations
-account](../../../conventions-and-expectations/account-conventions.md).
+account](../../conventions-and-expectations/account-conventions.md).
 
 <div class="code panel pdl" style="border-width: 1px;">
 
@@ -78,7 +78,7 @@ In order to build Docker images for an application, you'll need:
 
   - A [Dockerfile](https://docs.docker.com/engine/reference/builder/).
     This can be kept in the [application
-    repository](../../../conventions-and-expectations/repository-conventions/application-repository.md).
+    repository](../../conventions-and-expectations/repository-conventions/application-repository.md).
 
   - A
     [buildspec](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
@@ -98,7 +98,7 @@ In order to build Docker images for an application, you'll need:
     module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/ecr-project).
 
   - A [manifests
-    repository](../../../conventions-and-expectations/repository-conventions/manifest-repository.md)
+    repository](../../conventions-and-expectations/repository-conventions/manifest-repository.md)
     to store configuration and manifests for your application.
 
   - A buildspec for generating application manifests. This can be stored
@@ -124,7 +124,7 @@ For each stage of the software development lifecycle, create a
 CodePipeline pipeline to deploy the latest images and manifests to the
 cluster. This pipeline can be triggered when pull requests are merged
 using webhooks. Pipelines should be provisioned in the [Operations
-account](../../../conventions-and-expectations/account-conventions.md).
+account](../../conventions-and-expectations/account-conventions.md).
 
 <div class="code panel pdl" style="border-width: 1px;">
 
@@ -144,7 +144,7 @@ infra/
     the [deploy role Terraform
     module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/deploy-role).
     This role must be provisioned in the same [Workload
-    account](../../../conventions-and-expectations/account-conventions.md)
+    account](../../conventions-and-expectations/account-conventions.md)
     as the cluster.
 
   - A buildspec for applying manifests to the cluster. You can use

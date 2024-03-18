@@ -1,4 +1,3 @@
-  - [Flightdeck
-    Template](../../reference/templates/flightdeck-template.md)
+  - [Flightdeck Template](../reference/templates/flightdeck-template.md)
   - [Landing Zone
-    Template](../../reference/templates/landing-zone-template.md)
+    Template](../reference/templates/landing-zone-template.md)

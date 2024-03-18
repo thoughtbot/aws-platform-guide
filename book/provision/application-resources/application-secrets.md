@@ -57,4 +57,4 @@ module "service_policy" {
 </div>
 
 For more information on using Secrets Manager secrets, see [Managing
-Secrets](../../../deploy/managing-secrets.md) in the Deploy section.
+Secrets](../../deploy/managing-secrets.md) in the Deploy section.

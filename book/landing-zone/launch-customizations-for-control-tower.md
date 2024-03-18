@@ -38,7 +38,7 @@ during repo creation.
 
 3.  If there are legacy accounts to enroll, see [Enroll Existing
     (Legacy)
-    Accounts](../../landing-zone/launch-customizations-for-control-tower/enroll-existing--legacy--accounts.md).
+    Accounts](../landing-zone/launch-customizations-for-control-tower/enroll-existing--legacy--accounts.md).
 
 4.  Run the `bin/deploy` script to launch Customizations for Control
     Tower.
@@ -46,4 +46,4 @@ during repo creation.
 5.  Follow the prompts to configure your landing zone.
 
 You are now ready to [set up your single sign on identity
-provider](../../landing-zone/configure-single-sign-on.md).
+provider](../landing-zone/configure-single-sign-on.md).

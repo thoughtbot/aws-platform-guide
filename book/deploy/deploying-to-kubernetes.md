@@ -5,12 +5,12 @@ deploying your application to a cluster.
 -----
 
   - [Introduction to
-    Kubernetes](../../deploy/deploying-to-kubernetes/introduction-to-kubernetes.md)
+    Kubernetes](../deploy/deploying-to-kubernetes/introduction-to-kubernetes.md)
   - [Authoring Kubernetes
-    Manifests](../../deploy/deploying-to-kubernetes/authoring-kubernetes-manifests.md)
+    Manifests](../deploy/deploying-to-kubernetes/authoring-kubernetes-manifests.md)
   - [Deploying
-    Services](../../deploy/deploying-to-kubernetes/deploying-services.md)
+    Services](../deploy/deploying-to-kubernetes/deploying-services.md)
   - [Environment Variables and Configuration
-    Files](../../deploy/deploying-to-kubernetes/environment-variables-and-configuration-files.md)
+    Files](../deploy/deploying-to-kubernetes/environment-variables-and-configuration-files.md)
   - [Composing with
-    Kustomize](../../deploy/deploying-to-kubernetes/composing-with-kustomize.md)
+    Kustomize](../deploy/deploying-to-kubernetes/composing-with-kustomize.md)

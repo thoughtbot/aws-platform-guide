@@ -19,7 +19,7 @@
     <div class="update-item-content">
     
     [Infrastructure
-    Repository](../../conventions-and-expectations/repository-conventions/infrastructure-repository.md "data-linked-resource-id=")
+    Repository](./conventions-and-expectations/repository-conventions/infrastructure-repository.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -41,7 +41,7 @@
     <div class="update-item-content">
     
     [Landing Zone
-    Repository](../../conventions-and-expectations/repository-conventions/landing-zone-repository.md "data-linked-resource-id=")
+    Repository](./conventions-and-expectations/repository-conventions/landing-zone-repository.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -84,7 +84,7 @@
     <div class="update-item-content">
     
     [Provision Platform
-    Resources](../../provision-platform-resources.md "data-linked-resource-id=")
+    Resources](./provision-platform-resources.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -106,7 +106,7 @@
     <div class="update-item-content">
     
     [Launch Customizations for Control
-    Tower](../../landing-zone/launch-customizations-for-control-tower.md "data-linked-resource-id=")
+    Tower](./landing-zone/launch-customizations-for-control-tower.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -237,7 +237,7 @@
     
     <div class="update-item-content">
     
-    [Prerequisites](../../landing-zone/prerequisites.md "data-linked-resource-id=")
+    [Prerequisites](./landing-zone/prerequisites.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -259,7 +259,7 @@
     <div class="update-item-content">
     
     [Security Incident Response Plan
-    Template](../../security-and-compliance/security-incident-response-plan-template.md "data-linked-resource-id=")
+    Template](./security-and-compliance/security-incident-response-plan-template.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -281,7 +281,7 @@
     <div class="update-item-content">
     
     [Security and
-    Compliance](../../security-and-compliance.md "data-linked-resource-id=")
+    Compliance](./security-and-compliance.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -302,7 +302,7 @@
     
     <div class="update-item-content">
     
-    [Troubleshooting](../../troubleshooting.md "data-linked-resource-id=")
+    [Troubleshooting](./troubleshooting.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     
@@ -324,7 +324,7 @@
     <div class="update-item-content">
     
     [Deploying to
-    Kubernetes](../../deploy/deploying-to-kubernetes.md "data-linked-resource-id=")
+    Kubernetes](./deploy/deploying-to-kubernetes.md "data-linked-resource-id=")
     
     <div class="update-item-meta">
     

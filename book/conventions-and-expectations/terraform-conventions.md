@@ -15,7 +15,7 @@ for Terraform state. We create a separate backend bucket for each AWS
 account. Terraform state should be encrypted using unique,
 customer-managed KMS keys. The key for each module's state should
 reflect that module's path within the [infrastructure
-repository](../../conventions-and-expectations/repository-conventions/infrastructure-repository.md).
+repository](../conventions-and-expectations/repository-conventions/infrastructure-repository.md).
 
 You can use the [Terraform state backend Cloudformation
 template](https://github.com/thoughtbot/cloudformation-terraform-state-backend)
@@ -31,8 +31,8 @@ account.
 <div class="confluence-information-macro-body">
 
 The [landing zone template
-repository](../../reference/templates/landing-zone-template.md) comes
-with configuration for Terraform state backends.
+repository](../reference/templates/landing-zone-template.md) comes with
+configuration for Terraform state backends.
 
 </div>
 

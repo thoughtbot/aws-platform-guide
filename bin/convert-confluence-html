@@ -9,14 +9,15 @@ class Conversion
     @source_dir = File.dirname(source_file)
     @output_file = generate_filename(source_file)
     @output_dir = File.dirname(@output_file)
-    @output_file = File.join(root, @output_file)
-    @output_dir = File.join(root, @output_dir)
 
     if @output_dir == "."
       @path_to_root = "."
     else
       @path_to_root = @output_dir.split("/").map { |_| ".." }.join("/")
     end
+
+    @output_file = File.join(root, @output_file)
+    @output_dir = File.join(root, @output_dir)
   end
 
   def run

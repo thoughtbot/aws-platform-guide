@@ -1,7 +1,7 @@
 ![](attachments/11173932/11206829.svg?width=566)
 
 In the [infrastructure
-repository](../../conventions-and-expectations/repository-conventions.md)
+repository](../conventions-and-expectations/repository-conventions.md)
 for the organization, you can create Terraform root modules for managing
 hosted zones for root domains and subdomains:
 
@@ -23,7 +23,7 @@ infra/
 
 You can use `aws_route53_zone` to manage root domains. These hosted
 zones should be placed in the [Network
-account](../../conventions-and-expectations/account-conventions.md).
+account](../conventions-and-expectations/account-conventions.md).
 
 ## Account Subdomains
 
@@ -36,7 +36,7 @@ You can use the
 [terraform-route-53-delegated-subdomain](https://github.com/thoughtbot/terraform-route-53-delegated-subdomain)
 Terraform module to provision these subdomain zones. The subdomain
 hosted zones should be placed in [Workload
-accounts](../../conventions-and-expectations/account-conventions.md).
+accounts](../conventions-and-expectations/account-conventions.md).
 
 You can then use `aws_route53_record` from the Network account to alias
 public addresses to the proper subdomain address.

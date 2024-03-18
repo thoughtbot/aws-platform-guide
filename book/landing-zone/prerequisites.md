@@ -70,7 +70,7 @@ email, check under Conversations \> Pending in Google Groups.
 5.  Create a Github organisation (To be completed by the Client).
 
 6.  Create [necessary
-    repositories](../../conventions-and-expectations/repository-conventions.md)
+    repositories](../conventions-and-expectations/repository-conventions.md)
     on GitHub.
 
 7.  Login to AWS and [enable

@@ -34,13 +34,12 @@ organizations.
 To install the platform, you can follow these guides:
 
   - [Provision
-    Networks](../../provision-platform-resources/provision-networks.md)
+    Networks](./provision-platform-resources/provision-networks.md)
   - [Deploy Ingress
-    stack](../../provision-platform-resources/deploy-ingress-stack.md)
+    stack](./provision-platform-resources/deploy-ingress-stack.md)
   - [Deploy
-    Flightdeck](../../provision-platform-resources/deploy-flightdeck.md)
-  - [Deploy
-    Grafana](../../provision-platform-resources/deploy-grafana.md)
+    Flightdeck](./provision-platform-resources/deploy-flightdeck.md)
+  - [Deploy Grafana](./provision-platform-resources/deploy-grafana.md)
 
 ## Installing without Control Tower
 
@@ -48,4 +47,4 @@ If you're using a single AWS account or not using Control Tower for
 another reason, you'll need to create the baseline role and S3 backend
 for Terraform by hand. Once these are in place, you can proceed with
 [deploying the ingress
-stack](../../provision-platform-resources/deploy-ingress-stack.md).
+stack](./provision-platform-resources/deploy-ingress-stack.md).

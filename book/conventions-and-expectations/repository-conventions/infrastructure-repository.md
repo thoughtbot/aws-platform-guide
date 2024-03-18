@@ -29,7 +29,7 @@ infra/
 <div class="confluence-information-macro-body">
 
 You can create this repository using the
-[flightdeck-template](../../../reference/templates/flightdeck-template.md),
+[flightdeck-template](../../reference/templates/flightdeck-template.md),
 by selecting it in the “Repository template” dropdown during repo
 creation in GitHub.
 

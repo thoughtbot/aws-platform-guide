@@ -9,7 +9,7 @@ This is an advanced topic for platform engineers.
 </div>
 
 In the infrastructure
-[repository](../../conventions-and-expectations/repository-conventions.md)
+[repository](../conventions-and-expectations/repository-conventions.md)
 for the organization, you can create Terraform root modules for managing
 VPCs and related networking resources:
 
@@ -29,7 +29,7 @@ infra/
 </div>
 
 These networks can be provisioned using the [network Terraform
-module](../../reference/modules/flightdeck--network.md) from Flightdeck.
+module](../reference/modules/flightdeck--network.md) from Flightdeck.
 
 <div class="confluence-information-macro confluence-information-macro-information">
 
@@ -38,7 +38,7 @@ module](../../reference/modules/flightdeck--network.md) from Flightdeck.
 <div class="confluence-information-macro-body">
 
 The [Flightdeck template
-repository](../../reference/templates/flightdeck-template.md) comes with
+repository](../reference/templates/flightdeck-template.md) comes with
 configuration for necessary networks.
 
 </div>

@@ -1,5 +1,5 @@
 Secrets are functionally identical to [config
-maps](../../../deploy/deploying-to-kubernetes/environment-variables-and-configuration-files.md),
+maps](../../deploy/deploying-to-kubernetes/environment-variables-and-configuration-files.md),
 but they can be configured with stricter permissions due to their
 sensitive nature. Secret manifests are not committed to Git.
 

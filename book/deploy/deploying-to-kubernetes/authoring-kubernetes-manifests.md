@@ -50,4 +50,4 @@ spec:
 The spec will vary depending on the kind of object.
 
 For information about deploying services, see [deploying
-services](../../../deploy/deploying-to-kubernetes/deploying-services.md).
+services](../../deploy/deploying-to-kubernetes/deploying-services.md).

@@ -27,7 +27,7 @@ landing-zone/
 <div class="confluence-information-macro-body">
 
 You can create this repository using the
-[aws-landing-zone-template](../../../reference/templates/landing-zone-template.md),
+[aws-landing-zone-template](../../reference/templates/landing-zone-template.md),
 by selecting it in the Repository template dropdown during repo
 creation.
 
