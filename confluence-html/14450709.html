@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Flightdeck: Ingress</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Reference_14287087.html">Reference</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Modules_14352538.html">Modules</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Flightdeck: Ingress
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joe Ferris</span> on Jul 13, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="panel" style="background-color: #F4F5F7;border-width: 1px;"><div class="panelContent" style="background-color: #F4F5F7;">
+<p><a class="external-link" href="https://github.com/thoughtbot/flightdeck/tree/main/aws/ingress" rel="nofollow">https://github.com/thoughtbot/flightdeck/tree/main/aws/ingress</a> </p>
+</div></div><p /><div class="ap-container" id="ap-com.mohamicorp.confluence.macro.github.mohamicorp-github-macros__mohamicorp-github-macro-markdown7724645277593520596">
+
+  <div class="ap-content " id="embedded-com.mohamicorp.confluence.macro.github.mohamicorp-github-macros__mohamicorp-github-macro-markdown7724645277593520596"></div>
+  <script nonce="00188a900f4868b7" class="ap-iframe-body-script">
+  (function(){
+    var data = {
+    "addon_key":"com.mohamicorp.confluence.macro.github.mohamicorp-github-macros",
+    "uniqueKey":"com.mohamicorp.confluence.macro.github.mohamicorp-github-macros__mohamicorp-github-macro-markdown7724645277593520596",
+    "key":"mohamicorp-github-macro-markdown",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://github.mohami.appfire.app/view/markdown-macro.html?url=https%3A%2F%2Fgithub.com%2Fthoughtbot%2Fflightdeck%2Fblob%2Fmain%2Faws%2Fingress%2FREADME.md&user=thoughtbot&repo=flightdeck&branch=main&path=aws%2Fingress%2FREADME.md&token=dGhvdWdodGJvdC1taXNzaW9uLWNvbnRyb2w%3D&xdm_e=https%3A%2F%2Fthoughtbot.atlassian.net&xdm_c=channel-com.mohamicorp.confluence.macro.github.mohamicorp-github-macros__mohamicorp-github-macro-markdown7724645277593520596&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.mohamicorp.confluence.macro.github.mohamicorp-github-macros&lic=active&cv=1000.0.0-50a948d44971&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6MGE3NDUwYzUtNGM4YS00N2JmLWFlNTAtYjE4Yjg2ODBhZjFiIiwicXNoIjoiOWUxZGU2ZWJjMzg3YWRjZGViYTg2NDJiYzk3ZGQxZmQxNzgyZjg1M2YxZTE4MzA4YjVlZDU4ZTZhMmY5NTk3ZiIsImlzcyI6IjhkOTM3OTFjLWI1ODUtM2U2OC1hOGJhLTYyM2IwOTFjNmRmMyIsImNvbnRleHQiOnt9LCJleHAiOjE3MTA3NzM4MjQsImlhdCI6MTcxMDc3MzY0NH0.YhdJajgWoSPAS_RmQ1zVOUTis-XFNcMxwDgvAQieLMg",
+     "contextJwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTcwNTg6MGE3NDUwYzUtNGM4YS00N2JmLWFlNTAtYjE4Yjg2ODBhZjFiIiwicXNoIjoiY29udGV4dC1xc2giLCJpc3MiOiI4ZDkzNzkxYy1iNTg1LTNlNjgtYThiYS02MjNiMDkxYzZkZjMiLCJjb250ZXh0Ijp7ImxpY2Vuc2UiOnsiYWN0aXZlIjp0cnVlfSwiY29uZmx1ZW5jZSI6eyJlZGl0b3IiOnsidmVyc2lvbiI6IlwidjJcIiJ9LCJtYWNybyI6eyJvdXRwdXRUeXBlIjoiaHRtbF9leHBvcnQiLCJoYXNoIjoiZDRjN2IwY2ItMWY4ZC00NTk3LWI4MmEtN2VlNWJhMjRjMTY0IiwiaWQiOiJkNGM3YjBjYi0xZjhkLTQ1OTctYjgyYS03ZWU1YmEyNGMxNjQifSwiY29udGVudCI6eyJ0eXBlIjoicGFnZSIsInZlcnNpb24iOiIxIiwiaWQiOiIxNDQ1MDcwOSJ9LCJzcGFjZSI6eyJrZXkiOiJBUEciLCJpZCI6IjEzNjk3MTk4In19LCJ1cmwiOnsiZGlzcGxheVVybCI6Imh0dHBzOlwvXC90aG91Z2h0Ym90LmF0bGFzc2lhbi5uZXRcL3dpa2kifX0sImV4cCI6MTcxMDc3NDU0NCwiaWF0IjoxNzEwNzczNjQ0fQ.u6meVVYDaplgxT-rxyN0R7b53xg1obdzq2IKm5Crxp0",    "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"d4c7b0cb-1f8d-4597-b82a-7ee5ba24c164\",\"id\":\"d4c7b0cb-1f8d-4597-b82a-7ee5ba24c164\"},\"content\":{\"type\":\"page\",\"version\":\"1\",\"id\":\"14450709\"},\"space\":{\"key\":\"APG\",\"id\":\"13697198\"}},\"url\":{\"displayUrl\":\"https://thoughtbot.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"14450709\",\"macro.hash\":\"d4c7b0cb-1f8d-4597-b82a-7ee5ba24c164\",\"space.key\":\"APG\",\"page.type\":\"page\",\"content.version\":\"1\",\"repo\":\"flightdeck\",\"page.title\":\"Flightdeck: Ingress\",\"macro.localId\":\"82938a57-56ea-4541-814b-eac4addc8b47\",\"macro.body\":\"\",\": = | RAW | = :\":\"path=aws/ingress/README.md|repo=flightdeck|user=thoughtbot|branch=main|url=https://github.com/thoughtbot/flightdeck/blob/main/aws/ingress/README.md|token=dGhvdWdodGJvdC1taXNzaW9uLWNvbnRyb2w=\",\"space.id\":\"13697198\",\"macro.truncated\":\"false\",\"branch\":\"main\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"url\":\"https://github.com/thoughtbot/flightdeck/blob/main/aws/ingress/README.md\",\"page.version\":\"1\",\"token\":\"dGhvdWdodGJvdC1taXNzaW9uLWNvbnRyb2w=\",\"path\":\"aws/ingress/README.md\",\"content.id\":\"14450709\",\"macro.id\":\"d4c7b0cb-1f8d-4597-b82a-7ee5ba24c164\",\"user\":\"thoughtbot\",\"user.isExternalCollaborator\":\"false\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"America/New_York",
+    "origin":"https://github.mohami.appfire.app",
+    "hostOrigin":"https://thoughtbot.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+</script>
+
+</div>
+<p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Accessing another GitHub repository</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Deploy_11173953.html">Deploy</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="11305059.html">Building CI/CD Pipelines</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="GitHub-Actions_14614674.html">GitHub Actions</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Accessing another GitHub repository
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mina Slater</span> on Oct 25, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>If for any reason, your workflow needs to access another GitHub repository different than its source, for example:</p><ol><li><p>Pulling application code from CodeBuild, or</p></li><li><p>Pulling manifests from a separate repo than the application code.</p></li></ol><p>In these cases, the CI/CD workflow will require a Personal Access Token with the correct permissions set as a secret in the workflow source.</p><h1 id="AccessinganotherGitHubrepository-Togenerateapersonalaccesstoken(PAT)">To generate a personal access token (PAT)</h1><ol><li><p>Sign in as the CI GitHub user (stored in GitHub)</p></li><li><p>Access <code>Settings</code> via the user picture dropdown in the upper right corner</p></li><li><p>From the left navigation menu, access <code>&lt;&gt; Developer settings</code>(all the way at the bottom at time of writing)</p></li><li><p>From the left navigation menu in <code>Developer settings</code>, access Personal Access Token</p><ol><li><p>If presented with a dropdown, select <code>Tokens (classic)</code></p></li></ol></li><li><p>You may now generate a new PAT with the <code>Generate new token</code> button above the list of PATs already in existence</p></li><li><p>In the popup:</p><ol><li><p>Notate the purpose of the token</p></li><li><p>Choose its expiration timeframe</p></li><li><p>Ensure that the token has the correct permissions by selecting the checkbox next to <code>repo</code></p></li></ol></li></ol><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/53346309/53903363.png" data-image-src="attachments/53346309/53903363.png" data-height="155" data-width="173" data-unresolved-comment-count="0" data-linked-resource-id="53903363" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20221025-141717.png" data-base-url="https://thoughtbot.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="53346309" data-linked-resource-container-version="1" data-media-id="b9db4ada-bb8c-4851-8bc9-5a768d37fb29" data-media-type="file"></span><p style="margin-left: 30.0px;">d. Click the <code>Generate token</code> green button at the bottom</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Make sure you copy the value of the PAT, you will not be able to retrieve it again once you leave this page.</p></div></div><h1 id="AccessinganotherGitHubrepository-Settingthetokensecret">Setting the token secret</h1><h2 id="AccessinganotherGitHubrepository-GitHubActions">GitHub Actions</h2><ol><li><p>In the repo that is running the CI/CD workflow, navigate to <code>Settings</code> with the horizontal navigation menu</p></li><li><p>From the left navigation menu, go to Security &gt; Secrets &gt; Actions</p><ol><li><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="340" loading="lazy" src="attachments/53346309/54001665.png?width=340" data-image-src="attachments/53346309/54001665.png" data-height="187" data-width="290" data-unresolved-comment-count="0" data-linked-resource-id="54001665" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20221025-142406.png" data-base-url="https://thoughtbot.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="53346309" data-linked-resource-container-version="1" data-media-id="b0f08206-bd18-4516-8f65-0a04e6725328" data-media-type="file"></span></li></ol></li><li><p>Create a <code>New repository secret</code> with the green button at the top</p></li><li><p>Fill in the name and value of your token</p></li><li><p>Once saved, you’ll be able to retrieve the value with <code>secrets.NAME_OF_SECRET</code></p></li></ol><h2 id="AccessinganotherGitHubrepository-CodeBuild">CodeBuild</h2><p>TODO: fill in instructions</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/53346309/53903363.png">image-20221025-141717.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/53346309/54001665.png">image-20221025-142406.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

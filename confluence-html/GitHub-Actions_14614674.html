@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : GitHub Actions</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Deploy_11173953.html">Deploy</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="11305059.html">Building CI/CD Pipelines</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : GitHub Actions
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joe Ferris</span>, last modified on Apr 12, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Some of our clients deploy applications using GitHub Actions.</p><h2 id="GitHubActions-ContinuousIntegration">Continuous Integration</h2><p>For each <a href="#" rel="nofollow">application repository</a>, resources related to the CI Job should be provisioned in the <a href="Account-Conventions_10649900.html" data-linked-resource-id="10649900" data-linked-resource-version="6" data-linked-resource-type="page">Operations Account</a>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">infra/
+  applications/
+    APPLICATION/
+      operations/</pre>
+</div></div><p>In order to build Docker images for an application, you'll need:</p><ul><li><p>A <a class="external-link" href="https://docs.docker.com/engine/reference/builder/" rel="nofollow">Dockerfile</a>. This can be kept in the <a href="#" rel="nofollow">application repository</a>.</p></li><li><p>An <a class="external-link" href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html" rel="nofollow">ECR repository</a>. You can use the <a class="external-link" href="https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/ecr-repository" rel="nofollow">ECR repository Terraform module</a> to set this up.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;ecr_repository&quot; {
+  source = &quot;github.com/thoughtbot/terraform-eks-cicd//modules/ecr-repository?ref=v0.1.0&quot;
+
+  name = &quot;example-org/example-app&quot;
+
+  # AWS accounts allowed to pull this image
+  workload_account_ids = [
+    &quot;123456789010&quot;, # Sandbox account ID
+    &quot;123456789010&quot;, # Production account ID
+  ]
+}</pre>
+</div></div></li><li><p>An IAM OIDC provider which trusts your GitHub Actions workflow. If you used the <a class="external-link" href="https://github.com/thoughtbot/aws-landing-zone-template" rel="nofollow">landing zone template</a>, one will already be created in the Operations account and you can locate its ARN using the SSM parameter /GitHubActions/OIDCProviderArn.</p></li><li><p>An IAM role that can be assumed by GitHub using OIDC and access ECR in order to push your built Docker image.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;ecr_role&quot; {
+  source = &quot;github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-ecr-role?ref=v0.1.1&quot;
+
+  allow_github_pull_requests = true
+  ecr_repositories           = [module.ecr_repository.name]
+  github_branches            = [&quot;main&quot;, &quot;production&quot;]
+  github_organization        = &quot;example-org&quot;
+  github_repository          = &quot;example-app&quot;
+  iam_oidc_provider_arn      = data.aws_ssm_parameter.iam_oidc_provider_arn.value
+  name                       = &quot;github-actions-ecr-example&quot;
+
+  depends_on = [module.ecr_repository]
+}
+
+data &quot;aws_ssm_parameter&quot; &quot;iam_oidc_provider_arn&quot; {
+  name = &quot;/GitHubActions/OIDCProviderArn&quot;
+}</pre>
+</div></div></li><li><p>Once this root module is applied, create GitHub Actions job(s) to build Docker images and generate manifests. These Actions can be triggered when pull requests are opened by <a class="external-link" href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows" rel="nofollow">defining triggers</a> in the Job itself. </p></li></ul><p>GitHub Actions will start building and pushing Docker images for your application to ECR whenever developers open pull requests.</p><h2 id="GitHubActions-ContinuousDeployment">Continuous Deployment</h2><p>One of the <a href="Application-Roles_112295997.html" data-linked-resource-id="112295997" data-linked-resource-version="6" data-linked-resource-type="page">application roles</a> for each stage of the software development lifecycle is a deploy role, which can be used by CI/CD pipelines to deploy new versions of the application. You can assume this role from your deployment GitHub workflow using the <a class="external-link" href="https://github.com/aws-actions/configure-aws-credentials" rel="nofollow">configure-aws-credentials action</a>.</p><p>You can use the <a class="external-link" href="https://github.com/Azure/k8s-bake" rel="nofollow">k8s-bake action</a> to generate Kubernetes manifests for your application. There is a <a class="external-link" href="https://github.com/thoughtbot/helm-charts/tree/main/charts/helm-rails" rel="nofollow">helm-rails</a> Helm chart you can use with this action to deploy a Rails application.</p><p>Finally, you can use the <a class="external-link" href="https://github.com/Azure/k8s-deploy" rel="nofollow">k8s-deploy action</a> to apply the updated manifests to your cluster.</p><p>Once configured, deployments will kick off in GitHub Actions whenever you push code to the appropriate branch in your source repository.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/14614674/26607664.png">cicd.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

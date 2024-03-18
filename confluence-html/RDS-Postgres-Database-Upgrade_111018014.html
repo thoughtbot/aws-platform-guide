@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : RDS Postgres Database Upgrade</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Maintain_213549057.html">Maintain</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Upgrade-Flightdeck_85688321.html">Upgrade Flightdeck</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : RDS Postgres Database Upgrade
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Olamide Olaoye</span> on Jun 11, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This page will summarise the steps to upgrade an RDS Postgres database using this <a class="external-link" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process" rel="nofollow">AWS guide</a>. You may review the referenced <a class="external-link" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process" rel="nofollow">AWS guide</a> as well for a more comprehensive guide on the AWS database upgrade process.</p><ol start="1"><li><p>Modify the database to use a default parameter group. If a custom parameter group is in use by the database, you may get an error stating that the current parameter group is not compatible with the version you are upgrading to. To resolve this, you should modify the parameter group attached to the database to one of the default parameter group created by AWS for the current Postgres version. |<br/>For example, if the database is currently on Postgres12, you may modify the parameter group to the <code>default.postgres12</code> parameter group.</p></li><li><p>Confirm that the current database instance class is compatible with the Postgres version you are upgrading to. You may review the <a class="external-link" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#Concepts.DBInstanceClass.Support" rel="nofollow">list of supported Database engines for DB instance types</a>.</p></li><li><p>Confirm that there are no open prepared transactions using this command before commencing the upgrade. If the upgrade is initiated during off-hours period, there should be no open prepared transactions.<br/><code>SELECT count(*) FROM pg_catalog.pg_prepared_xacts;</code></p></li><li><p>Initiate a database backup before starting the database upgrade.</p></li><li><p>Have a database upgrade dry run to test the database upgrade on a non-impact environment or a duplicate of the database.</p></li><li><p>Run the <code>ANALYZE</code> operation to refresh the <code>pg_statistic</code> table. Optimizer statistics aren't transferred during a major version upgrade, This operation will regenerate all statistics to avoid performance issues. You may add a verbose flag to show the progress of the operation.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">ANALYZE VERBOSE;</pre>
+</div></div><p> See <a class="external-link" href="https://www.postgresql.org/docs/10/sql-analyze.html" rel="nofollow">ANALYZE</a> in the PostgreSQL documentation.<br/></p></li></ol><h3 id="RDSPostgresDatabaseUpgrade-TroubleshootingissueswiththePostgresdatabaseupgrade.">Troubleshooting issues with the Postgres database upgrade.</h3><p>The database upgrade could fail with prechecks procedure due to incompatible setups or incompatible extensions. To check the cause of the interruption, you may check the Postgres logs to confirm the cause of the failure. You may review these documentation on how to retrieve Postgres logs.</p><ul><li><p><a class="external-link" data-card-appearance="inline" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Viewing.html" rel="nofollow">https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Viewing.html</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Downloading.html" rel="nofollow">https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Downloading.html</a> </p></li></ul><p /><h3 id="RDSPostgresDatabaseUpgrade-Knowndatabaseerrors">Known database errors</h3><ul><li><p>During a previous database upgrade, I experiened issues with incompatible PostGIS postgres extensions. I found the issue by reviewin the Postgres logs and I was able to upgrade the postgres extension using this guide - <a class="external-link" href="https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-upgrade-postgis/" rel="nofollow">https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-upgrade-postgis/</a></p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:53</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

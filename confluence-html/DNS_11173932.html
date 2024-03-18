@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : DNS</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Provision_11173925.html">Provision</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : DNS
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Victoria Guido</span>, last modified by <span class='editor'> Joe Ferris</span> on Jul 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="566" loading="lazy" src="attachments/11173932/11206829.svg?width=566" data-image-src="attachments/11173932/11206829.svg" data-unresolved-comment-count="0" data-linked-resource-id="11206829" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="dns.svg" data-base-url="https://thoughtbot.atlassian.net/wiki" data-linked-resource-content-type="image/svg+xml" data-linked-resource-container-id="11173932" data-linked-resource-container-version="4" data-media-id="83422aaf-1aff-4975-9ad1-bfc724b76ec9" data-media-type="file"></span><p /><p>In the <a href="Repository-Conventions_10649919.html" data-linked-resource-id="10649919" data-linked-resource-version="7" data-linked-resource-type="page">infrastructure repository</a> for the organization, you can create Terraform root modules for managing hosted zones for root domains and subdomains:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">infra/
+  hosted-zones/
+    example.com/
+    production.example.com/
+    staging.example.com/
+</pre>
+</div></div><p>You can use <code>aws_route53_zone</code> to manage root domains. These hosted zones should be placed in the <a href="Account-Conventions_10649900.html" data-linked-resource-id="10649900" data-linked-resource-version="6" data-linked-resource-type="page">Network account</a>.</p><h2 id="DNS-AccountSubdomains">Account Subdomains</h2><p>In order to control updates to public DNS while still allowing workloads to publish updates to their endpoint addresses, it is recommended that you create a hosted zone for each stage of the software development life cycle, such as staging and production.</p><p>You can use the <a class="external-link" href="https://github.com/thoughtbot/terraform-route-53-delegated-subdomain" rel="nofollow">terraform-route-53-delegated-subdomain</a> Terraform module to provision these subdomain zones. The subdomain hosted zones should be placed in <a href="Account-Conventions_10649900.html" data-linked-resource-id="10649900" data-linked-resource-version="6" data-linked-resource-type="page">Workload accounts</a>.</p><p>You can then use <code>aws_route53_record</code> from the Network account to alias public addresses to the proper subdomain address.</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/11173932/11206829.svg">dns.svg</a> (image/svg+xml)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

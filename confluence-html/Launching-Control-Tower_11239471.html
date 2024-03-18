@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Launching Control Tower</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Landing-Zone_124977153.html">Landing Zone</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Launching Control Tower
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Victoria Guido</span>, last modified by <span class='editor'> Svenja Schäfer</span> on Jan 24, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="panel" style="background-color: #FFFAE6;border-width: 1px;"><div class="panelContent" style="background-color: #FFFAE6;">
+<p>This is an advanced topic for platform engineers.</p>
+</div></div><h2 id="LaunchingControlTower-AWSLandingZone">AWS Landing Zone</h2><p>The Landing Zone is the start URL for users to access the organization's AWS accounts.</p><p>thoughtbot uses <a class="external-link" href="https://aws.amazon.com/controltower/" rel="nofollow">Control Tower</a> to build a Landing Zone implementing security best practices and reliable workload isolation. This provides a quick starting point for a multi-account setup while still allowing for significant customization and expansion later.</p><p>Rather than managing individual IAM users, we use <a class="external-link" href="https://aws.amazon.com/single-sign-on/" rel="nofollow">AWS SSO</a> to manage users centrally and integrate with existing identity stores like a Google or Microsoft user directory.</p><p>We use <a class="external-link" href="https://aws.amazon.com/solutions/implementations/customizations-for-aws-control-tower/" rel="nofollow">Customizations for Control Tower</a> to configure <a class="external-link" href="https://docs.aws.amazon.com/controltower/latest/userguide/terminology.html" rel="nofollow">account baselines</a> and deploy <a class="external-link" href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html" rel="nofollow">service control policies</a>.</p><h2 id="LaunchingControlTower-GettingStarted">Getting Started</h2><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Before you can launch your landing zone, you will need to make sure you have completed all the <a href="Prerequisites_16220204.html" data-linked-resource-id="16220204" data-linked-resource-version="4" data-linked-resource-type="page">prerequisite steps</a>.</p></div></div><ol start="1"><li><p>Allow IAM administrators to manage billing following the <a class="external-link" href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html#ControllingAccessWebsite-Activate" rel="nofollow">IAM billing guide</a>.</p></li><li><p><span class="inline-comment-marker" data-ref="cf0b31b9-f8d3-44f7-bf2a-5f1dcefa227e">Create an IAM user following the Control Tower</span> <a class="external-link" href="https://docs.aws.amazon.com/controltower/latest/userguide/setting-up.html#setting-up-iam" rel="nofollow">IAM user guide</a>. Create a user with programmatic and console access. Save your password and access key.</p></li><li><p>Write down your AWS account ID.</p></li><li><p>Sign out of the root user account and sign in as the newly-created IAM user.</p></li><li><p><span class="inline-comment-marker" data-ref="9283b9a5-03dd-4c8c-a2a4-ef6f2638c34a">Enable Cost Management by following the </span><a class="external-link" href="https://docs.aws.amazon.com/cost-management/latest/userguide/billing-getting-started.html" rel="nofollow"><span class="inline-comment-marker" data-ref="9283b9a5-03dd-4c8c-a2a4-ef6f2638c34a">AWS Cost Management</span></a><span class="inline-comment-marker" data-ref="9283b9a5-03dd-4c8c-a2a4-ef6f2638c34a"> guide. This will allow you to see your costs broken down by service, tags, and account.</span></p></li><li><p>Deploy your landing zone (steps below follow the Control Tower <a class="external-link" href="https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html" rel="nofollow">getting started guide</a>) </p><ol start="1"><li><p>Create shared account emails for <code>logs</code> and <code>audit</code> accounts: <a class="external-link" href="https://docs.aws.amazon.com/controltower/latest/userguide/step-one.html" rel="nofollow">AWS Guide</a></p></li><li><p>Configure and launch your Landing Zone: <a class="external-link" href="https://docs.aws.amazon.com/controltower/latest/userguide/step-two.html" rel="nofollow">AWS Guide</a></p></li><li><p>Review and set up the landing zone: <a class="external-link" href="https://docs.aws.amazon.com/controltower/latest/userguide/review-and-set-up.html" rel="nofollow">AWS Guide</a></p><ol start="1"><li><p>You can use the default names for OUs and foundational accounts.</p></li><li><p><span class="inline-comment-marker" data-ref="db00ac43-732f-448c-9234-f3b64a660485">Enable encryption settings using KMS. You will need to create a new symmetric, single-region key. When prompted for an alias, enter </span><code><span class="inline-comment-marker" data-ref="db00ac43-732f-448c-9234-f3b64a660485">control-tower</span></code><span class="inline-comment-marker" data-ref="db00ac43-732f-448c-9234-f3b64a660485">.</span></p><ol start="1"><li><p>Edit the policy for the KMS key you created to grant <a class="external-link" href="https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#kms-key-policy-update" rel="nofollow">permissions that allow AWS CloudTrail </a>and AWS Config to use the chosen KMS key. You can use the following statement:</p></li><li><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;Sid&quot;: &quot;CloudTrail and AWS Config to encrypt/decrypt logs&quot;,
+  &quot;Effect&quot;: &quot;Allow&quot;,
+  &quot;Principal&quot;: {
+    &quot;Service&quot;: [
+      &quot;cloudtrail.amazonaws.com&quot;,
+      &quot;config.amazonaws.com&quot;
+    ]
+  },
+  &quot;Action&quot;: [
+    &quot;kms:GenerateDataKey&quot;,
+    &quot;kms:Decrypt&quot;
+  ],
+  &quot;Resource&quot;: &quot;*&quot;
+}</pre>
+</div></div></li></ol></li><li><p>Select the key you created and launch your landing zone. If you receive quota-related errors during this step for a freshly-created account, wait at least an hour and try again. It may also take several hours for your landing zone to be fully deployed. While your landing zone is deploying, you will receive an email requesting email confirmation. You must confirm your email before the landing zone will complete successfully.</p></li></ol></li></ol></li><li><p>Congratulations! You now have an AWS Landing Zone managed by Control Tower.</p></li></ol><p>You are now ready to launch <a href="Launch-Customizations-for-Control-Tower_86999041.html" data-linked-resource-id="86999041" data-linked-resource-version="10" data-linked-resource-type="page">Customizations for Control Tower</a>.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:53</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

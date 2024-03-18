@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Google Sign In</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Landing-Zone_124977153.html">Landing Zone</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Configure-Single-Sign-On_86933512.html">Configure Single Sign On</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Google Sign In
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joe Ferris</span>, last modified on Jan 02, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>You will need to be an administrator for the Google domain to follow these instructions. This may require setting up a screen sharing session with somebody else who has access.</p><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>There is a difference between an admin for Google Cloud and Google Workspace. Make sure the owner of the service account is an admin for Google Workspace and are able to access the Google Admin Console.</p></div></div><p>If you’re using Google as a sign-in provider, you’ll also want to deploy the sso-sync Lambda to automatically provision user accounts in Identity Center. Otherwise, users will need to be manually added in both Google and AWS.</p><ol start="1"><li><p>Set Google as an external identity provider using the above guide.</p></li><li><p>You should have a Identity account for managing SSO identities. This is created if you’re using the <code>accounts.yaml</code> file from the template.</p></li><li><p>Deploy the sso-sync Lambda to the Identity account using the instructions below.</p></li></ol><h3 id="GoogleSignIn-SSOSyncLambda">SSOSync Lambda</h3><p>From the Google cloud console, <a class="external-link" href="https://console.cloud.google.com/projectcreate" rel="nofollow">create a new project</a> for the Lambda’s credentials. Give it a name that makes it clear why the project exists, such as “aws-google-sso-sync.”</p><h4 id="GoogleSignIn-TobeperformedbyGoogleAdmin:">To be performed by Google Admin:</h4><p>Follow the <a class="external-link" href="https://developers.google.com/workspace/guides/create-credentials#service-account" rel="nofollow">Google tutorial</a> to create a service account:</p><ol start="1"><li><p>In the Google Cloud console, go to <a class="external-link" href="https://console.cloud.google.com/iam-admin/serviceaccounts" rel="nofollow">IAM &amp; Admin &gt; Service Accounts</a>.</p></li><li><p>Click <strong>Create service account</strong>.</p></li><li><p>Give your service account a name and description, then click <strong>Create and continue</strong>.</p></li><li><p>Click <strong>Continue</strong>.</p></li><li><p>Click <strong>Done</strong>.</p></li></ol><p>Create credentials for your service account:</p><ol start="1"><li><p>Click <strong>Keys</strong> &gt; <strong>Add key</strong> &gt; <strong>Create new key</strong>.</p></li><li><p>Select <strong>JSON</strong>, then click <strong>Create</strong>.</p></li><li><p>Make a note of the downloaded credentials file.</p></li><li><p>Click <strong>Close</strong>.</p></li><li><p>Expand <strong>Advanced Settings</strong>.</p></li><li><p>Save the <strong>Client ID</strong> under <strong>Domain-wide Delegation.</strong></p></li></ol><p>Now enable the Admin SDK:</p><ol start="1"><li><p>In the Google Cloud console, go to <a class="external-link" href="https://console.cloud.google.com/apis/dashboard" rel="nofollow">APIs &amp; Services &gt; Enabled APIs &amp; services</a>.</p></li><li><p>Click <strong>Enable APIs and Services</strong>.</p></li><li><p>Search for <strong>Admin SDK API</strong>.</p></li><li><p>Click the <strong>Enable</strong> button.</p></li></ol><p>Now enable domain-wide delegation for your service account:</p><ol start="1"><li><p>From the Google admin console, go to <a class="external-link" href="https://admin.google.com/ac/owl/domainwidedelegation" rel="nofollow">Security &gt; API Controls &gt; Domain-wide Delegation</a>.</p></li><li><p>Click <strong>Add new</strong>.</p></li><li><p>Fill in the Client ID for the service account you saved earlier.</p></li><li><p>Under OAuth scopes, specify the following:<br/><a class="external-link" href="https://www.googleapis.com/auth/admin.directory.group.readonly" rel="nofollow">https://www.googleapis.com/auth/admin.directory.group.readonly</a><br/><a class="external-link" href="https://www.googleapis.com/auth/admin.directory.group.member.readonly" rel="nofollow">https://www.googleapis.com/auth/admin.directory.group.member.readonly</a><br/><a class="external-link" href="https://www.googleapis.com/auth/admin.directory.user.readonly" rel="nofollow">https://www.googleapis.com/auth/admin.directory.user.readonly</a></p></li><li><p>Click <strong>Authorize</strong>.</p></li></ol><h4 id="GoogleSignIn-TobeperformedbyInfraDev:">To be performed by Infra Dev:</h4><p>Enable SCIM for your Identity Center directory:</p><ol start="1"><li><p>Sign into the Identity account from your AWS landing zone.</p></li><li><p>From <a class="external-link" href="https://us-east-1.console.aws.amazon.com/singlesignon/home?region=us-east-1#!/instances/7223617cd32e4b1d/settings" rel="nofollow">AWS IAM Identity Center settings</a>, within the <strong>Automatic provisioning</strong> information box, choose <strong>Enable</strong>.</p></li><li><p>Save the displayed <strong>SCIM endpoint</strong> and <strong>Access token</strong>.</p></li><li><p>Create a new Terraform module in the infrastructure repository under <code>sso-sync/secrets</code> to store the credentials:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;secret&quot; {
+  source = &quot;github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0&quot;
+
+  description = &quot;Secrets for deploying the AWS/Google SSO Sync Lambda&quot;
+  name        = &quot;aws-google-sso-sync&quot;
+
+  initial_value = jsonencode({
+    GoogleCredentials       = &quot;&quot;
+    SCIMEndpointAccessToken = &quot;&quot;
+    SCIMEndpointUrl         = &quot;&quot;
+  })
+}
+</pre>
+</div></div></li><li><p>Apply the Terraform module.</p></li><li><p>From <a class="external-link" href="https://us-east-1.console.aws.amazon.com/secretsmanager/listsecrets" rel="nofollow">AWS Secrets Manager</a>, find the created secret.</p></li><li><p>Click <strong>Retrieve Secret Value</strong> and then click <strong>Edit</strong>.</p></li><li><p>Copy the contents of the JSON credentials file you downloaded into the <strong>GoogleCredentials field.</strong></p></li><li><p>Fill in the <strong>SCIMEndpointAccessToken and SCIMEndpointUrl</strong> values you saved earlier.</p></li><li><p>Click <strong>Save</strong>.</p></li><li><p>Create a new Terraform module in the infrastructure repository under <code>sso-sync/lambda</code> to deploy the SSOSync Lambda:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;lambda&quot; {
+  source = &quot;github.com/thoughtbot/terraform-aws-google-sso?ref=v0.1.0&quot;
+
+  google_admin_email         = &quot;google-admin@example.com&quot;
+  google_credentials         = local.secrets.GoogleCredentials
+  google_group_match         = &quot;email:aws-*&quot;
+  name                       = &quot;aws-google-sso-sync&quot;
+  scim_endpoint_access_token = local.secrets.SCIMEndpointAccessToken
+  scim_endpoint_url          = local.secrets.SCIMEndpointUrl
+  semantic_version           = &quot;2.0.2&quot;
+}
+
+locals {
+  secrets = jsondecode(
+    data.aws_secretsmanager_secret_version.sso_sync.secret_string
+  )
+}
+
+data &quot;aws_secretsmanager_secret_version&quot; &quot;sso_sync&quot; {
+  secret_id = &quot;aws-google-sso-sync&quot;
+}</pre>
+</div></div></li><li><p>Apply the module.</p></li></ol><p>IAM Identity Center will now automatically synchronize matched groups and users from your Google domain.</p><h2 id="GoogleSignIn-UpdatingtheSCIMToken">Updating the SCIM Token</h2><p>You will need to regularly update the SCIM token as it expires to continually provision users and groups: <a href="Update-SCIM-tokens_213712898.html" data-linked-resource-id="213712898" data-linked-resource-version="2" data-linked-resource-type="page">Update SCIM tokens</a> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:53</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

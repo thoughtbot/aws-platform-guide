@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Application Roles</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Provision_11173925.html">Provision</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Application-Resources_112918564.html">Application Resources</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Application Roles
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Joe Ferris</span>, last modified on Apr 12, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>For applications, CI/CD pipelines, and developers to perform their tasks in AWS you will need three IAM roles for an application:</p><ul><li><p>Pod role: your application will use a Kubernetes service account to assume this role using <a class="external-link" href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html" rel="nofollow">IRSA</a> in order to access storage, databases, and secrets.</p></li><li><p>Deploy role: your CI/CD pipelines will assume this role and will be mapped to a Kubernetes group using <a class="external-link" href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html" rel="nofollow">aws-auth</a> in order to update the application during deployment.</p></li><li><p>Developer role: developers will assume this role and will be mapped to a Kubernetes group using <a class="external-link" href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html" rel="nofollow">aws-auth</a> in order to view application status.</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/112295997/118915075.png" data-image-src="attachments/112295997/118915075.png" data-height="1884" data-width="1254" data-unresolved-comment-count="0" data-linked-resource-id="118915075" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Application Roles.drawio (2).png" data-base-url="https://thoughtbot.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="112295997" data-linked-resource-container-version="6" data-media-id="e2aa71a0-7e73-4e61-848a-7ea4c9e8ff8a" data-media-type="file"></span><h2 id="ApplicationRoles-PodRole">Pod Role</h2><p>You can use the service-account-role module from Flightdeck to the service account and an IAM role with the proper trust policy:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;pod_role&quot; {
+  source = &quot;github.com/thoughtbot/flightdeck//aws/service-account-role?ref=v0.9.0&quot;
+
+  cluster_names    = [&quot;example-sandbox-v1&quot;]
+  name             = &quot;example-pods&quot;
+  
+  # Your manifests must use a service account with the same name and namespace
+  service_accounts = [&quot;example:example-staging&quot;]
+}</pre>
+</div></div><p>You can then create IAM policies and attach them to the role:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">resource &quot;aws_iam_policy&quot; &quot;reports_bucket&quot; {
+  name   = &quot;example-bucket&quot;
+  policy = module.example_bucket.policy_json
+}
+
+resource &quot;aws_iam_role_policy_attachment&quot; &quot;reports_bucket&quot; {
+  policy_arn = aws_iam_policy.example_bucket.arn
+  role       = module.service_role.name
+}</pre>
+</div></div><p>You can pass this role to the Flightdeck application-config module to set up the proper service account and annotations to map pods to the role:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;staging_sandbox_v1&quot; {
+  source    = &quot;github.com/thoughtbot/flightdeck//aws/application-config&quot;
+
+  # This must match the service account and namespace declared above
+  namespace               = &quot;example-staging&quot;
+  pod_service_account     = &quot;example&quot;
+  
+  pod_iam_role            = module.pod_role.arn
+}</pre>
+</div></div><h2 id="ApplicationRoles-DeployRole">Deploy Role</h2><p>If you’re using GitHub Actions, you can use the EKS deploy role module to create your deploy role:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;deploy_role&quot; {
+  source = &quot;github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-eks-deploy-role?ref=v0.1.1&quot;
+
+  cluster_names         = [&quot;example-sandbox-v1&quot;]
+  github_branches       = [&quot;main&quot;]
+  github_organization   = &quot;example&quot;
+  github_repository     = &quot;example&quot;
+  iam_oidc_provider_arn = data.aws_ssm_parameter.iam_oidc_provider_arn.value
+  name                  = &quot;example-staging-deploy&quot;
+}</pre>
+</div></div><p>This role must be added to the aws-auth ConfigMap, which you can do in the platform configuration:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;platform&quot; {
+  source = &quot;github.com/thoughtbot/flightdeck//aws/platform?ref=v0.9.0&quot;
+
+  # Other config
+
+  custom_roles = {
+    example-staging-deploy = data.aws_iam_role.deploy.arn
+  }
+}
+
+data &quot;aws_iam_role&quot; &quot;eks_auth&quot; {
+  name = &quot;example-staging-deploy&quot;
+}</pre>
+</div></div><p>You can then use Kubernetes role bindings to assign permissions to the role.</p><p>If you’re using the Flightdeck application-config module, you can include the deploy group as part of your configuration:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;staging_sandbox_v1&quot; {
+  providers = { kubernetes = kubernetes.sandbox_v1 }
+  source    = &quot;github.com/thoughtbot/flightdeck//aws/application-config&quot;
+
+  deploy_group = &quot;example-staging-deploy&quot;
+}</pre>
+</div></div><p>Flightdeck also includes a module to provide write access to a single namespace if you’re configuring your deploy role separately:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;deploy_role_bindings&quot; {
+  source     = &quot;github.com/thoughtbot/flightdeck//aws/deploy-role-bindings&quot;
+
+  group         = &quot;example-deploy&quot;
+  name          = &quot;deploy&quot;
+  namespace     = &quot;example-staging&quot;
+}</pre>
+</div></div><h2 id="ApplicationRoles-DeveloperRole">Developer Role</h2><p>If you’re using the Flightdeck application-config module, you can include the developer group as part of your configuration:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;staging_sandbox_v1&quot; {
+  providers = { kubernetes = kubernetes.sandbox_v1 }
+  source    = &quot;github.com/thoughtbot/flightdeck//aws/application-config&quot;
+
+  developer_group = &quot;example-staging-developer&quot;
+}</pre>
+</div></div><p>Flightdeck also includes a module to provide read access to a single namespace if you’re configuring your developer role separately:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;developer_role_bindings&quot; {
+  source     = &quot;github.com/thoughtbot/flightdeck//aws/developer-role-bindings&quot;
+
+  enable_exec = false
+  group       = &quot;example-developer&quot;
+  name        = &quot;developer&quot;
+  namespace   = &quot;example-staging&quot;
+}</pre>
+</div></div><p>This role must be added to the aws-auth ConfigMap, which you can do in the platform configuration:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">module &quot;platform&quot; {
+  source = &quot;github.com/thoughtbot/flightdeck//aws/platform?ref=v0.9.0&quot;
+
+  # Other config
+
+  custom_roles = {
+    example-developer = module.sso_roles.by_name_without_path.DeveloperAccess
+  }
+}
+
+module &quot;sso_roles&quot; {
+  source = &quot;github.com/thoughtbot/terraform-aws-sso-permission-set-roles?ref=v0.2.0&quot;
+}</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/112295997/118423553.png">Application Roles.drawio.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/112295997/118587395.png">Application Roles.drawio (1).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/112295997/118915075.png">Application Roles.drawio (2).png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

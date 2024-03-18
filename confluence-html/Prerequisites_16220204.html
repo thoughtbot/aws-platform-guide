@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Prerequisites</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Landing-Zone_124977153.html">Landing Zone</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Prerequisites
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Olamide Olaoye</span>, last modified by <span class='editor'> Akshith Yellapragada</span> on Jan 24, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <ol start="1"><li><p>Create 1Password for credentials (To be completed by the Client)</p></li><li><p>If not already available, create an external Identity provider for SSO and store credentials in 1Password. Sample AWS supported options include <a class="external-link" href="https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html" rel="nofollow">Azure AD</a>, <a class="external-link" href="https://docs.aws.amazon.com/singlesignon/latest/userguide/cyberark-idp.html" rel="nofollow">CyberArk</a>, <a class="external-link" href="https://docs.aws.amazon.com/singlesignon/latest/userguide/jumpcloud-idp.html" rel="nofollow">JumpCloud</a>, <a class="external-link" href="https://docs.aws.amazon.com/singlesignon/latest/userguide/okta-idp.html" rel="nofollow">Okta</a>, <a class="external-link" href="https://docs.aws.amazon.com/singlesignon/latest/userguide/onelogin-idp.html" rel="nofollow">Onelogin</a>, <a class="external-link" href="https://docs.aws.amazon.com/singlesignon/latest/userguide/pingidentity.html" rel="nofollow">Ping Identity</a>. Once a preferred SSO provider is chosen, the SSO management account should be created by the client.<br/>Note, the <a class="external-link" href="https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html" rel="nofollow">AWS default SSO</a> option could also be chosen for a start pending when the client is willing to subscribe to an external identity provider.</p></li><li><p>Create AWS root account and store root credentials in 1Password. If possible, account should be created using a group email address, e.g aws-management@example.com.</p></li></ol><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The Google Group must be set up to allow anyone on the web to post to the group. </p><p><code>General</code> → <code>Who Can Post</code> → <code>Anyone on the web</code></p><p>Otherwise, the verification email from AWS will not go through. If your group settings do allow anyone to post, but you still do not see the AWS email, check under Conversations &gt; Pending in Google Groups.</p></div></div><ol start="4"><li><p>Create the following group emails to be used for other dependency accounts in AWS (To be completed by the Client), to use the below email address naming convention, the <code>ACCOUNT_EMAIL_PREFIX</code> in your landing-zone configuration file should be <code>aws-</code>;</p><ol start="1"><li><p>aws-management@example.com</p></li><li><p>aws-identity@example.com</p></li><li><p>aws-audit@example.com</p></li><li><p>aws-backup@example.com</p></li><li><p>aws-report@example.com</p></li><li><p>aws-log-archive@example.com</p></li><li><p>aws-network@example.com</p></li><li><p>aws-operations@example.com</p></li><li><p>aws-sandbox@example.com</p></li><li><p>aws-production@example.com</p></li><li><p>sso-management@example.com</p></li></ol></li><li><p>Create a Github organisation (To be completed by the Client).</p></li><li><p>Create <a href="Repository-Conventions_10649919.html" data-linked-resource-id="10649919" data-linked-resource-version="7" data-linked-resource-type="page">necessary repositories</a> on GitHub.</p></li><li><p>Login to AWS and <a class="external-link" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.html#enable-virt-mfa-for-root" rel="nofollow">enable MFA </a>on the root account for AWS, then you can <a class="external-link" href="https://support.1password.com/one-time-passwords/" rel="nofollow">link the MFA to 1Password</a>.</p></li></ol>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:53</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

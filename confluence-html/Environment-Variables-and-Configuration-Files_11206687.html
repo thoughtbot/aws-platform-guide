@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Environment Variables and Configuration Files</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Deploy_11173953.html">Deploy</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Deploying-to-Kubernetes_15106113.html">Deploying to Kubernetes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Environment Variables and Configuration Files
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Victoria Guido</span>, last modified by <span class='editor'> Joe Ferris</span> on Jul 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Configuration for pods can provided as environment variables or files by creating config maps and secrets. Both are documents containing key/value data. Config maps are for non-sensitive data. For storing sensitive data like passwords and API tokens, see <a href="Managing-Secrets_15040625.html" data-linked-resource-id="15040625" data-linked-resource-version="3" data-linked-resource-type="page">managing secrets</a>.</p><h2 id="EnvironmentVariablesandConfigurationFiles-ConfigMaps">Config Maps</h2><p>Config maps are key/value pairs of string data which can be mounted in a pod as environment variables or as a file.</p><h3 id="EnvironmentVariablesandConfigurationFiles-EnvironmentVariables">Environment Variables</h3><p>You can define environment variables as key/value pairs in a config map:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example
+  namespace: default
+data:
+  APPLICATION_HOST: example.com
+  LANG: en_US.UTF-8
+  PIDFILE: /tmp/server.pid
+  PORT: &quot;3000&quot;
+  RACK_ENV: production
+  RAILS_ENV: production
+  RAILS_LOG_TO_STDOUT: &quot;true&quot;
+  RAILS_SERVE_STATIC_FILES: &quot;true&quot;
+</pre>
+</div></div><p>You can then mount them in pods by modifying your deployment manifest:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-web
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: example
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: example
+    spec:
+      containers:
+      - name: main
+        envFrom:
+        - configMapRef:
+            name: example
+</pre>
+</div></div><h3 id="EnvironmentVariablesandConfigurationFiles-Files">Files</h3><p>You can also store a file in a config map and mount it:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sidekiq
+  namespace: default
+data:
+  sidekiq.yml: |
+    :verbose: false
+    :concurrency: 10
+    :timeout: 25
+</pre>
+</div></div><p>You can then mount them in pods by modifying your deployment manifest:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-web
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: example
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: example
+    spec:
+
+      # Define your config map as a volume
+      volumes:
+      - name: sidekiq
+        configMap:
+          name: sidekiq
+
+      # Mount the volume in your container
+      containers:
+      - name: main
+        volumeMounts:
+        - name: sidekiq
+          mountPath: /app/config/sidekiq.yml
+          subPath: sidekiq.yml
+</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AWS Platform Guide : Microsoft SSO</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">AWS Platform Guide</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="AWS-Platform-Guide-Home_13697366.html">AWS Platform Guide Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Landing-Zone_124977153.html">Landing Zone</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Configure-Single-Sign-On_86933512.html">Configure Single Sign On</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            AWS Platform Guide : Microsoft SSO
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Christopher Kuttruff</span>, last modified on Oct 04, 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h3 id="MicrosoftSSO-References:">References:</h3><ul><li><p><a class="external-link" data-card-appearance="inline" href="https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/aws-single-sign-on-tutorial" rel="nofollow">https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/aws-single-sign-on-tutorial</a> </p></li><li><p><a class="external-link" data-card-appearance="inline" href="https://www.youtube.com/watch?v=WSd0POCqklY" rel="nofollow">https://www.youtube.com/watch?v=WSd0POCqklY</a> </p></li></ul><h3 id="MicrosoftSSO-Note:">Note:</h3><p>When following the above youtube tutorial and creating a non-gallery SSO app, we encountered an issue that I believe was due to duplicate users in AWS (we need to ensure that existing groups don’t have users with the same email in Microsoft), but it may be best to use the “AWS IAM Identity Center” application from the Microsoft enterprise app gallery. The following instructions still apply except for the initial bullet point for app creation in Microsoft section</p><h3 id="MicrosoftSSO-Prerequisites:">Prerequisites:</h3><ul><li><p>Identify AWS groups with the appropriate target permission sets / account assignments</p></li><li><p>Ensure those same group names exist within Microsoft</p><ul><li><p>owners / members should be set appropriately</p></li></ul></li><li><p>Create backup IAM admin user with access to identity center in AWS in case changes need to be reverted</p></li></ul><h3 id="MicrosoftSSO-InAWS:">In AWS:</h3><ul><li><p>change IdP to external</p><ul><li><p>download metadata file</p></li></ul></li></ul><h3 id="MicrosoftSSO-InMicrosoft:">In Microsoft:</h3><ul><li><p>create new enterprise app (non-gallery app)</p></li><li><p>in single sign-on section, select SAML</p><ul><li><p>upload metadata file from AWS</p></li></ul></li><li><p>save the SAML config</p></li><li><p>Download federation metadata xml</p></li></ul><h3 id="MicrosoftSSO-InAWS:.1">In AWS:</h3><ul><li><p>upload metadata file from Microsoft</p></li><li><p>finish changing identity source</p></li><li><p>enable automatic provisioning</p><ul><li><p>copy SCIM endpoint / access token for use in Microsoft</p></li></ul></li></ul><h3 id="MicrosoftSSO-InMicrosoft:.1">In Microsoft:</h3><ul><li><p>in Provisioning section, set mode to automatic</p></li><li><p>set tenant url to SCIM endpoint, secret token to access token (from the previous AWS provisioning setup screen)</p></li><li><p>test connection</p></li><li><p>save provisioning config</p></li><li><p>make sure to assign groups to enterprise app</p></li><li><p>then start provisioning</p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Mar 18, 2024 10:53</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
