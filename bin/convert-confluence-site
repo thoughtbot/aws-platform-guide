@@ -8,7 +8,7 @@ for f in confluence-html/*.html; do
   if [ "$f" = "confluence-html/index.html" ]; then
     echo "(skipping)"
   else
-    bin/convert-confluence-html "$f"
+    bin/convert-confluence-html "$f" book
   fi
   echo
 done

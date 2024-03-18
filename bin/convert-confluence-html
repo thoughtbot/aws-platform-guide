@@ -4,11 +4,13 @@ require "nokogiri"
 require "tempfile"
 
 class Conversion
-  def initialize(source_file)
+  def initialize(source_file, root)
     @source_file = source_file
     @source_dir = File.dirname(source_file)
     @output_file = generate_filename(source_file)
     @output_dir = File.dirname(@output_file)
+    @output_file = File.join(root, @output_file)
+    @output_dir = File.join(root, @output_dir)
 
     if @output_dir == "."
       @path_to_root = "."
@@ -74,4 +76,4 @@ class Conversion
   end
 end
 
-Conversion.new(ARGV[0]).run
+Conversion.new(ARGV[0], ARGV[1]).run
