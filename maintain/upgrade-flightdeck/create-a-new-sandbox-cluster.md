@@ -1,0 +1,58 @@
+<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
+
+<div class="panelContent" style="background-color: #FFFAE6;">
+
+This is an advanced topic for platform engineers.
+
+</div>
+
+</div>
+
+Create a new root module in the `cluster` directory of your
+infrastructure repository.
+
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+``` syntaxhighlighter-pre
+infra/
+  cluster/
+    sandbox-v2/
+```
+
+</div>
+
+</div>
+
+You can copy the configuration from the previous version of your
+cluster, updating the versions of Flightdeck and Kubernetes. We
+recommend running the latest version of Kubenetes [supported by
+EKS](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
+
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+``` syntaxhighlighter-pre
+module "cluster" {
+  # Update this to the latest version of Flightdeck
+  source = "github.com/thoughtbot/flightdeck//aws/cluster?ref=UPDATE"
+
+  # Use the name of your previous cluster and bump the version
+  name        = "mycompany-sandbox-v2"
+  
+  # Use the latest version of Kubernetes supported by EKS.
+  k8s_version = "UPDATE"
+
+  # Copy existing configuration for node groups
+  node_groups = {}
+}
+```
+
+</div>
+
+</div>
+
+Apply this module to provision a cluster and node groups running the
+latest supported versions.

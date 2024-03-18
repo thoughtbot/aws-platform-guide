@@ -1,0 +1,48 @@
+In order to provision a new cluster, you will need to update the tags
+for your VPC and other network resources so that the new Kubernetes
+cluster will find them.
+
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+``` syntaxhighlighter-pre
+infra/
+  network/
+    sandbox/
+```
+
+</div>
+
+</div>
+
+Update your network module to include the name of the cluster you will
+be creating.
+
+<div class="code panel pdl" style="border-width: 1px;">
+
+<div class="codeContent panelContent pdl">
+
+``` syntaxhighlighter-pre
+module "network" {
+  # Use the latest version of Flightdeck
+  source = "github.com/thoughtbot/flightdeck//aws/network?ref=UPDATE"
+
+  cluster_names          = [
+    # Existing cluster
+    "mycompany-sandbox-v1",
+    
+    # Add your new cluster
+    "mycompany-sandbox-v2"
+  ]
+  
+  # Other configuration
+  name                   = "..."
+}
+```
+
+</div>
+
+</div>
+
+Apply this module to update the tags for your network resources.

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+for f in confluence-html/*.html; do
+  echo "--- $f ---"
+  echo
+  if [ "$f" = "confluence-html/index.html" ]; then
+    echo "(skipping)"
+  else
+    bin/convert-confluence-html "$f"
+  fi
+  echo
+done
