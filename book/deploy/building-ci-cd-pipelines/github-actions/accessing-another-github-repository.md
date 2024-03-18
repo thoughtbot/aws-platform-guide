@@ -35,7 +35,7 @@ with the correct permissions set as a secret in the workflow source.
     3.  Ensure that the token has the correct permissions by selecting
         the checkbox next to `repo`
 
-![](attachments/53346309/53903363.png)
+![image 20221025 141717](./image-20221025-141717.png)
 
 d. Click the `Generate token` green button at the bottom
 
@@ -61,7 +61,7 @@ retrieve it again once you leave this page.
 
 2.  From the left navigation menu, go to Security \> Secrets \> Actions
     
-    1.  ![](attachments/53346309/54001665.png?width=340)
+    1.  ![image 20221025 142406](./image-20221025-142406.png)
 
 3.  Create a `New repository secret` with the green button at the top
 

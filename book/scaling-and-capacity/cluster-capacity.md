@@ -11,4 +11,4 @@ nodes with enough space, an additional EC2 instance will be provisioned
 and join the cluster. If the autoscaler detects unused space in your
 cluster, it will shut down EC2 instances which aren’t necessary.
 
-![](attachments/55050241/55541761.png)
+![Node Groups](./node-groups.png)

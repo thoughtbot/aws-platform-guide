@@ -45,4 +45,4 @@ configuration for necessary networks.
 
 </div>
 
-![](attachments/11304982/11305187.svg?width=544)
+![networks](./networks.svg)

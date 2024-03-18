@@ -37,13 +37,18 @@ class Conversion
       rewrite_link(node)
     end
 
+    puts "Creating directories..."
+    FileUtils.mkdir_p(@output_dir)
+
+    puts "Copying images..."
+    content.search("img").each do |node|
+      copy_image(node, @output_file)
+    end
+
     puts "Writing temp file..."
     temp = Tempfile.new(["confluence", ".html"])
     temp.write(content.inner_html)
     temp.close
-
-    puts "Creating directories..."
-    FileUtils.mkdir_p(@output_dir)
 
     puts "Converting to Markdown..."
     system("pandoc --from html --to gfm #{temp.path} --output #{@output_file}", exception: true)
@@ -57,13 +62,13 @@ class Conversion
   def generate_filename(source_path)
     page = Nokogiri::HTML(IO.read(source_path))
     breadcrumbs = page.at_css("#breadcrumb-section")
-    parents = breadcrumbs.search("li").map { |bc| breadcrumb_to_file(bc.text) }
+    parents = breadcrumbs.search("li").map { |bc| text_to_filename(bc.text) }
     parents = parents[2..] || []
-    title = breadcrumb_to_file(page.at_css("#title-heading").text.split(":", 2).last.strip)
+    title = text_to_filename(page.at_css("#title-heading").text.split(":", 2).last.strip)
     [(parents + [title]).join("/"), "md"].join(".")
   end
 
-  def breadcrumb_to_file(text)
+  def text_to_filename(text)
     text.strip.downcase.gsub(/[^a-z0-9-]/, "-")
   end
 
@@ -73,6 +78,33 @@ class Conversion
       if href && File.exists?(href)
         link.attributes["href"].value = File.join(@path_to_root, generate_filename(href))
       end
+    end
+  end
+
+  def copy_image(image, reference)
+    source_attribute = image.attributes["src"].value
+
+    if source_attribute =~ /^images\/icons\//
+      puts "Skipping icon: #{source_attribute}"
+    else
+      source_file = File.join(@source_dir, source_attribute.gsub(/\?.*$/, ""))
+      target_directory = File.dirname(reference)
+      extension = File.extname(source_file)
+      default_alias = image.attributes["data-linked-resource-default-alias"]
+      if default_alias.nil?
+        puts "Missing default alias for image:"
+        puts image.to_html
+        exit 1
+      end
+      original_name = default_alias.value
+      clean_name = original_name.gsub(/\s*\(\d\+\)/, "").gsub(/\..+$/, "")
+      if image.attributes["alt"].to_s == ""
+        image["alt"] = clean_name.gsub(/[-_]/, " ")
+      end
+      target_name = "#{text_to_filename(clean_name)}#{extension}"
+      image["src"] = "./#{target_name}"
+      FileUtils.cp source_file, "#{target_directory}/#{target_name}"
+      puts "Copied #{target_directory}/#{target_name}"
     end
   end
 end

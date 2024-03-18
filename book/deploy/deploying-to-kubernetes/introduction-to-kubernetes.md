@@ -22,7 +22,7 @@ Controllers can create or modify other resources based on the resources
 they watch or they can make actual changes to your cloud infrastructure
 to bring your declarations to life.
 
-![](attachments/11173974/112623722.png)
+![Kubernetes Controllers](./kubernetes-controllers.png)
 
 This the above diagram, one controller watches deployments and creates a
 new replica set for each revision to the deployment. Another controller
@@ -35,7 +35,7 @@ developer. Kubernetes includes controllers to manage all these resources
 for you, so all you need to do is declare which resources you need to
 run your services.
 
-![](attachments/11173974/113377326.png)
+![Kubernetes Core Resources](./kubernetes-core-resources.png)
 
 ### Pods
 

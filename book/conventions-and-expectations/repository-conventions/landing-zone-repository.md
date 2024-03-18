@@ -38,4 +38,4 @@ creation.
 GitHub docs for [Creating a repository from a
 template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-![](attachments/14254104/163545089.png)
+![image 20230807 212358](./image-20230807-212358.png)

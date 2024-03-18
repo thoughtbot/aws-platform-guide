@@ -16,7 +16,7 @@ in AWS you will need three IAM roles for an application:
     [aws-auth](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html)
     in order to view application status.
 
-![](attachments/112295997/118915075.png)
+![Application Roles](./application-roles.png)
 
 ## Pod Role
 

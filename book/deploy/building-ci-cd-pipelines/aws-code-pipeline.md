@@ -3,7 +3,7 @@ Some of our clients deploy applications using
 and
 [CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).
 
-![](attachments/14287288/14745728.png)
+![cicd](./cicd.png)
 
 ## Common Resources
 

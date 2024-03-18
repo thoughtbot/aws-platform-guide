@@ -1,4 +1,4 @@
-![](attachments/11173932/11206829.svg?width=566)
+![dns](./dns.svg)
 
 In the [infrastructure
 repository](../conventions-and-expectations/repository-conventions.md)

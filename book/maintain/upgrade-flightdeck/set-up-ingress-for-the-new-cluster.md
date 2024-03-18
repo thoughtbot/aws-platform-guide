@@ -8,7 +8,7 @@ This is an advanced topic for platform engineers.
 
 </div>
 
-![](attachments/85786629/85557261.png)
+![aws ingress migration](./aws-ingress-migration.png)
 
 Edit the ingress stack for your sandbox clusters.
 
