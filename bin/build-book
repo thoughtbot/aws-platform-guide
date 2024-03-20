@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+podman run --volume $PWD:/src localhost/paperback build

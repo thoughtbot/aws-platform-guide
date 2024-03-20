@@ -15,7 +15,7 @@ This repository it the working area for migrating the platform guide from
 Set up [paperback]. Then, run the build command from the project root:
 
 ```
-podman run --volume $PWD:/src localhost/paperback build
+bin/build-book
 ```
 
 [paperback]: https://github.com/thoughtbot/paperback
