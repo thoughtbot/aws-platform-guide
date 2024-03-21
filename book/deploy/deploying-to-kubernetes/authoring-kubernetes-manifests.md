@@ -1,8 +1,11 @@
+
+### Authoring Kubernetes Manifests
+
 Kubernetes resources are described by manifests written in YAML. Every
 object in Kubernetes has a `kind`, `apiVersion`, and `metadata`. Most
 objects also have a `spec`.
 
-## `metadata`
+#### `metadata`
 
 Metadata declares information used to identify and find resources.
 
@@ -45,7 +48,7 @@ spec:
 
 </div>
 
-## `spec`
+#### `spec`
 
 The spec will vary depending on the kind of object.
 

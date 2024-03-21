@@ -1,3 +1,6 @@
+
+## Set up PostgreSQL Slow Query Alert
+
 You can enable a slow query alert to monitor all SQL queries for a
 PostgreSQL RDS instance and send out a notification once any query runs
 for more than a preset number of seconds. This feature is useful for

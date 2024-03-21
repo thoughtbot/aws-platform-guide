@@ -1,3 +1,6 @@
+
+### Composing with Kustomize
+
 Writing Kubernetes by hand can introduce significant data duplication.
 You may have several deployments using the same image and configuration
 with slight variations, such as container arguments. You may also use

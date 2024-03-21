@@ -1,10 +1,13 @@
-### References:
+
+#### Microsoft SSO
+
+##### References:
 
   - <https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/aws-single-sign-on-tutorial>
 
   - <https://www.youtube.com/watch?v=WSd0POCqklY>
 
-### Note:
+##### Note:
 
 When following the above youtube tutorial and creating a non-gallery SSO
 app, we encountered an issue that I believe was due to duplicate users
@@ -14,7 +17,7 @@ Identity Center” application from the Microsoft enterprise app gallery.
 The following instructions still apply except for the initial bullet
 point for app creation in Microsoft section
 
-### Prerequisites:
+##### Prerequisites:
 
   - Identify AWS groups with the appropriate target permission sets /
     account assignments
@@ -26,13 +29,13 @@ point for app creation in Microsoft section
   - Create backup IAM admin user with access to identity center in AWS
     in case changes need to be reverted
 
-### In AWS:
+##### In AWS:
 
   - change IdP to external
     
       - download metadata file
 
-### In Microsoft:
+##### In Microsoft:
 
   - create new enterprise app (non-gallery app)
 
@@ -44,7 +47,7 @@ point for app creation in Microsoft section
 
   - Download federation metadata xml
 
-### In AWS:
+##### In AWS:
 
   - upload metadata file from Microsoft
 
@@ -54,7 +57,7 @@ point for app creation in Microsoft section
     
       - copy SCIM endpoint / access token for use in Microsoft
 
-### In Microsoft:
+##### In Microsoft:
 
   - in Provisioning section, set mode to automatic
 

@@ -1,14 +1,13 @@
-  - [Modules](./reference/modules.md)
-      - [Flightdeck:
-        Network](./reference/modules/flightdeck--network.md)
-      - [Flightdeck:
-        Ingress](./reference/modules/flightdeck--ingress.md)
-      - [Flightdeck:
-        Cluster](./reference/modules/flightdeck--cluster.md)
-      - [Flightdeck:
-        Platform](./reference/modules/flightdeck--platform.md)
-  - [Templates](./reference/templates.md)
-      - [Flightdeck
-        Template](./reference/templates/flightdeck-template.md)
-      - [Landing Zone
-        Template](./reference/templates/landing-zone-template.md)
+# Reference
+
+## Modules
+
+- [Flightdeck: Network](https://github.com/thoughtbot/flightdeck/tree/main/aws/network)
+- [Flightdeck: Ingress](https://github.com/thoughtbot/flightdeck/tree/main/aws/ingress)
+- [Flightdeck: Cluster](https://github.com/thoughtbot/flightdeck/tree/main/aws/cluster)
+- [Flightdeck: Platform](https://github.com/thoughtbot/flightdeck/tree/main/aws/platform)
+
+## Templates
+
+- [Flightdeck Template](https://github.com/thoughtbot/flightdeck-template)
+- [Landing Zone Template](https://github.com/thoughtbot/aws-landing-zone-template)

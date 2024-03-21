@@ -1,10 +1,13 @@
+
+### Deploying Services
+
 Deploying a service for a pod consists of two resources: a service to
 describe the service to be provided, and a workload to describe the pods
 which will fulfill the service. The most common kind of workload is a
 deployment. You can create services and deployments by authoring
 Kubernetes manifests.
 
-## Services
+#### Services
 
 Services must provide a selector to describe which pods will fulfill
 this service's requests. If your service exposes any ports, they will
@@ -50,7 +53,7 @@ spec:
 
 </div>
 
-## Deployments
+#### Deployments
 
 Deployments describe how to create the pods that will run to fulfill a
 service.

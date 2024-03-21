@@ -1,3 +1,6 @@
+
+## Container Size
+
 Unlike some other platforms, containers are not constrained to a
 predetermined size. When you deploy your application, you decide how
 much RAM and CPU to allocate to each container. This is done using
@@ -29,7 +32,7 @@ We strongly recommend adding resource requests to all your containers.
 This will tell the cluster how much space it should expect to allocate
 to run your container.
 
-## Vertical Autoscaling
+### Vertical Autoscaling
 
 Many applications experience fluctuation in memory or CPU requirements
 as the application scales. Rather than manually tracking the resources

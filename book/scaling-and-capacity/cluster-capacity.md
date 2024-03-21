@@ -1,3 +1,6 @@
+
+## Cluster Capacity
+
 Compute capacity - that is, the ability to provision memory and CPU for
 the containers running in your pods - is provided by [EKS managed node
 groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).

@@ -1,3 +1,6 @@
+
+### AWS Code Pipeline
+
 Some of our clients deploy applications using
 [CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html)
 and
@@ -5,7 +8,7 @@ and
 
 ![cicd](./cicd.png)
 
-## Common Resources
+#### Common Resources
 
 In the [infrastructure
 repository](../../conventions-and-expectations/repository-conventions/infrastructure-repository.md),
@@ -50,7 +53,7 @@ the instructions in the [AWS Developer Tools Console User
 Guide](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html)
 to complete the connection.
 
-## Continuous Integration
+#### Continuous Integration
 
 For each [application
 repository](../../conventions-and-expectations/repository-conventions/application-repository.md),
@@ -118,7 +121,7 @@ Once this root module is applied, CodeBuild will start building and
 storing Docker images for your application whenever developers open pull
 requests.
 
-## Continuous Deployment
+#### Continuous Deployment
 
 For each stage of the software development lifecycle, create a
 CodePipeline pipeline to deploy the latest images and manifests to the

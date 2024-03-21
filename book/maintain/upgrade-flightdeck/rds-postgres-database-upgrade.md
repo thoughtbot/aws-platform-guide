@@ -1,3 +1,5 @@
+### RDS Postgres Database Upgrade
+
 This page will summarise the steps to upgrade an RDS Postgres database
 using this [AWS
 guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process).
@@ -53,7 +55,7 @@ process.
     See [ANALYZE](https://www.postgresql.org/docs/10/sql-analyze.html)
     in the PostgreSQL documentation.  
 
-### Troubleshooting issues with the Postgres database upgrade.
+#### Troubleshooting issues with the Postgres database upgrade.
 
 The database upgrade could fail with prechecks procedure due to
 incompatible setups or incompatible extensions. To check the cause of
@@ -65,7 +67,7 @@ Postgres logs.
 
   - <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Downloading.html>
 
-### Known database errors
+#### Known database errors
 
   - During a previous database upgrade, I experiened issues with
     incompatible PostGIS postgres extensions. I found the issue by

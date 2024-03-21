@@ -1,8 +1,11 @@
-## Pod Stuck Terminating
+
+## Cluster Errors
+
+### Pod Stuck Terminating
 
 This may be caused by a pod being scheduled on an unreachable node.
 
-## Unreachable Nodes
+### Unreachable Nodes
 
 If you see pods failing to schedule or terminate, you may have one or
 more unreachable nodes. You can find unreachable nodes by running:
@@ -34,7 +37,7 @@ flightctl kubectl describe node ip-1-2-3-4.us-east-1.compute.internal
 
 </div>
 
-### Kubelet stopped posting node status
+#### Kubelet stopped posting node status
 
 Find the underlying EC2 instance:
 
