@@ -1,3 +1,6 @@
+
+### Deploy workloads to the new cluster
+
 Update your continuous deployment workflow to deploy to your new sandbox
 cluster.
 
@@ -8,7 +11,7 @@ cluster.
 
 </div>
 
-# GitHub Actions
+#### GitHub Actions
 
 Update your workflow to include a job that deploys to the new cluster:
 
@@ -42,7 +45,7 @@ Push your updated workflow and trigger a deployment. Ensure the
 deployment is successful and verify that your workloads are running
 successfully on the new cluster.
 
-# AWS CodePipeline
+#### AWS CodePipeline
 
 Add your new cluster to your deploy project:
 

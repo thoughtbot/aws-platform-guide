@@ -1,3 +1,6 @@
+
+## Horizontal Scaling
+
 You can scale your application horizontally by adding more pods to your
 deployment. The simplest way is to specify the number of replicas in
 your deployment manifest. This example will run three pods for a
@@ -20,7 +23,7 @@ spec:
 
 </div>
 
-## Autoscaling
+### Autoscaling
 
 Most applications experience fluctuations in traffic both seasonally and
 throughout the day. You can use the horizontal pod autoscaler to

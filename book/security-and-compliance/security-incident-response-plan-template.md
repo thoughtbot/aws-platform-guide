@@ -1,3 +1,7 @@
+
+## Security Incident Response Plan Template
+
+
 \<APPLICATION / SYSTEM NAME AS IT APPEARS IN NETREG\>
 
 \<DATE\>
@@ -32,7 +36,7 @@
 
 </div>
 
-# Introduction
+### Introduction
 
 This is the Security Incident Response Plan for *\<APPLICATION/SYSTEM
 NAME\>* that documents the procedures for responding to a security
@@ -44,7 +48,7 @@ effectively respond to security incidents, and to minimize any negative
 impact to institutional operations through a set of detection, analysis
 and recovery activities.
 
-# System Overview
+### System Overview
 
 *\<Provide a summary of the covered system’s business and technical
 functions.  If the information is maintained in other documents, provide
@@ -54,18 +58,18 @@ it is registered\>*
 TODO: add a starter list of artifacts that thoughtbot typically
 delivers.
 
-## <span class="inline-comment-marker" data-ref="e592eb62-f5b8-49ad-a229-54ef8eaa6f90">Architecture Model</span>
+#### Architecture Model
 
 *\<Attach a high-level diagram of the application/system data flow and
 data storage, including all interconnected system names and networks
 (e.g., public vs. private)\>*
 
-## <span class="inline-comment-marker" data-ref="48a2d44d-d22d-4ff8-a291-fc6cd6418158">System Hardware Inventory</span>
+#### System Hardware Inventory
 
 *\<Insert hardware inventory of covered devices, e.g., provide a link to
 the inventory file\>*
 
-## Audit Logging
+#### Audit Logging
 
 *\<Insert details of the application system audit logging processes. 
 Include details about where the log files are located, as well as a
@@ -73,7 +77,7 @@ brief description of the events captured in each log file\>*
 
 TODO: Insert standard thoughtbot approach to logging and alerting.
 
-## Glossary
+#### Glossary
 
 **Breach** - A breach is defined as a security incident that requires
 notification to affected individuals, where the protected data of the
@@ -86,7 +90,7 @@ network, e.g.  system login, file creation or application transaction. 
 **Security Incident** - An event, or series of events, that violates, or
 is about to violate, campus policies and standards.
 
-# System Contacts
+### System Contacts
 
 The *\<APPLICATION/SYSTEM NAME\>* Incident Response Team includes the
 following staff:
@@ -127,9 +131,9 @@ the client team. 
 *\<Insert other points of contact and their information, and/or
 instructions for hierarchy of communication\>*
 
-# Incident Response Procedures
+### Incident Response Procedures
 
-## Guideline
+#### Guideline
 
 [Incident
 Response](https://thoughtbot.atlassian.net/wiki/spaces/MC/pages/5439566/Incident+Response)
@@ -145,7 +149,7 @@ The high level incident response steps can be summarized in the
 flowchart above.  The sections below outline detailed procedures for
 each step. 
 
-## Step 1: Detection
+#### Step 1: Detection
 
 The monitoring tools and alert systems are set up to notify the proper
 contacts automatically should suspicious events occur. All events
@@ -156,7 +160,7 @@ Engineer*.
 The *On-Call Engineer* will then notify others within the Client and
 thoughtbot teams as laid out in the **System Contact** section.
 
-## Step 2: Response
+#### Step 2: Response
 
 The *On-Call Engineer* (with support from the *Incident Management
 Team*, if needed) should start by determining whether suspicious system
@@ -190,7 +194,7 @@ If the suspicious events are one-time computer glitches or user
 misjudgement, and does not fit the definition of a *Security Incident*,
 document the decision and close the incident response process.
 
-## Step 3: Resolution
+#### Step 3: Resolution
 
 The *Incident Management Team* should proceed with the following steps
 to return affected systems to a normal operational state:
@@ -222,7 +226,7 @@ cause: 
 *\<Fill in common scenarios and procedures. Should be reviewed/updated
 after each incident post-mortem\>*
 
-## Step 4: Analysis
+#### Step 4: Analysis
 
 After the system has been returned to an operational state, the persons
 listed below should gather for a blameless post-mortem to assess the
@@ -232,7 +236,7 @@ improvements needed before the next incident.
 
 *\<insert persons for post-mortem\>*
 
-## Step 5: Readiness
+#### Step 5: Readiness
 
 If the post-mortem resulted in any action items to improve the process
 of responding to the next incident, follow up on these items, such as:

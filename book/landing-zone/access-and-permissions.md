@@ -1,3 +1,6 @@
+
+## Access and Permissions
+
 The platform relies on [AWS IAM Identity
 Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
 for managing user permissions to resources within AWS accounts. Users
@@ -25,14 +28,14 @@ Once these steps are complete, users can use single sign on to access
 your landing zone and sign into individual AWS accounts using the
 permission sets assigned to them.
 
-## Accessing AWS
+### Accessing AWS
 
 Your organization will have a landing zone URL configured in IAM
 Identity Center, such as <https://example.awsapps.com/start/.>
 
 ![aws portal](./aws-portal.png)
 
-## Managing Groups
+### Managing Groups
 
 You can synchronize groups in IAM identity center with your user
 directory, such as Google or ActiveDirectory. Add users to groups based
@@ -40,7 +43,7 @@ on which permissions they should have in AWS.
 
 ![aws google groups](./aws-google-groups.png)
 
-## Managing Permissions For Groups
+### Managing Permissions For Groups
 
 We recommend that you manage your permission sets and group assignments
 using Terraform. You can use the [terraform-aws-iam-permission-sets

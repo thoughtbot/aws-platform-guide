@@ -1,3 +1,6 @@
+
+### Application Secrets
+
 Application secrets can be stored in AWS Secrets Manager and injected as
 environment variables or files into running applications.
 

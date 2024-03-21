@@ -1,3 +1,6 @@
+
+### Add new clusters to your network module
+
 In order to provision a new cluster, you will need to update the tags
 for your VPC and other network resources so that the new Kubernetes
 cluster will find them.

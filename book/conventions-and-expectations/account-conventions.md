@@ -1,4 +1,4 @@
-## **AWS Accounts**
+## AWS Accounts
 
 When possible, thoughtbot uses a multi-account architecture. thoughtbot
 uses the standard Control Tower [shared

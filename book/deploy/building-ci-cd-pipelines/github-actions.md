@@ -1,6 +1,9 @@
+
+### GitHub Actions
+
 Some of our clients deploy applications using GitHub Actions.
 
-## Continuous Integration
+#### Continuous Integration
 
 For each [application repository](#), resources related to the CI Job
 should be provisioned in the [Operations
@@ -101,7 +104,7 @@ In order to build Docker images for an application, you'll need:
 GitHub Actions will start building and pushing Docker images for your
 application to ECR whenever developers open pull requests.
 
-## Continuous Deployment
+#### Continuous Deployment
 
 One of the [application
 roles](../../provision/application-resources/application-roles.md) for

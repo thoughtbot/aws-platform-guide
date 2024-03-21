@@ -1,3 +1,6 @@
+
+### Infrastructure Repository
+
 The infrastructure repository contains Terraform modules for managing
 cloud resources and Kubernetes Helm charts required for the platform. We
 name this repository "*organization* infra."

@@ -1,3 +1,6 @@
+
+## DNS
+
 ![dns](./dns.svg)
 
 In the [infrastructure
@@ -25,7 +28,7 @@ You can use `aws_route53_zone` to manage root domains. These hosted
 zones should be placed in the [Network
 account](../conventions-and-expectations/account-conventions.md).
 
-## Account Subdomains
+### Account Subdomains
 
 In order to control updates to public DNS while still allowing workloads
 to publish updates to their endpoint addresses, it is recommended that

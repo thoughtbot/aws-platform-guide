@@ -1,3 +1,6 @@
+
+## Deploy Grafana
+
 <div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
 
 <div class="panelContent" style="background-color: #FFFAE6;">
@@ -16,7 +19,7 @@ Prometheus and Grafana instances.
 either AWS SSO or a SAML provider to sign in. If you're not using an AWS
 Organization with SSO enabled, you'll need a SAML provider to continue.*
 
-## AWS Managed Prometheus
+### AWS Managed Prometheus
 
 Flightdeck can forward time series data from its federated Prometheus
 instance to an AWS Managed Prometheus instance for long-term storage.
@@ -67,13 +70,13 @@ module "workload_platform" {
 Apply the workload platform module to start writing to the Prometheus
 workspace.
 
-## AWS Managed Grafana
+### AWS Managed Grafana
 
 AWS provides managed Grafana instances, but there is currently no
 support for deploying Grafana using Terraform or Cloudformation, so you
 need to create the workspace through the AWS Console.
 
-### Creating the Workspace
+#### Creating the Workspace
 
 In the Operations account:
 
@@ -100,7 +103,7 @@ In the Operations account:
 TODO: Order of operation for prometheus workspace, grafana workspace,
 auth and data sources
 
-### Setting up Dashboards
+#### Setting up Dashboards
 
   - From the Grafana workspace in the AWS Management Console, sign into
     the managed Grafana instance.

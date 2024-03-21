@@ -1,3 +1,6 @@
+
+#### Accessing another GitHub repository
+
 If for any reason, your workflow needs to access another GitHub
 repository different than its source, for example:
 
@@ -8,7 +11,7 @@ repository different than its source, for example:
 In these cases, the CI/CD workflow will require a Personal Access Token
 with the correct permissions set as a secret in the workflow source.
 
-# To generate a personal access token (PAT)
+##### To generate a personal access token (PAT)
 
 1.  Sign in as the CI GitHub user (stored in GitHub)
 
@@ -52,9 +55,7 @@ retrieve it again once you leave this page.
 
 </div>
 
-# Setting the token secret
-
-## GitHub Actions
+##### Setting the token secret
 
 1.  In the repo that is running the CI/CD workflow, navigate to
     `Settings` with the horizontal navigation menu
@@ -69,7 +70,3 @@ retrieve it again once you leave this page.
 
 5.  Once saved, you’ll be able to retrieve the value with
     `secrets.NAME_OF_SECRET`
-
-## CodeBuild
-
-TODO: fill in instructions

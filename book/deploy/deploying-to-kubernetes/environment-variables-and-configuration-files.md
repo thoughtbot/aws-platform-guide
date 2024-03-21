@@ -1,15 +1,18 @@
+
+### Environment Variables and Configuration Files
+
 Configuration for pods can provided as environment variables or files by
 creating config maps and secrets. Both are documents containing
 key/value data. Config maps are for non-sensitive data. For storing
 sensitive data like passwords and API tokens, see [managing
 secrets](../../deploy/managing-secrets.md).
 
-## Config Maps
+#### Config Maps
 
 Config maps are key/value pairs of string data which can be mounted in a
 pod as environment variables or as a file.
 
-### Environment Variables
+##### Environment Variables
 
 You can define environment variables as key/value pairs in a config map:
 
@@ -70,7 +73,7 @@ spec:
 
 </div>
 
-### Files
+##### Files
 
 You can also store a file in a config map and mount it:
 

@@ -1,3 +1,6 @@
+
+### Application Roles
+
 For applications, CI/CD pipelines, and developers to perform their tasks
 in AWS you will need three IAM roles for an application:
 
@@ -18,7 +21,7 @@ in AWS you will need three IAM roles for an application:
 
 ![Application Roles](./application-roles.png)
 
-## Pod Role
+#### Pod Role
 
 You can use the service-account-role module from Flightdeck to the
 service account and an IAM role with the proper trust policy:
@@ -89,7 +92,7 @@ module "staging_sandbox_v1" {
 
 </div>
 
-## Deploy Role
+#### Deploy Role
 
 If you’re using GitHub Actions, you can use the EKS deploy role module
 to create your deploy role:
@@ -186,7 +189,7 @@ module "deploy_role_bindings" {
 
 </div>
 
-## Developer Role
+#### Developer Role
 
 If you’re using the Flightdeck application-config module, you can
 include the developer group as part of your configuration:

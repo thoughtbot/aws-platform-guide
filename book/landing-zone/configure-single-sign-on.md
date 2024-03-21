@@ -1,3 +1,6 @@
+
+### Configure Single Sign On
+
 1.  Configure your SSO identity store using the [single sign-on
     guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/step2.html).
 

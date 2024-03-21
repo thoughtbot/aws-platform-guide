@@ -1,6 +1,9 @@
-## Istio/Envoy
 
-### Upstream Connect error
+## Application Errors
+
+### Istio/Envoy
+
+#### Upstream Connect error
 
 > upstream connect error or disconnect/reset before headers. reset
 > reason: connection termination
@@ -23,9 +26,9 @@ crash may be happening.
 This error is most likely caused by an application crash and not by a
 problem in the infrastructure.
 
-## Puma
+### Puma
 
-### Unable to add work while shutting down
+#### Unable to add work while shutting down
 
 This error occurs when Puma receives a request after the Puma server has
 received a SIGTERM signal.
@@ -85,9 +88,9 @@ terminationGracePeriodSeconds: 60
 For more information, see [Puma documentation for
 Kubernetes](https://github.com/puma/puma/blob/master/docs/kubernetes.md#graceful-shutdown-and-pod-termination).
 
-## RDS/Postgres
+### RDS/Postgres
 
-### Too Many Connections
+#### Too Many Connections
 
 You may see one of these errors:
 

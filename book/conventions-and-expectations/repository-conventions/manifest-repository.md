@@ -1,3 +1,6 @@
+
+### Manifest Repository
+
 For each application repository being deployed, we will create an
 additional repository containing deployment manifests and configuration
 values and makes it easy to deploy both using a CI/CD pipeline. This

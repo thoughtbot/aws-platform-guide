@@ -1,3 +1,7 @@
+
+## Launching Control Tower
+
+
 <div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
 
 <div class="panelContent" style="background-color: #FFFAE6;">
@@ -8,7 +12,7 @@ This is an advanced topic for platform engineers.
 
 </div>
 
-## AWS Landing Zone
+### AWS Landing Zone
 
 The Landing Zone is the start URL for users to access the organization's
 AWS accounts.
@@ -31,7 +35,7 @@ baselines](https://docs.aws.amazon.com/controltower/latest/userguide/terminology
 and deploy [service control
 policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html).
 
-## Getting Started
+### Getting Started
 
 <div class="confluence-information-macro confluence-information-macro-note">
 

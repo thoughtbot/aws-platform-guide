@@ -1,3 +1,6 @@
+
+## Deploy Ingress stack
+
 <div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
 
 <div class="panelContent" style="background-color: #FFFAE6;">
@@ -14,13 +17,13 @@ for the organization, you can create Terraform root modules for managing
 ingress resources, including hosted zones, SSL certificates, load
 balancers, target groups, and DNS aliases.
 
-## Hosted Zones
+### Hosted Zones
 
 In order to provision the ingress stack, you'll need at least one hosted
 zone. For more information on configuring hosted zones, see [DNS
 administration](../provision/dns.md).
 
-## Ingress Stack
+### Ingress Stack
 
 ![ingress](./ingress.png)
 

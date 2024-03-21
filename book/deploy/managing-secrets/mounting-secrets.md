@@ -1,3 +1,6 @@
+
+### Mounting Secrets
+
 Secrets are functionally identical to [config
 maps](../../deploy/deploying-to-kubernetes/environment-variables-and-configuration-files.md),
 but they can be configured with stricter permissions due to their

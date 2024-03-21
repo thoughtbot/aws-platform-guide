@@ -1,3 +1,6 @@
+
+## Deploy Flightdeck
+
 <div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
 
 <div class="panelContent" style="background-color: #FFFAE6;">
@@ -27,7 +30,7 @@ configuration for clusters and the platform.
 
 </div>
 
-## Clusters
+### Clusters
 
 In order to deploy Flightdeck, you'll first need Kubernetes clusters. On
 AWS, Flightdeck is designed to deploy to AWS's EKS platform. Flightdeck
@@ -56,7 +59,7 @@ infra/
 
 </div>
 
-## Platform
+### Platform
 
 You are now ready to deploy Flightdeck for the sandbox and production
 clusters using the [workload platform

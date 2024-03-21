@@ -1,3 +1,5 @@
+## Upgrade Flightdeck
+
 We recommend using a blue/green strategy for upgrading your cluster.
 Updating Kubernetes in-place can result in interruptions to running
 workloads. Updating Kubernetes will also frequently require updates to
