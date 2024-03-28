@@ -1,7 +1,7 @@
 
 ## DNS
 
-![dns](./dns.svg)
+![dns](./images/dns.svg)
 
 In the [infrastructure
 repository](../conventions-and-expectations/repository-conventions.md)

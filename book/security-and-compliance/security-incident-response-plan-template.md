@@ -143,7 +143,7 @@ your team\>*
 
 ![Flowchart documenting incident response workflow from detection of
 event, through response and resolution, and ending at post-incident
-analysis.](./rsf9ozzgswkiwa8corpsr2fs-ghj8-14cjnb8h7n3x-ncavxxdjglhwyt8zs4d2s9x8aze8kivmg4pnv6rnpfhehoxitongoo3w5ocppmmt59lp7ng2ed0hxz6-kbjm-pmt0rrdbj3rulbxwuq)
+analysis.](./images/flowchart.png)
 
 The high level incident response steps can be summarized in the
 flowchart above.  The sections below outline detailed procedures for

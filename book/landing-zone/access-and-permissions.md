@@ -33,7 +33,7 @@ permission sets assigned to them.
 Your organization will have a landing zone URL configured in IAM
 Identity Center, such as <https://example.awsapps.com/start/.>
 
-![aws portal](./aws-portal.png)
+![aws portal](./images/aws-portal.png)
 
 ### Managing Groups
 
@@ -41,7 +41,7 @@ You can synchronize groups in IAM identity center with your user
 directory, such as Google or ActiveDirectory. Add users to groups based
 on which permissions they should have in AWS.
 
-![aws google groups](./aws-google-groups.png)
+![aws google groups](./images/aws-google-groups.png)
 
 ### Managing Permissions For Groups
 

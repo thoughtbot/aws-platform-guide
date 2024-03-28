@@ -47,4 +47,4 @@ configuration for necessary networks.
 
 </div>
 
-![networks](./networks.svg)
+![networks](./images/networks.svg)

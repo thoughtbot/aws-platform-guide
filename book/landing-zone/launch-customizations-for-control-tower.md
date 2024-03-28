@@ -37,7 +37,7 @@ during repo creation.
     
     1.  You can select the template repo from the repo creation page
         
-        ![image 20230807 212445](./image-20230807-212445.png)
+        ![image 20230807 212445](./images/image-20230807-212445.png)
 
 3.  If there are legacy accounts to enroll, see [Enroll Existing
     (Legacy)

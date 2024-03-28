@@ -11,7 +11,7 @@ This is an advanced topic for platform engineers.
 
 </div>
 
-![aws ingress migration](./aws-ingress-migration.png)
+![aws ingress migration](./images/aws-ingress-migration.png)
 
 Edit the ingress stack for your sandbox clusters.
 

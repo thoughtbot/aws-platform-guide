@@ -12,7 +12,7 @@ accounts](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-
 
 We also use some extra accounts.
 
-![accounts](./accounts.png)
+![accounts](./images/accounts.png)
 
 <div class="table-wrap">
 

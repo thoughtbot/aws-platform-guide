@@ -45,4 +45,4 @@ Once all the accounts are fully enrolled, you are ready to create VPC
 [networks.](../provision-platform-resources/provision-networks.md)
 
 ![Diagram of recommended accounts with resources that belong in each
-account](./accounts--1-.png)
+account](./images/accounts--1-.png)
