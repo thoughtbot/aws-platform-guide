@@ -10,7 +10,7 @@ your organization.
 To provide users with AWS permissions:
 
   - As part of deploying the platform, [single sign on should be
-    configured](../landing-zone/configure-single-sign-on.md) for your
+    configured](#configure-single-sign-on) for your
     user directory.
 
   - Create a group in your user directory, such as a Google group or an

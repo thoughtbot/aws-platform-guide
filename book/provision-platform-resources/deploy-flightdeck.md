@@ -23,7 +23,7 @@ source projects and AWS products.
 <div class="confluence-information-macro-body">
 
 The [Flightdeck template
-repository](../reference/templates/flightdeck-template.md) comes with
+repository](https://github.com/thoughtbot/flightdeck-template) comes with
 configuration for clusters and the platform.
 
 </div>
@@ -35,7 +35,7 @@ configuration for clusters and the platform.
 In order to deploy Flightdeck, you'll first need Kubernetes clusters. On
 AWS, Flightdeck is designed to deploy to AWS's EKS platform. Flightdeck
 contains a [cluster Terraform
-module](../reference/modules/flightdeck--cluster.md) capable of setting
+module](https://github.com/thoughtbot/flightdeck/tree/main/aws/cluster) capable of setting
 up compatible EKS clusters.
 
 Create a root module for each phase of the software development
@@ -63,7 +63,7 @@ infra/
 
 You are now ready to deploy Flightdeck for the sandbox and production
 clusters using the [workload platform
-module](../reference/modules/flightdeck--platform.md).
+module](https://github.com/thoughtbot/flightdeck/tree/main/aws/platform).
 
 <div class="code panel pdl" style="border-width: 1px;">
 
@@ -81,5 +81,5 @@ infra/
 </div>
 
 Once these modules are applied, you can deploy
-[Grafana](../provision-platform-resources/deploy-grafana.md) for
+[Grafana](#deploy-grafana) for
 monitoring.

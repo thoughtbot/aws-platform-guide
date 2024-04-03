@@ -199,4 +199,4 @@ and users from your Google domain.
 
 You will need to regularly update the SCIM token as it expires to
 continually provision users and groups: [Update SCIM
-tokens](../../maintain/update-scim-tokens.md)
+tokens](#update-scim-tokens)

@@ -118,6 +118,6 @@ sensitive nature.
 
 To create these resources in a Kubernetes cluster, developers usually
 author [Kubernetes
-manifests](../../deploy/deploying-to-kubernetes/authoring-kubernetes-manifests.md)
+manifests](#authoring-kubernetes-manifests)
 in a Git repository which is automatically applied to the cluster by a
 CI/CD pipeline.

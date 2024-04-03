@@ -1,5 +1,5 @@
 
-## Prerequisites
+## Landing Zone Prerequisites
 
 1.  Create 1Password for credentials (To be completed by the Client)
 
@@ -73,7 +73,7 @@ email, check under Conversations \> Pending in Google Groups.
 5.  Create a Github organisation (To be completed by the Client).
 
 6.  Create [necessary
-    repositories](../conventions-and-expectations/repository-conventions.md)
+    repositories](#repository-conventions)
     on GitHub.
 
 7.  Login to AWS and [enable

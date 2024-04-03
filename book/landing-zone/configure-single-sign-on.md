@@ -20,6 +20,6 @@
 You can find detailed instructions for specific identity providers:
 
   - [Google Sign
-    In](../landing-zone/configure-single-sign-on/google-sign-in.md)
+    In](#google-sign-in)
   - [Microsoft
-    SSO](../landing-zone/configure-single-sign-on/microsoft-sso.md)
+    SSO](#microsoft-sso)

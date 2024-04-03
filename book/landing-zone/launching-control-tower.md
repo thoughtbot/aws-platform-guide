@@ -45,7 +45,7 @@ policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage
 
 Before you can launch your landing zone, you will need to make sure you
 have completed all the [prerequisite
-steps](../landing-zone/prerequisites.md).
+steps](#landing-zone-prerequisites).
 
 </div>
 
@@ -144,4 +144,4 @@ steps](../landing-zone/prerequisites.md).
     Control Tower.
 
 You are now ready to launch [Customizations for Control
-Tower](../landing-zone/launch-customizations-for-control-tower.md).
+Tower](#launch-customizations-for-control-tower).

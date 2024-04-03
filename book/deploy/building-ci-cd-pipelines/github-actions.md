@@ -7,7 +7,7 @@ Some of our clients deploy applications using GitHub Actions.
 
 For each [application repository](#), resources related to the CI Job
 should be provisioned in the [Operations
-Account](../../conventions-and-expectations/account-conventions.md).
+Account](#aws-accounts).
 
 <div class="code panel pdl" style="border-width: 1px;">
 
@@ -107,7 +107,7 @@ application to ECR whenever developers open pull requests.
 #### Continuous Deployment
 
 One of the [application
-roles](../../provision/application-resources/application-roles.md) for
+roles](#application-roles) for
 each stage of the software development lifecycle is a deploy role, which
 can be used by CI/CD pipelines to deploy new versions of the
 application. You can assume this role from your deployment GitHub

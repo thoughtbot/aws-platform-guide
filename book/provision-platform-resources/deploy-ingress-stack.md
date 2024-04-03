@@ -12,7 +12,7 @@ This is an advanced topic for platform engineers.
 </div>
 
 In the infrastructure
-[repository](../conventions-and-expectations/repository-conventions/infrastructure-repository.md)
+[repository](#infrastructure-repository)
 for the organization, you can create Terraform root modules for managing
 ingress resources, including hosted zones, SSL certificates, load
 balancers, target groups, and DNS aliases.
@@ -21,7 +21,7 @@ balancers, target groups, and DNS aliases.
 
 In order to provision the ingress stack, you'll need at least one hosted
 zone. For more information on configuring hosted zones, see [DNS
-administration](../provision/dns.md).
+administration](#dns).
 
 ### Ingress Stack
 
@@ -36,9 +36,8 @@ software development lifecycle.
 
 <div class="confluence-information-macro-body">
 
-The [Flightdeck repository
-template](../reference/templates/flightdeck-template.md) comes with
-configuration for the ingress stack.
+The [Flightdeck repository template](https://github.com/thoughtbot/flightdeck-template)
+comes with configuration for the ingress stack.
 
 </div>
 
@@ -60,7 +59,7 @@ infra/
 </div>
 
 Flightdeck includes a [Terraform
-module](../reference/modules/flightdeck--ingress.md) for provisioning an
+module](https://github.com/thoughtbot/flightdeck/tree/main/aws/ingress) for provisioning an
 entire ingress stack, including:
 
   - An [application load
@@ -84,4 +83,4 @@ lifecycle to provision the ingress stack.
 
 Once the ingress stack is fully provisioned, you are ready to proceed
 with [deploying the Flightdeck
-platform](../provision-platform-resources/deploy-flightdeck.md).
+platform](#deploy-flightdeck).

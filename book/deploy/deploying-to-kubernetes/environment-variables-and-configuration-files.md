@@ -5,7 +5,7 @@ Configuration for pods can provided as environment variables or files by
 creating config maps and secrets. Both are documents containing
 key/value data. Config maps are for non-sensitive data. For storing
 sensitive data like passwords and API tokens, see [managing
-secrets](../../deploy/managing-secrets.md).
+secrets](#managing-secrets).
 
 #### Config Maps
 

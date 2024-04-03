@@ -34,7 +34,7 @@ accounts](https://thoughtbot.atlassian.net/wiki/spaces/APG/pages/10649900):
 <div class="confluence-information-macro-body">
 
 You can provision the standard accounts using the [landing zone
-repository template](../reference/templates/landing-zone-template.md).
+repository template](https://github.com/thoughtbot/aws-landing-zone-template).
 
 </div>
 
@@ -42,7 +42,7 @@ repository template](../reference/templates/landing-zone-template.md).
 
 It may take some time for all the required accounts to be provisioned.
 Once all the accounts are fully enrolled, you are ready to create VPC
-[networks.](../provision-platform-resources/provision-networks.md)
+[networks.](#provision-networks)
 
 ![Diagram of recommended accounts with resources that belong in each
 account](./images/accounts--1-.png)
