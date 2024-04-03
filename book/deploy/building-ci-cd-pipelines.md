@@ -15,10 +15,3 @@ The process for using these tools is fairly similar:
 We prefer to use GitHub Actions to deploy our applications to AWS.
 
 Some of our clients also use AWS Code Pipeline to deploy.
-
------
-
-  - [GitHub
-    Actions](../deploy/building-ci-cd-pipelines/github-actions.md)
-  - [AWS Code
-    Pipeline](../deploy/building-ci-cd-pipelines/aws-code-pipeline.md)

@@ -1,3 +1,4 @@
+
 ## AWS Accounts
 
 When possible, thoughtbot uses a multi-account architecture. thoughtbot
