@@ -23,22 +23,22 @@ with the correct permissions set as a secret in the workflow source.
 
 4.  From the left navigation menu in `Developer settings`, access
     Personal Access Token
-    
+
     1.  If presented with a dropdown, select `Tokens (classic)`
 
 5.  You may now generate a new PAT with the `Generate new token` button
     above the list of PATs already in existence
 
 6.  In the popup:
-    
+
     1.  Notate the purpose of the token
-    
+
     2.  Choose its expiration timeframe
-    
+
     3.  Ensure that the token has the correct permissions by selecting
         the checkbox next to `repo`
 
-![image 20221025 141717](./images/image-20221025-141717.png)
+![The correct repo permissions for the token](./images/image-20221025-141717.png)
 
 d. Click the `Generate token` green button at the bottom
 
@@ -60,9 +60,9 @@ retrieve it again once you leave this page.
 1.  In the repo that is running the CI/CD workflow, navigate to
     `Settings` with the horizontal navigation menu
 
-2.  From the left navigation menu, go to Security \> Secrets \> Actions
-    
-    1.  ![image 20221025 142406](./images/image-20221025-142406.png)
+2.  From the left navigation menu, go to Security > Secrets > Actions
+
+    ![Security > Secrets > Actions](./images/image-20221025-142406.png)
 
 3.  Create a `New repository secret` with the green button at the top
 

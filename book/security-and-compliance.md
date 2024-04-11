@@ -5,30 +5,31 @@
 
 thoughtbot recommends the following AWS services in its platform:
 
-<div class="table-wrap">
+| Service         | [SOC] | [HITRUST CSF] | [HIPAA BAA] | [GDPR] |
+| --------------- | ----- | ------------- | ----------- | ------ |
+| EC2             | ✔     | ✔             | ✔           | ✔      |
+| RDS Postgres    | ✔     | ✔             | ✔           | ✔      |
+| OpenSearch      | ✔     | ✔             | ✔           | ✔      |
+| EKS             | ✔     | ✔             | ✔           | ✔      |
+| KMS             | ✔     | ✔             | ✔           | ✔      |
+| CloudWatch      | ✔     | ✔             | ✔           | ✔      |
+| CloudWatch Logs | ✔     | ✔             | ✔           | ✔      |
+| Secrets Manager | ✔     | ✔             | ✔           | ✔      |
+| Config          | ✔     | ✔             | ✔           | ✔      |
+| Route 53        | ✔     | ✔             | ✔           | ✔      |
+| ECR             | ✔     | ✔             | ✔           | ✔      |
+| S3              | ✔     | ✔             | ✔           | ✔      |
+| CloudTrail      | ✔     | ✔             | ✔           | ✔      |
+| DynamoDB        | ✔     | ✔             | ✔           | ✔      |
+| ELB             | ✔     | ✔             | ✔           | ✔      |
+| ACM             | ✔     | ✔             | ✔           | ✔      |
+| SNS             | ✔     | ✔             | ✔           | ✔      |
+| SQS             | ✔     | ✔             | ✔           | ✔      |
 
-| **Service**     | [**SOC**](https://aws.amazon.com/compliance/services-in-scope/SOC/) | [**HITRUST CSF**](https://aws.amazon.com/compliance/services-in-scope/HITRUST-CSF/) | [**HIPAA BAA**](https://aws.amazon.com/compliance/hipaa-eligible-services-reference/) | [**GDPR**](https://aws.amazon.com/compliance/gdpr-center/) |
-| --------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| EC2             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| RDS Postgres    | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| OpenSearch      | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| EKS             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| KMS             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| CloudWatch      | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| CloudWatch Logs | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| Secrets Manager | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| Config          | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| Route 53        | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| ECR             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| S3              | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| CloudTrail      | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| DynamoDB        | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| ELB             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| ACM             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| SNS             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-| SQS             | ![(tick)](images/icons/emoticons/check.png)                         | ![(tick)](images/icons/emoticons/check.png)                                         | ![(tick)](images/icons/emoticons/check.png)                                           | ![(tick)](images/icons/emoticons/check.png)                |
-
-</div>
+[SOC]: https://aws.amazon.com/compliance/services-in-scope/SOC/
+[HITRUST CSF]: https://aws.amazon.com/compliance/services-in-scope/HITRUST-CSF/
+[HIPAA BAA]: https://aws.amazon.com/compliance/hipaa-eligible-services-reference/
+[GDPR]: https://aws.amazon.com/compliance/gdpr-center/
 
 You should be familiar with the [AWS Shared Responsibility
 model](https://aws.amazon.com/compliance/shared-responsibility-model/).

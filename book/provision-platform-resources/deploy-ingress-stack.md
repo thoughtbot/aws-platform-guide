@@ -25,7 +25,7 @@ administration](#dns).
 
 ### Ingress Stack
 
-![ingress](./images/ingress.png)
+![A diagram of the Ingress Stack](./images/ingress.png)
 
 Create a root module for the ingress stack for each stage of the
 software development lifecycle.

@@ -40,4 +40,4 @@ configuration for necessary networks.
 
 </div>
 
-![networks](./images/networks.svg)
+![A Digram of the Network setup](./images/networks.svg)

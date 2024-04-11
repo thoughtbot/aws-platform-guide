@@ -1,7 +1,7 @@
 
 ## DNS
 
-![dns](./images/dns.svg)
+![A diagram of our standard DNS setup](./images/dns.svg)
 
 In the [infrastructure
 repository](#repository-conventions)

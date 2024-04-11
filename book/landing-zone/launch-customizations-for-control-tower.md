@@ -34,10 +34,10 @@ during repo creation.
 2.  Make a clone of the [landing zone
     template](https://github.com/thoughtbot/aws-landing-zone-template)
     repository.
-    
-    1.  You can select the template repo from the repo creation page
-        
-        ![image 20230807 212445](./images/image-20230807-212445.png)
+
+    You can select the template repo from the repo creation page
+
+    ![Creating a GitHub repository from a template](./images/image-20230807-212445.png)
 
 3.  If there are legacy accounts to enroll, see [Enroll Existing
     (Legacy)
