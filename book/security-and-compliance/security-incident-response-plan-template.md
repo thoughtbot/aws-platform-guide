@@ -180,9 +180,6 @@ needed\>*
 
   - Document any observations and decisions made based upon discussion
     or evidence analysis.
-    
-      - *\<add details about where and how to document: Confluence? Jira
-        tickets? Other?\>*
 
 The rationale used to determine whether the suspicious events constitute
 a *Security Incident* must be documented. 
