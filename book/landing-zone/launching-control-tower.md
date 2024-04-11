@@ -77,39 +77,35 @@ steps](#landing-zone-prerequisites).
 6.  Deploy your landing zone (steps below follow the Control Tower
     [getting started
     guide](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html))
-    
+
     1.  Create shared account emails for `logs` and `audit` accounts:
         [AWS
         Guide](https://docs.aws.amazon.com/controltower/latest/userguide/step-one.html)
-    
+
     2.  Configure and launch your Landing Zone: [AWS
         Guide](https://docs.aws.amazon.com/controltower/latest/userguide/step-two.html)
-    
+
     3.  Review and set up the landing zone: [AWS
         Guide](https://docs.aws.amazon.com/controltower/latest/userguide/review-and-set-up.html)
-        
+
         1.  You can use the default names for OUs and foundational
             accounts.
-        
+
         2.  <span class="inline-comment-marker" data-ref="db00ac43-732f-448c-9234-f3b64a660485">Enable
             encryption settings using KMS. You will need to create a new
             symmetric, single-region key. When prompted for an alias,
             enter
             </span>`control-tower`<span class="inline-comment-marker" data-ref="db00ac43-732f-448c-9234-f3b64a660485">.</span>
-            
+
             1.  Edit the policy for the KMS key you created to grant
                 [permissions that allow AWS
                 CloudTrail](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#kms-key-policy-update)
                 and AWS Config to use the chosen KMS key. You can use
                 the following statement:
-            
-            2.  
-                
-                <div class="code panel pdl" style="border-width: 1px;">
-                
-                <div class="codeContent panelContent pdl">
-                
-                ``` syntaxhighlighter-pre
+
+            2.
+
+                ```
                 {
                   "Sid": "CloudTrail and AWS Config to encrypt/decrypt logs",
                   "Effect": "Allow",
@@ -126,11 +122,7 @@ steps](#landing-zone-prerequisites).
                   "Resource": "*"
                 }
                 ```
-                
-                </div>
-                
-                </div>
-        
+
         3.  Select the key you created and launch your landing zone. If
             you receive quota-related errors during this step for a
             freshly-created account, wait at least an hour and try

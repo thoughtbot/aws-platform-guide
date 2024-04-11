@@ -53,11 +53,7 @@ endpoints to be removed.
 
 Add the following to your web container manifest:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 # Add to spec.template.spec.containers in your web deployment
 lifecycle:
   preStop:
@@ -65,25 +61,13 @@ lifecycle:
       command: ["/bin/sleep","30"]
 ```
 
-</div>
-
-</div>
-
 Then increase your pod's termination grace period to avoid receiving
 SIGKILL:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 # Add to spec.template.spec in your web deployment
 terminationGracePeriodSeconds: 60
 ```
-
-</div>
-
-</div>
 
 For more information, see [Puma documentation for
 Kubernetes](https://github.com/puma/puma/blob/master/docs/kubernetes.md#graceful-shutdown-and-pod-termination).
@@ -105,11 +89,7 @@ based on the size of the instance.
 
 You can use a console to check the number of database connections:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 % flightctl console rails dbconsole -p
 postgres=> show max_connections;
  max_connections
@@ -117,26 +97,14 @@ postgres=> show max_connections;
  83
 ```
 
-</div>
-
-</div>
-
 Note that some connections will be reserved for superusers:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 postgres=> show superuser_reserved_connections;
  superuser_reserved_connections
 --------------------------------
  3
 ```
-
-</div>
-
-</div>
 
 In this example, the application is allowed to use at most 80
 connections.

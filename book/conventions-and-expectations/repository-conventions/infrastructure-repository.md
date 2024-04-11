@@ -5,25 +5,17 @@ The infrastructure repository contains Terraform modules for managing
 cloud resources and Kubernetes Helm charts required for the platform. We
 name this repository "*organization* infra."
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
-infra/ 
-  cd/ 
-  ci/ 
-  cicd-common/ 
-  cluster/ 
-  hosted-zones/ 
-  network/ 
-  operations-platform/ 
+```
+infra/
+  cd/
+  ci/
+  cicd-common/
+  cluster/
+  hosted-zones/
+  network/
+  operations-platform/
   workload-platform/
 ```
-
-</div>
-
-</div>
 
 <div class="confluence-information-macro confluence-information-macro-information">
 

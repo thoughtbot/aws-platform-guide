@@ -44,20 +44,12 @@ cluster](https://docs.aws.amazon.com/eks/latest/userguide/clusters.html)
 and [managed node
 groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   cluster/
     sandbox-v1/
     production-v1/
 ```
-
-</div>
-
-</div>
 
 ### Platform
 
@@ -65,20 +57,12 @@ You are now ready to deploy Flightdeck for the sandbox and production
 clusters using the [workload platform
 module](https://github.com/thoughtbot/flightdeck/tree/main/aws/platform).
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   platform/
     sandbox-v1/
     production-v1/
 ```
-
-</div>
-
-</div>
 
 Once these modules are applied, you can deploy
 [Grafana](#deploy-grafana) for

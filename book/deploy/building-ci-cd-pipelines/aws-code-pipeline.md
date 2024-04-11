@@ -14,18 +14,10 @@ In the [infrastructure
 repository](#infrastructure-repository),
 create a root module for common CI/CD resources:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   cicd-common/
 ```
-
-</div>
-
-</div>
 
 In order to deploy CI/CD pipelines on AWS, you will need the following:
 
@@ -63,19 +55,11 @@ webhooks. Build projects and related resources should be provisioned in
 the [Operations
 account](#aws-accounts).
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   ci/
-    APPLICATION/  
+    APPLICATION/
 ```
-
-</div>
-
-</div>
 
 In order to build Docker images for an application, you'll need:
 
@@ -129,19 +113,11 @@ cluster. This pipeline can be triggered when pull requests are merged
 using webhooks. Pipelines should be provisioned in the [Operations
 account](#aws-accounts).
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   cd/
     APPLICATION/
 ```
-
-</div>
-
-</div>
 
   - An IAM role for deploying to each cluster. You can create one using
     the [deploy role Terraform

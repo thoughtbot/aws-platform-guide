@@ -13,11 +13,7 @@ Kubernetes Secret Storage provider.
 On AWS, you can synchronize a secret to your cluster by creating a
 secret provider class:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
 metadata:
@@ -39,18 +35,10 @@ spec:
           objectAlias: SECRET_KEY_BASE
 ```
 
-</div>
-
-</div>
-
 Once a secret provider class is created, you can mount them similarly to
 config maps:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -89,7 +77,3 @@ spec:
           mountPath: /app/config/application.yml
           subPath: application.yml
 ```
-
-</div>
-
-</div>

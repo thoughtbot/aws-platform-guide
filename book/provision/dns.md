@@ -8,21 +8,13 @@ repository](#repository-conventions)
 for the organization, you can create Terraform root modules for managing
 hosted zones for root domains and subdomains:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   hosted-zones/
     example.com/
     production.example.com/
     staging.example.com/
 ```
-
-</div>
-
-</div>
 
 You can use `aws_route53_zone` to manage root domains. These hosted
 zones should be placed in the [Network

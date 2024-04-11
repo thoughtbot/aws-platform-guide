@@ -26,33 +26,21 @@ in AWS you will need three IAM roles for an application:
 You can use the service-account-role module from Flightdeck to the
 service account and an IAM role with the proper trust policy:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "pod_role" {
   source = "github.com/thoughtbot/flightdeck//aws/service-account-role?ref=v0.9.0"
 
   cluster_names    = ["example-sandbox-v1"]
   name             = "example-pods"
-  
+
   # Your manifests must use a service account with the same name and namespace
   service_accounts = ["example:example-staging"]
 }
 ```
 
-</div>
-
-</div>
-
 You can then create IAM policies and attach them to the role:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 resource "aws_iam_policy" "reports_bucket" {
   name   = "example-bucket"
   policy = module.example_bucket.policy_json
@@ -64,44 +52,28 @@ resource "aws_iam_role_policy_attachment" "reports_bucket" {
 }
 ```
 
-</div>
-
-</div>
-
 You can pass this role to the Flightdeck application-config module to
 set up the proper service account and annotations to map pods to the
 role:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "staging_sandbox_v1" {
   source    = "github.com/thoughtbot/flightdeck//aws/application-config"
 
   # This must match the service account and namespace declared above
   namespace               = "example-staging"
   pod_service_account     = "example"
-  
+
   pod_iam_role            = module.pod_role.arn
 }
 ```
-
-</div>
-
-</div>
 
 #### Deploy Role
 
 If you’re using GitHub Actions, you can use the EKS deploy role module
 to create your deploy role:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "deploy_role" {
   source = "github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-eks-deploy-role?ref=v0.1.1"
 
@@ -114,18 +86,10 @@ module "deploy_role" {
 }
 ```
 
-</div>
-
-</div>
-
 This role must be added to the aws-auth ConfigMap, which you can do in
 the platform configuration:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "platform" {
   source = "github.com/thoughtbot/flightdeck//aws/platform?ref=v0.9.0"
 
@@ -141,21 +105,13 @@ data "aws_iam_role" "eks_auth" {
 }
 ```
 
-</div>
-
-</div>
-
 You can then use Kubernetes role bindings to assign permissions to the
 role.
 
 If you’re using the Flightdeck application-config module, you can
 include the deploy group as part of your configuration:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "staging_sandbox_v1" {
   providers = { kubernetes = kubernetes.sandbox_v1 }
   source    = "github.com/thoughtbot/flightdeck//aws/application-config"
@@ -164,18 +120,10 @@ module "staging_sandbox_v1" {
 }
 ```
 
-</div>
-
-</div>
-
 Flightdeck also includes a module to provide write access to a single
 namespace if you’re configuring your deploy role separately:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "deploy_role_bindings" {
   source     = "github.com/thoughtbot/flightdeck//aws/deploy-role-bindings"
 
@@ -185,20 +133,12 @@ module "deploy_role_bindings" {
 }
 ```
 
-</div>
-
-</div>
-
 #### Developer Role
 
 If you’re using the Flightdeck application-config module, you can
 include the developer group as part of your configuration:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "staging_sandbox_v1" {
   providers = { kubernetes = kubernetes.sandbox_v1 }
   source    = "github.com/thoughtbot/flightdeck//aws/application-config"
@@ -207,18 +147,10 @@ module "staging_sandbox_v1" {
 }
 ```
 
-</div>
-
-</div>
-
 Flightdeck also includes a module to provide read access to a single
 namespace if you’re configuring your developer role separately:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "developer_role_bindings" {
   source     = "github.com/thoughtbot/flightdeck//aws/developer-role-bindings"
 
@@ -229,18 +161,10 @@ module "developer_role_bindings" {
 }
 ```
 
-</div>
-
-</div>
-
 This role must be added to the aws-auth ConfigMap, which you can do in
 the platform configuration:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "platform" {
   source = "github.com/thoughtbot/flightdeck//aws/platform?ref=v0.9.0"
 
@@ -255,7 +179,3 @@ module "sso_roles" {
   source = "github.com/thoughtbot/terraform-aws-sso-permission-set-roles?ref=v0.2.0"
 }
 ```
-
-</div>
-
-</div>

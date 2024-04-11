@@ -43,20 +43,12 @@ comes with configuration for the ingress stack.
 
 </div>
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   ingress/
     sandbox/
     production/
 ```
-
-</div>
-
-</div>
 
 Flightdeck includes a [Terraform
 module](https://github.com/thoughtbot/flightdeck/tree/main/aws/ingress) for provisioning an

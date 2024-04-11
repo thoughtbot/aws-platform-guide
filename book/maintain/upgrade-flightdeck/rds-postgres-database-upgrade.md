@@ -13,7 +13,7 @@ process.
     stating that the current parameter group is not compatible with the
     version you are upgrading to. To resolve this, you should modify the
     parameter group attached to the database to one of the default
-    parameter group created by AWS for the current Postgres version. |  
+    parameter group created by AWS for the current Postgres version. |
     For example, if the database is currently on Postgres12, you may
     modify the parameter group to the `default.postgres12` parameter
     group.
@@ -26,7 +26,7 @@ process.
 3.  Confirm that there are no open prepared transactions using this
     command before commencing the upgrade. If the upgrade is initiated
     during off-hours period, there should be no open prepared
-    transactions.  
+    transactions.
     `SELECT count(*) FROM pg_catalog.pg_prepared_xacts;`
 
 4.  Initiate a database backup before starting the database upgrade.
@@ -39,21 +39,13 @@ process.
     upgrade, This operation will regenerate all statistics to avoid
     performance issues. You may add a verbose flag to show the progress
     of the operation.
-    
-    <div class="code panel pdl" style="border-width: 1px;">
-    
-    <div class="codeContent panelContent pdl">
-    
-    ``` syntaxhighlighter-pre
+
+    ```
     ANALYZE VERBOSE;
     ```
-    
-    </div>
-    
-    </div>
-    
+
     See [ANALYZE](https://www.postgresql.org/docs/10/sql-analyze.html)
-    in the PostgreSQL documentation.  
+    in the PostgreSQL documentation.
 
 #### Troubleshooting issues with the Postgres database upgrade.
 

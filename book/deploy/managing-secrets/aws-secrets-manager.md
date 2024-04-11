@@ -19,59 +19,43 @@ your secret data.
   - <span class="inline-comment-marker" data-ref="eca7a0a0-b83d-49ab-b1a5-05ea4964344a">For
     things like the Rails secret base</span>, we generate a random one
     in Terraform and populate it there.
-    
-    <div class="code panel pdl" style="border-width: 1px;">
-    
-    <div class="codeContent panelContent pdl">
-    
-    ``` syntaxhighlighter-pre
+
+    ```
     resource "random_password" "secret_key_base" {
       length  = 32
       special = false
     }
-    
+
     module "rails_secret" {
       source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
-    
+
       description = "Secrets for the Rails application"
       name        = "example-app-secret"
-    
+
       initial_value = jsonencode({
         SECRET_KEY_BASE = random_password.secret_key_base.result
       })
     }
     ```
-    
-    </div>
-    
-    </div>
 
   - For external tokens that we can't control, we create an empty secret
     in Terraform (using
     [thoughtbot/terraform-aws-secrets/secret](https://github.com/thoughtbot/terraform-aws-secrets/tree/main/secret)
     as source) and populate it by hand in AWS Management Console.
-    
-    <div class="code panel pdl" style="border-width: 1px;">
-    
-    <div class="codeContent panelContent pdl">
-    
-    ``` syntaxhighlighter-pre
+
+    ```
     module "prismic_secret" {
       source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
-    
+
       description = "Secrets for accessing the Prismic API"
       name        = "example-prismic"
-    
+
       initial_value = jsonencode({
         # Fill this in using the SecretsManager UI or CLI
         PRISMIC_ACCESS_TOKEN = ""
       })
     }
     ```
-    
-    </div>
-    
-    </div>
 
 Once you’ve safely stored your secret using Secrets Manager, you can
 [add secrets to pods as environment variables or

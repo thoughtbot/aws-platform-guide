@@ -9,20 +9,12 @@ For each [application repository](#), resources related to the CI Job
 should be provisioned in the [Operations
 Account](#aws-accounts).
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   applications/
     APPLICATION/
       operations/
 ```
-
-</div>
-
-</div>
 
 In order to build Docker images for an application, you'll need:
 
@@ -34,17 +26,13 @@ In order to build Docker images for an application, you'll need:
     You can use the [ECR repository Terraform
     module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/ecr-repository)
     to set this up.
-    
-    <div class="code panel pdl" style="border-width: 1px;">
-    
-    <div class="codeContent panelContent pdl">
-    
-    ``` syntaxhighlighter-pre
+
+    ```
     module "ecr_repository" {
       source = "github.com/thoughtbot/terraform-eks-cicd//modules/ecr-repository?ref=v0.1.0"
-    
+
       name = "example-org/example-app"
-    
+
       # AWS accounts allowed to pull this image
       workload_account_ids = [
         "123456789010", # Sandbox account ID
@@ -52,10 +40,6 @@ In order to build Docker images for an application, you'll need:
       ]
     }
     ```
-    
-    </div>
-    
-    </div>
 
   - An IAM OIDC provider which trusts your GitHub Actions workflow. If
     you used the [landing zone
@@ -66,15 +50,11 @@ In order to build Docker images for an application, you'll need:
 
   - An IAM role that can be assumed by GitHub using OIDC and access ECR
     in order to push your built Docker image.
-    
-    <div class="code panel pdl" style="border-width: 1px;">
-    
-    <div class="codeContent panelContent pdl">
-    
-    ``` syntaxhighlighter-pre
+
+    ```
     module "ecr_role" {
       source = "github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-ecr-role?ref=v0.1.1"
-    
+
       allow_github_pull_requests = true
       ecr_repositories           = [module.ecr_repository.name]
       github_branches            = ["main", "production"]
@@ -82,18 +62,14 @@ In order to build Docker images for an application, you'll need:
       github_repository          = "example-app"
       iam_oidc_provider_arn      = data.aws_ssm_parameter.iam_oidc_provider_arn.value
       name                       = "github-actions-ecr-example"
-    
+
       depends_on = [module.ecr_repository]
     }
-    
+
     data "aws_ssm_parameter" "iam_oidc_provider_arn" {
       name = "/GitHubActions/OIDCProviderArn"
     }
     ```
-    
-    </div>
-    
-    </div>
 
   - Once this root module is applied, create GitHub Actions job(s) to
     build Docker images and generate manifests. These Actions can be

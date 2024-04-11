@@ -9,11 +9,7 @@ requests](https://kubernetes.io/docs/concepts/configuration/manage-resources-con
 in your pod manifests. Here is an example container which requests
 512MiB of RAM and expects to use half a CPU core:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 spec:
   containers:
   - name: main
@@ -23,10 +19,6 @@ spec:
         memory: 512Mi
         cpu: "500m"
 ```
-
-</div>
-
-</div>
 
 We strongly recommend adding resource requests to all your containers.
 This will tell the cluster how much space it should expect to allocate
@@ -43,11 +35,7 @@ part of the Flightdeck platform. Here is an example which will
 automatically adjust the size of the pods for a deployment, but will
 never scale it beyond 2 CPU cores or 4GiB of memory:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
@@ -66,7 +54,3 @@ spec:
         cpu: 2000m
         memory: 4Gi
 ```
-
-</div>
-
-</div>

@@ -9,11 +9,7 @@ objects also have a `spec`.
 
 Metadata declares information used to identify and find resources.
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 # Kubernetes objects are versioned and grouped. When objects evolve in ways that
 # aren't backwards compatible, they are released as a new version.
 apiVersion: apps/v1
@@ -43,10 +39,6 @@ metadata:
 spec:
   # ...
 ```
-
-</div>
-
-</div>
 
 #### `spec`
 

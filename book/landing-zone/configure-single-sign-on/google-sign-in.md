@@ -93,9 +93,9 @@ Now enable domain-wide delegation for your service account:
 
 3.  Fill in the Client ID for the service account you saved earlier.
 
-4.  Under OAuth scopes, specify the following:  
-    <https://www.googleapis.com/auth/admin.directory.group.readonly>  
-    <https://www.googleapis.com/auth/admin.directory.group.member.readonly>  
+4.  Under OAuth scopes, specify the following:
+    <https://www.googleapis.com/auth/admin.directory.group.readonly>
+    <https://www.googleapis.com/auth/admin.directory.group.member.readonly>
     <https://www.googleapis.com/auth/admin.directory.user.readonly>
 
 5.  Click **Authorize**.
@@ -115,18 +115,14 @@ Enable SCIM for your Identity Center directory:
 
 4.  Create a new Terraform module in the infrastructure repository under
     `sso-sync/secrets` to store the credentials:
-    
-    <div class="code panel pdl" style="border-width: 1px;">
-    
-    <div class="codeContent panelContent pdl">
-    
-    ``` syntaxhighlighter-pre
+
+    ```
     module "secret" {
       source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
-    
+
       description = "Secrets for deploying the AWS/Google SSO Sync Lambda"
       name        = "aws-google-sso-sync"
-    
+
       initial_value = jsonencode({
         GoogleCredentials       = ""
         SCIMEndpointAccessToken = ""
@@ -134,10 +130,6 @@ Enable SCIM for your Identity Center directory:
       })
     }
     ```
-    
-    </div>
-    
-    </div>
 
 5.  Apply the Terraform module.
 
@@ -157,15 +149,11 @@ Enable SCIM for your Identity Center directory:
 
 11. Create a new Terraform module in the infrastructure repository under
     `sso-sync/lambda` to deploy the SSOSync Lambda:
-    
-    <div class="code panel pdl" style="border-width: 1px;">
-    
-    <div class="codeContent panelContent pdl">
-    
-    ``` syntaxhighlighter-pre
+
+    ```
     module "lambda" {
       source = "github.com/thoughtbot/terraform-aws-google-sso?ref=v0.1.0"
-    
+
       google_admin_email         = "google-admin@example.com"
       google_credentials         = local.secrets.GoogleCredentials
       google_group_match         = "email:aws-*"
@@ -174,21 +162,17 @@ Enable SCIM for your Identity Center directory:
       scim_endpoint_url          = local.secrets.SCIMEndpointUrl
       semantic_version           = "2.0.2"
     }
-    
+
     locals {
       secrets = jsondecode(
         data.aws_secretsmanager_secret_version.sso_sync.secret_string
       )
     }
-    
+
     data "aws_secretsmanager_secret_version" "sso_sync" {
       secret_id = "aws-google-sso-sync"
     }
     ```
-    
-    </div>
-    
-    </div>
 
 12. Apply the module.
 

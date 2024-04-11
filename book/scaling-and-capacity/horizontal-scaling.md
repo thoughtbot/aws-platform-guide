@@ -6,11 +6,7 @@ deployment. The simplest way is to specify the number of replicas in
 your deployment manifest. This example will run three pods for a
 deployment, balancing requests between them:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,10 +14,6 @@ metadata:
 spec:
   replicas: 3
 ```
-
-</div>
-
-</div>
 
 ### Autoscaling
 
@@ -31,11 +23,7 @@ automatically add and remove replicas based on metrics observed in your
 cluster. Here as an example which automatically scales deployment based
 on the number of incoming requests per second:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -56,7 +44,3 @@ spec:
         type: AverageValue
         averageValue: 10
 ```
-
-</div>
-
-</div>

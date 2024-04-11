@@ -14,28 +14,16 @@ This is an advanced topic for platform engineers.
 Create a new root module to deploy the Flightdeck platform for the
 sandbox cluster using the <span>workload platform module</span>.
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   platform/
     sandbox-v1
 ```
 
-</div>
-
-</div>
-
 You can copy the configuration for the previous version of the platform,
 updating the version of Flightdeck.
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "platform" {
   # Use the latest version of Flightdeck
   source = "github.com/thoughtbot/flightdeck//aws/platform?ref=UPDATE"
@@ -51,10 +39,6 @@ data "aws_eks_cluster" "this" {
   name = "mycompany-sandbox-v2"
 }
 ```
-
-</div>
-
-</div>
 
 Apply this module to install the necessary components on your new
 cluster.

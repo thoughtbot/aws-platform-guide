@@ -27,19 +27,11 @@ This instance can also be used as a data source for AWS Managed Grafana.
 
 Create a root module for your Prometheus workspace:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   monitoring/
     prometheus-workspace/
 ```
-
-</div>
-
-</div>
 
 Apply [prometheus-workspace
 module](https://github.com/thoughtbot/flightdeck/tree/main/aws/prometheus-workspace)
@@ -49,11 +41,7 @@ account](#aws-accounts).
 Update your production workload platform configuration to use the
 Prometheus workspace:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "workload_platform" {
   # Match the value from the monitoring/prmetheus-workspace module
   prometheus_workspace_name = "flightdeck"
@@ -62,10 +50,6 @@ module "workload_platform" {
   monitoring_account_id = "123456789012"
 }
 ```
-
-</div>
-
-</div>
 
 Apply the workload platform module to start writing to the Prometheus
 workspace.

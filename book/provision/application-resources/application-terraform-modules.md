@@ -5,11 +5,7 @@ Application should be provisioned using Terraform. For each application
 that requires resources in AWS, create a Terraform root module for each
 account in which it will be deployed.
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   applications/
     example/
@@ -17,18 +13,10 @@ infra/
       production/
 ```
 
-</div>
-
-</div>
-
 To ensure that staging and production match, you can encapsulate
 stateful resources into a module:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   applications/
     example/
@@ -36,19 +24,11 @@ infra/
         state/
 ```
 
-</div>
-
-</div>
-
 You can then this module to provision resources in each account. You can
 also use the Flightdeck application-config module to set up the
 namespace, service account, secrets, and role bindings in your cluster:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 # applications/example/sandbox/main.tf
 
 module "staging" {
@@ -80,7 +60,3 @@ data "aws_eks_cluster" "sandbox_v1" {
   name = "example-sandbox-v1"
 }
 ```
-
-</div>
-
-</div>

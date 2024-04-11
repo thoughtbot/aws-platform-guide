@@ -7,17 +7,9 @@ values and makes it easy to deploy both using a CI/CD pipeline. This
 allows us to separate code from configuration. These repositories should
 be named "*application*-manifests."
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
-buildspec.yaml 
-bases/ 
-charts/ 
+```
+buildspec.yaml
+bases/
+charts/
 overlays/
 ```
-
-</div>
-
-</div>

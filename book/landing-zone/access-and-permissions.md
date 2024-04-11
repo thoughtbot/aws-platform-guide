@@ -54,11 +54,7 @@ to provision and assign permission sets in the Identity account.
 Create a new module in the infrastructure repository called
 `permissions`:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "permission_sets" {
   source = "github.com/thoughtbot/terraform-aws-iam-permission-sets?ref=v0.2.0"
 
@@ -135,10 +131,6 @@ module "permission_sets" {
   }
 }
 ```
-
-</div>
-
-</div>
 
 After applying the module, permission sets will be provisioned and
 assign for each account as configured.

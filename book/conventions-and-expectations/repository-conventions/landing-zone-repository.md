@@ -8,20 +8,12 @@ deployed as a customized package for [Customizations for Control
 Tower](https://aws.amazon.com/solutions/implementations/customizations-for-aws-control-tower/).
 We typically name this repository "*organization*-landing-zone."
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 landing-zone/
   manifest.yaml
   policies/
   templates/
 ```
-
-</div>
-
-</div>
 
 <div class="confluence-information-macro confluence-information-macro-information">
 

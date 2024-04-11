@@ -16,20 +16,12 @@ In the infrastructure
 for the organization, you can create Terraform root modules for managing
 VPCs and related networking resources:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 infra/
   network/
     sandbox/
     production/
 ```
-
-</div>
-
-</div>
 
 These networks can be provisioned using the [network Terraform
 module](https://github.com/thoughtbot/flightdeck/tree/main/aws/network) from Flightdeck.

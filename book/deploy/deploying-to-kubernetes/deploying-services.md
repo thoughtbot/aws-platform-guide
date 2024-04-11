@@ -13,11 +13,7 @@ Services must provide a selector to describe which pods will fulfill
 this service's requests. If your service exposes any ports, they will
 also be described here.
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -49,20 +45,12 @@ spec:
   type: ClusterIP
 ```
 
-</div>
-
-</div>
-
 #### Deployments
 
 Deployments describe how to create the pods that will run to fulfill a
 service.
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -155,7 +143,3 @@ spec:
         image: docker.io/mycompany/myapplication:abcd123
         name: migrations
 ```
-
-</div>
-
-</div>

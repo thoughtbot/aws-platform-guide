@@ -26,11 +26,7 @@ For each secret you create, you will need to give your application’s
 service role permission to access the secret. You can do using IAM
 policies in Terraform:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 module "rails_secret" {
   source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
 
@@ -54,10 +50,6 @@ module "service_policy" {
   )
 }
 ```
-
-</div>
-
-</div>
 
 For more information on using Secrets Manager secrets, see [Managing
 Secrets](#managing-secrets) in the Deploy section.

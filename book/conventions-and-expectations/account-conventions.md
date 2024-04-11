@@ -13,7 +13,7 @@ accounts](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-
 
 We also use some extra accounts.
 
-![accounts](./images/accounts.png)
+![A diagram of the accounts and what they can access](./images/accounts.png)
 
 <div class="table-wrap">
 

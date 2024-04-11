@@ -16,11 +16,7 @@ pod as environment variables or as a file.
 
 You can define environment variables as key/value pairs in a config map:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -37,17 +33,9 @@ data:
   RAILS_SERVE_STATIC_FILES: "true"
 ```
 
-</div>
-
-</div>
-
 You can then mount them in pods by modifying your deployment manifest:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -69,19 +57,11 @@ spec:
             name: example
 ```
 
-</div>
-
-</div>
-
 ##### Files
 
 You can also store a file in a config map and mount it:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -94,17 +74,9 @@ data:
     :timeout: 25
 ```
 
-</div>
-
-</div>
-
 You can then mount them in pods by modifying your deployment manifest:
 
-<div class="code panel pdl" style="border-width: 1px;">
-
-<div class="codeContent panelContent pdl">
-
-``` syntaxhighlighter-pre
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -134,7 +106,3 @@ spec:
           mountPath: /app/config/sidekiq.yml
           subPath: sidekiq.yml
 ```
-
-</div>
-
-</div>
