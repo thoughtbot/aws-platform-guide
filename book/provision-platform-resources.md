@@ -1,15 +1,9 @@
 
 # Provision Platform Resources
 
-<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
-
-<div class="panelContent" style="background-color: #FFFAE6;">
-
+::: caution
 This is an advanced topic for platform engineers.
-
-</div>
-
-</div>
+:::
 
 On AWS, thoughtbot uses [Control
 Tower](https://aws.amazon.com/controltower/) to implement security best

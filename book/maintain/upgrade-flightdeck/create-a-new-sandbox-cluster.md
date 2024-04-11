@@ -1,15 +1,9 @@
 
 ### Create a new sandbox cluster
 
-<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
-
-<div class="panelContent" style="background-color: #FFFAE6;">
-
+::: caution
 This is an advanced topic for platform engineers.
-
-</div>
-
-</div>
+:::
 
 Create a new root module in the `cluster` directory of your
 infrastructure repository.

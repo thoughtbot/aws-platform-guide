@@ -1,32 +1,16 @@
 
 ## Launch Customizations for Control Tower
 
-<div class="confluence-information-macro confluence-information-macro-note">
-
-<span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: caution
 This is an advanced topic for platform engineers.
+:::
 
-</div>
-
-</div>
-
-<div class="confluence-information-macro confluence-information-macro-information">
-
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 You can use the [landing zone template
 repository](https://github.com/thoughtbot/aws-landing-zone-template) to
 set up your landing zone, by selecting the template from the dropdown
 during repo creation.
-
-</div>
-
-</div>
+:::
 
 1.  Accept the invitation to join AWS Identity Center that was sent to
     the management account email.

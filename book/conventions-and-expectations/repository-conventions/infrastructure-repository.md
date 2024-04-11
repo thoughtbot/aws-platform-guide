@@ -17,12 +17,7 @@ infra/
   workload-platform/
 ```
 
-<div class="confluence-information-macro confluence-information-macro-information">
-
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 You can create this repository using the
 [flightdeck-template](https://github.com/thoughtbot/flightdeck-template),
 by selecting it in the “Repository template” dropdown during repo

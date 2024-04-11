@@ -5,19 +5,11 @@ You will need to be an administrator for the Google domain to follow
 these instructions. This may require setting up a screen sharing session
 with somebody else who has access.
 
-<div class="confluence-information-macro confluence-information-macro-note">
-
-<span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 There is a difference between an admin for Google Cloud and Google
 Workspace. Make sure the owner of the service account is an admin for
 Google Workspace and are able to access the Google Admin Console.
-
-</div>
-
-</div>
+:::
 
 If you’re using Google as a sign-in provider, you’ll also want to deploy
 the sso-sync Lambda to automatically provision user accounts in Identity

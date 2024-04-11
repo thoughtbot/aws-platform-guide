@@ -1,15 +1,9 @@
 
 ## Deploy Ingress stack
 
-<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
-
-<div class="panelContent" style="background-color: #FFFAE6;">
-
+::: caution
 This is an advanced topic for platform engineers.
-
-</div>
-
-</div>
+:::
 
 In the infrastructure
 [repository](#infrastructure-repository)
@@ -30,12 +24,7 @@ administration](#dns).
 Create a root module for the ingress stack for each stage of the
 software development lifecycle.
 
-<div class="confluence-information-macro confluence-information-macro-information">
-
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 The [Flightdeck repository template](https://github.com/thoughtbot/flightdeck-template)
 comes with configuration for the ingress stack.
 

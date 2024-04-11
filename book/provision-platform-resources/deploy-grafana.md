@@ -1,15 +1,9 @@
 
 ## Deploy Grafana
 
-<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
-
-<div class="panelContent" style="background-color: #FFFAE6;">
-
+::: caution
 This is an advanced topic for platform engineers.
-
-</div>
-
-</div>
+:::
 
 We use [Grafana](https://grafana.com/) to monitor infrastructure and
 applications. You can use AWS's managed services to deploy centralized
@@ -65,23 +59,23 @@ need to create the workspace through the AWS Console.
 In the Operations account:
 
   - TODO: TF module for the following configs
-    
+
       - Create a workspace named "Flightdeck'.
-    
+
       - Enable SSO or SAML.
-    
+
       - Use service-managed permissions.
-    
+
       - Enable Managed Service for Prometheus and CloudWatch.
-    
+
       - Enable Amazon SNS.
-    
+
       - TODO: document about organization access type + OUs
 
   - Manual steps:
-    
+
       - Set yourself as an admin of the workspace.
-    
+
       - Add an SSO group to the workspace.
 
 TODO: Order of operation for prometheus workspace, grafana workspace,

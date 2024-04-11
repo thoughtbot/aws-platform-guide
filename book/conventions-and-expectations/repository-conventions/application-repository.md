@@ -10,15 +10,7 @@ Dockerfile
 buildspec.yaml
 ```
 
-<div class="confluence-information-macro confluence-information-macro-information">
-
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 You can quickly create new applications using
 [Suspenders](https://github.com/thoughtbot/suspenders).
-
-</div>
-
-</div>
+:::

@@ -1,15 +1,9 @@
 
 ### Deploy the Flightdeck platform
 
-<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
-
-<div class="panelContent" style="background-color: #FFFAE6;">
-
+::: caution
 This is an advanced topic for platform engineers.
-
-</div>
-
-</div>
+:::
 
 Create a new root module to deploy the Flightdeck platform for the
 sandbox cluster using the <span>workload platform module</span>.

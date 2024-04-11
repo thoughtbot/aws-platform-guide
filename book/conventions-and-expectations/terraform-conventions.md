@@ -27,19 +27,11 @@ using Control Tower, you can use customizations for Control Tower to
 create a Terraform state backend as part of the baseline for each
 account.
 
-<div class="confluence-information-macro confluence-information-macro-information">
-
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 The [landing zone template
 repository](https://github.com/thoughtbot/aws-landing-zone-template) comes with
 configuration for Terraform state backends.
-
-</div>
-
-</div>
+:::
 
 #### Filenames
 

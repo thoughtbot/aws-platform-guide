@@ -42,18 +42,10 @@ with the correct permissions set as a secret in the workflow source.
 
 d. Click the `Generate token` green button at the bottom
 
-<div class="confluence-information-macro confluence-information-macro-note">
-
-<span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 Make sure you copy the value of the PAT, you will not be able to
 retrieve it again once you leave this page.
-
-</div>
-
-</div>
+:::
 
 ##### Setting the token secret
 

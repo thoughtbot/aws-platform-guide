@@ -1,17 +1,9 @@
 
 ### Enroll Existing (Legacy) Accounts
 
-<div class="confluence-information-macro confluence-information-macro-note">
-
-<span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 This page is a work in progress.
-
-</div>
-
-</div>
+:::
 
 If the AWS Organization for which you are setting up Control
 Tower/Landing Zone contains legacy accounts that you wish to enroll to

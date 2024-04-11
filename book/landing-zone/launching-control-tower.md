@@ -1,16 +1,9 @@
 
 ## Launching Control Tower
 
-
-<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
-
-<div class="panelContent" style="background-color: #FFFAE6;">
-
+::: caution
 This is an advanced topic for platform engineers.
-
-</div>
-
-</div>
+:::
 
 ### AWS Landing Zone
 
@@ -37,19 +30,10 @@ policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage
 
 ### Getting Started
 
-<div class="confluence-information-macro confluence-information-macro-note">
-
-<span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 Before you can launch your landing zone, you will need to make sure you
-have completed all the [prerequisite
-steps](#landing-zone-prerequisites).
-
-</div>
-
-</div>
+have completed all the [prerequisite steps](#landing-zone-prerequisites).
+:::
 
 1.  Allow IAM administrators to manage billing following the [IAM
     billing

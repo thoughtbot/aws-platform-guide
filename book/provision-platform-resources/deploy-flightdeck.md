@@ -1,34 +1,20 @@
 
 ## Deploy Flightdeck
 
-<div class="panel" style="background-color: #FFFAE6;border-width: 1px;">
-
-<div class="panelContent" style="background-color: #FFFAE6;">
-
+::: caution
 This is an advanced topic for platform engineers.
-
-</div>
-
-</div>
+:::
 
 [Flightdeck](https://github.com/thoughtbot/flightdeck) is a platform for
 deploying and managing applications on Kubernetes. Flightdeck consists
 of Terraform modules for deploying a curated set of preconfigured open
 source projects and AWS products.
 
-<div class="confluence-information-macro confluence-information-macro-information">
-
-<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-
-<div class="confluence-information-macro-body">
-
+::: info
 The [Flightdeck template
 repository](https://github.com/thoughtbot/flightdeck-template) comes with
 configuration for clusters and the platform.
-
-</div>
-
-</div>
+:::
 
 ### Clusters
 
