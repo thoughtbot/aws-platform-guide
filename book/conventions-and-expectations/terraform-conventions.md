@@ -1,14 +1,9 @@
-
 ### Terraform Conventions
 
 We use Terraform to maintain infrastructure as code.
 
-<div class="toc-macro rbtoc1710773636907">
-
-  - [State Backends](#TerraformConventions-StateBackends)
-  - [Filenames](#TerraformConventions-Filenames)
-
-</div>
+- [State Backends](#state-backends)
+- [Filenames](#filenames)
 
 #### State Backends
 
@@ -35,8 +30,6 @@ configuration for Terraform state backends.
 
 #### Filenames
 
-<div class="table-wrap">
-
 |                |                                              |
 | -------------- | -------------------------------------------- |
 | `backend.tf`   | Configuration for the state backend          |
@@ -45,8 +38,6 @@ configuration for Terraform state backends.
 | `providers.tf` | Configuration for Terraform providers        |
 | `variables.tf` | Variables                                    |
 | `versions.tf`  | Required Terraform and provider versions     |
-
-</div>
 
 **Formatting**
 

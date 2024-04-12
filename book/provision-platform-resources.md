@@ -30,10 +30,10 @@ organizations.
 
 To install the platform, you can follow these guides:
 
-  - [Provision Networks](#provision-networks)
-  - [Deploy Ingress stack](#deploy-ingress-stack)
-  - [Deploy Flightdeck](#deploy-flightdeck)
-  - [Deploy Grafana](#deploy-grafana)
+- [Provision Networks](#provision-networks)
+- [Deploy Ingress stack](#deploy-ingress-stack)
+- [Deploy Flightdeck](#deploy-flightdeck)
+- [Deploy Grafana](#deploy-grafana)
 
 ## Installing without Control Tower
 

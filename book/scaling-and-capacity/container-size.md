@@ -1,11 +1,9 @@
-
 ## Container Size
 
 Unlike some other platforms, containers are not constrained to a
 predetermined size. When you deploy your application, you decide how
 much RAM and CPU to allocate to each container. This is done using
-[resource
-requests](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
+[resource requests](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
 in your pod manifests. Here is an example container which requests
 512MiB of RAM and expects to use half a CPU core:
 

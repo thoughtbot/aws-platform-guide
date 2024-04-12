@@ -1,4 +1,3 @@
-
 ## Managing Secrets
 
 On AWS, thoughtbot uses AWS Secrets Manager whenever possible to store

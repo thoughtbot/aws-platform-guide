@@ -1,4 +1,3 @@
-
 ### Application Secrets
 
 Application secrets can be stored in AWS Secrets Manager and injected as
@@ -9,15 +8,13 @@ configuration values like host name or time zone.
 
 When storing application secrets:
 
-  - Use a separate Secrets Manager secret for each service for which you
-    need a secret value
-
-  - Use a different secret value for each environment like staging and
-    production
-
-  - Don’t copy values between secrets - if secret values must be reused,
-    store them centrally and allow access to the services which need
-    them
+- Use a separate Secrets Manager secret for each service for which you
+  need a secret value
+- Use a different secret value for each environment like staging and
+  production
+- Don’t copy values between secrets - if secret values must be reused,
+  store them centrally and allow access to the services which need
+  them
 
 Following these guidelines will limit the damage if secrets are partly
 disclosed and will make recovery from secret disclosure easier.
@@ -51,5 +48,5 @@ module "service_policy" {
 }
 ```
 
-For more information on using Secrets Manager secrets, see [Managing
-Secrets](#managing-secrets) in the Deploy section.
+For more information on using Secrets Manager secrets, see
+[Managing Secrets](#managing-secrets) in the Deploy section.

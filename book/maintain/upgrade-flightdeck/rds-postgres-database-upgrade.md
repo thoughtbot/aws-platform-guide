@@ -1,10 +1,8 @@
 ### RDS Postgres Database Upgrade
 
 This page will summarise the steps to upgrade an RDS Postgres database
-using this [AWS
-guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process).
-You may review the referenced [AWS
-guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process)
+using this [AWS guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process).
+You may review the referenced [AWS guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Process)
 as well for a more comprehensive guide on the AWS database upgrade
 process.
 
@@ -17,23 +15,18 @@ process.
     For example, if the database is currently on Postgres12, you may
     modify the parameter group to the `default.postgres12` parameter
     group.
-
 2.  Confirm that the current database instance class is compatible with
     the Postgres version you are upgrading to. You may review the [list
     of supported Database engines for DB instance
     types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#Concepts.DBInstanceClass.Support).
-
 3.  Confirm that there are no open prepared transactions using this
     command before commencing the upgrade. If the upgrade is initiated
     during off-hours period, there should be no open prepared
     transactions.
     `SELECT count(*) FROM pg_catalog.pg_prepared_xacts;`
-
 4.  Initiate a database backup before starting the database upgrade.
-
 5.  Have a database upgrade dry run to test the database upgrade on a
     non-impact environment or a duplicate of the database.
-
 6.  Run the `ANALYZE` operation to refresh the `pg_statistic` table.
     Optimizer statistics aren't transferred during a major version
     upgrade, This operation will regenerate all statistics to avoid
@@ -55,14 +48,12 @@ the interruption, you may check the Postgres logs to confirm the cause
 of the failure. You may review these documentation on how to retrieve
 Postgres logs.
 
-  - <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Viewing.html>
-
-  - <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Downloading.html>
+- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Viewing.html>
+- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.Downloading.html>
 
 #### Known database errors
 
-  - During a previous database upgrade, I experiened issues with
-    incompatible PostGIS postgres extensions. I found the issue by
-    reviewin the Postgres logs and I was able to upgrade the postgres
-    extension using this guide -
-    <https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-upgrade-postgis/>
+- During a previous database upgrade, I experiened issues with
+  incompatible PostGIS postgres extensions. I found the issue by
+  reviewin the Postgres logs and I was able to upgrade the postgres
+  extension using this guide - <https://aws.amazon.com/premiumsupport/knowledge-center/rds-postgresql-upgrade-postgis/>

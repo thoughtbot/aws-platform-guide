@@ -1,4 +1,3 @@
-
 ### Composing with Kustomize
 
 Writing Kubernetes by hand can introduce significant data duplication.

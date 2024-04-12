@@ -1,4 +1,3 @@
-
 ## Application Errors
 
 ### Istio/Envoy
@@ -11,12 +10,10 @@
 This error is returned by Envoy if your web server disconnects before
 sending a response. This could happen if:
 
-  - Your web process crashes or exits in the middle of a request.
-
-  - Your web container is killed due to excessive memory usage.
-
-  - Your web container is removed during a deploy or scale down event
-    and doesn't gracefully handle termination.
+- Your web process crashes or exits in the middle of a request.
+- Your web container is killed due to excessive memory usage.
+- Your web container is removed during a deploy or scale down event
+  and doesn't gracefully handle termination.
 
 If this error is returned consistently by performing the same request,
 it's likely that something in the response is causing your application
@@ -38,8 +35,7 @@ greater, as there is a [fix](https://github.com/puma/puma/pull/2122) for
 a bug in Puma itself.
 
 This can still happen in large Kubernetes deployments because of the way
-[pod
-termination](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination)
+[pod termination](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination)
 works. When a pod is scheduled to be terminated, Kubernetes will
 simultaneously send a SIGTERM to pod's containers and schedule the pod's
 [endpoints](https://stackoverflow.com/questions/52857825/what-is-an-endpoint-in-kubernetes)
@@ -61,8 +57,7 @@ lifecycle:
       command: ["/bin/sleep","30"]
 ```
 
-Then increase your pod's termination grace period to avoid receiving
-SIGKILL:
+Then increase your pod's termination grace period to avoid receiving SIGKILL:
 
 ```
 # Add to spec.template.spec in your web deployment
@@ -111,14 +106,10 @@ connections.
 
 In order to resolve this issue, you can:
 
-  - Reduce the number of replicas running for one of your services to
-    free up its connections.
-
-  - Reduce the number of connections used by each replica.
-
-  - Upgrade your database connection to allow for more connections.
-
-  - Add a connection proxy to load balance connections to your database.
-
-  - Change the `max_connections` setting in Postgres if you're sure it
-    won't cause out of memory errors for your use case.
+- Reduce the number of replicas running for one of your services to
+  free up its connections.
+- Reduce the number of connections used by each replica.
+- Upgrade your database connection to allow for more connections.
+- Add a connection proxy to load balance connections to your database.
+- Change the `max_connections` setting in Postgres if you're sure it
+  won't cause out of memory errors for your use case.

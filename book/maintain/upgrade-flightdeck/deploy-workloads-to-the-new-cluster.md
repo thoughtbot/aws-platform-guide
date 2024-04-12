@@ -1,15 +1,10 @@
-
 ### Deploy workloads to the new cluster
 
 Update your continuous deployment workflow to deploy to your new sandbox
 cluster.
 
-<div class="toc-macro rbtoc1710773639879">
-
-  - [GitHub Actions](#Deployworkloadstothenewcluster-GitHubActions)
-  - [AWS CodePipeline](#Deployworkloadstothenewcluster-AWSCodePipeline)
-
-</div>
+- [GitHub Actions](#github-actions)
+- [AWS CodePipeline](#aws-codepipeline)
 
 #### GitHub Actions
 

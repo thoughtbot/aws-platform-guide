@@ -1,4 +1,3 @@
-
 ### Infrastructure Repository
 
 The infrastructure repository contains Terraform modules for managing
@@ -22,10 +21,7 @@ You can create this repository using the
 [flightdeck-template](https://github.com/thoughtbot/flightdeck-template),
 by selecting it in the “Repository template” dropdown during repo
 creation in GitHub.
-
-</div>
-
-</div>
+:::
 
 GitHub docs for [Creating a repository from a
 template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).

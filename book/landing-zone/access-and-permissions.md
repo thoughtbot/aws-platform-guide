@@ -1,28 +1,22 @@
-
 ## Access and Permissions
 
-The platform relies on [AWS IAM Identity
-Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
+The platform relies on [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
 for managing user permissions to resources within AWS accounts. Users
 access AWS accounts by using single sign on through the AWS portal for
 your organization.
 
 To provide users with AWS permissions:
 
-  - As part of deploying the platform, [single sign on should be
-    configured](#configure-single-sign-on) for your
-    user directory.
-
-  - Create a group in your user directory, such as a Google group or an
-    ActiveDirectory security group.
-
-  - Create [permission
-    sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html)
-    in the Identity account to describe what users should be able to do
-    in an account.
-
-  - Assign permissions sets to your group for accounts that group should
-    be able to access.
+- As part of deploying the platform, [single sign on should be
+  configured](#configure-single-sign-on) for your
+  user directory.
+- Create a group in your user directory, such as a Google group or an
+  ActiveDirectory security group.
+- Create [permission sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html)
+  in the Identity account to describe what users should be able to do
+  in an account.
+- Assign permissions sets to your group for accounts that group should
+  be able to access.
 
 Once these steps are complete, users can use single sign on to access
 your landing zone and sign into individual AWS accounts using the

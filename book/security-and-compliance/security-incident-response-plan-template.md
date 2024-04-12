@@ -1,4 +1,3 @@
-
 ## Security Incident Response Plan Template
 
 
@@ -6,37 +5,22 @@
 
 \<DATE\>
 
-<div class="toc-macro rbtoc1710773645389">
+- [Introduction](#response-introduction)
+- [System Overview](#system-overview)
+    - [Architecture Model](#architecture-model)
+    - [System Hardware Inventory](#system-hardware-inventory)
+    - [Audit Logging](#audit-logging)
+    - [Glossary](#glossary)
+- [System Contacts](#system-contacts)
+- [Incident Response Procedures](#incident-response-procedures)
+    - [Guideline](#guideline)
+    - [Step 1: Detection](#step-1-detection)
+    - [Step 2: Response](#step-2-response)
+    - [Step 3: Resolution](#step-3-resolution)
+    - [Step 4: Analysis](#step-4-analysis)
+    - [Step 5: Readiness](#step-5-readiness)
 
-  - [Introduction](#SecurityIncidentResponsePlanTemplate-Introduction)
-  - [System
-    Overview](#SecurityIncidentResponsePlanTemplate-SystemOverview)
-      - [Architecture
-        Model](#SecurityIncidentResponsePlanTemplate-ArchitectureModel)
-      - [System Hardware
-        Inventory](#SecurityIncidentResponsePlanTemplate-SystemHardwareInventory)
-      - [Audit
-        Logging](#SecurityIncidentResponsePlanTemplate-AuditLogging)
-      - [Glossary](#SecurityIncidentResponsePlanTemplate-Glossary)
-  - [System
-    Contacts](#SecurityIncidentResponsePlanTemplate-SystemContacts)
-  - [Incident Response
-    Procedures](#SecurityIncidentResponsePlanTemplate-IncidentResponseProcedures)
-      - [Guideline](#SecurityIncidentResponsePlanTemplate-Guideline)
-      - [Step 1:
-        Detection](#SecurityIncidentResponsePlanTemplate-Step1:Detection)
-      - [Step 2:
-        Response](#SecurityIncidentResponsePlanTemplate-Step2:Response)
-      - [Step 3:
-        Resolution](#SecurityIncidentResponsePlanTemplate-Step3:Resolution)
-      - [Step 4:
-        Analysis](#SecurityIncidentResponsePlanTemplate-Step4:Analysis)
-      - [Step 5:
-        Readiness](#SecurityIncidentResponsePlanTemplate-Step5:Readiness)
-
-</div>
-
-### Introduction
+### Response Introduction
 
 This is the Security Incident Response Plan for *\<APPLICATION/SYSTEM
 NAME\>* that documents the procedures for responding to a security
@@ -95,15 +79,10 @@ is about to violate, campus policies and standards.
 The *\<APPLICATION/SYSTEM NAME\>* Incident Response Team includes the
 following staff:
 
-<div class="table-wrap">
-
-|                              |           |                  |
-| ---------------------------- | --------- | ---------------- |
-| **Incident Management Team** | **Email** | **Phone Number** |
-|                              |           |                  |
-|                              |           |                  |
-
-</div>
+| Incident Management Team | Email | Phone Number |
+| ------------------------ | ----- | ------------ |
+|                          |       |              |
+|                          |       |              |
 
 The **Incident Management Team** are engineers who have technical
 knowledge of the application/system and full understanding of the
@@ -113,16 +92,11 @@ designated *On-Call Engineer*.
 *\<If there is an on-call rotation, insert instructions on how to access
 the rotation\>*
 
-<div class="table-wrap">
-
-|                    |           |                  |
-| ------------------ | --------- | ---------------- |
-| **Client Contact** | **Email** | **Phone Number** |
-|                    |           |                  |
-|                    |           |                  |
-|                    |           |                  |
-
-</div>
+| Client Contact | Email | Phone Number |
+| -------------- | ----- | ------------ |
+|                |       |              |
+|                |       |              |
+|                |       |              |
 
 **Client Contacts** ** are people who understands the business impact of
 the system and its unavailability, and can make decisions on behalf of
@@ -135,8 +109,7 @@ instructions for hierarchy of communication\>*
 
 #### Guideline
 
-[Incident
-Response](https://thoughtbot.atlassian.net/wiki/spaces/MC/pages/5439566/Incident+Response)
+[Incident Response](https://thoughtbot.atlassian.net/wiki/spaces/MC/pages/5439566/Incident+Response)
 
 *\<Example of response flowchart below. Insert one that is relevant to
 your team\>*
@@ -169,17 +142,14 @@ events constitute a *Security Incident*.  
 *\<Steps can include, but not limited to the following. Edit as
 needed\>*
 
-  - Gather information about incident: sequence of events, including any
-    unexpected observations and/or the actions taken so far
-
-  - List the devices/systems that are affected, their functions, and the
-    number of users that might be impacted
-
-  - Review the evidence of compromise (email samples, screenshots,
-    suspicious files, etc.)
-
-  - Document any observations and decisions made based upon discussion
-    or evidence analysis.
+- Gather information about incident: sequence of events, including any
+  unexpected observations and/or the actions taken so far
+- List the devices/systems that are affected, their functions, and the
+  number of users that might be impacted
+- Review the evidence of compromise (email samples, screenshots,
+  suspicious files, etc.)
+- Document any observations and decisions made based upon discussion
+  or evidence analysis.
 
 The rationale used to determine whether the suspicious events constitute
 a *Security Incident* must be documented. 
@@ -198,27 +168,21 @@ to return affected systems to a normal operational state:
 
 *\<Insert relevant steps. Some examples below:\>*
 
-  - Change passwords that are affected
-
-  - If available, collect any operating system or application level
-    audit logs to capture events that show what data was accessed, when
-    the suspicious event started/stopped, and what action was performed
-
-  - Repair affected system 
+- Change passwords that are affected
+- If available, collect any operating system or application level
+  audit logs to capture events that show what data was accessed, when
+  the suspicious event started/stopped, and what action was performed
+- Repair affected system 
 
 Examples of compromises and the corresponding remediation procedures are
 provided below.  Note that depending on the nature of compromise, a
 combination of remediation procedures may be needed to fully address the
 cause: 
 
-<div class="table-wrap">
-
-| **Scenario** | **Resolution Procedures** |
-| ------------ | ------------------------- |
-|              |                           |
-|              |                           |
-
-</div>
+| Scenario | Resolution Procedures |
+| -------- | --------------------- |
+|          |                       |
+|          |                       |
 
 *\<Fill in common scenarios and procedures. Should be reviewed/updated
 after each incident post-mortem\>*
@@ -238,8 +202,6 @@ improvements needed before the next incident.
 If the post-mortem resulted in any action items to improve the process
 of responding to the next incident, follow up on these items, such as:
 
-  - Update the runbook
-
-  - Implement prevention plans
-
-  - Improve monitoring/alerting
+- Update the runbook
+- Implement prevention plans
+- Improve monitoring/alerting

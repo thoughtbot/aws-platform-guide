@@ -1,4 +1,3 @@
-
 ## Deploy Grafana
 
 ::: caution
@@ -9,9 +8,11 @@ We use [Grafana](https://grafana.com/) to monitor infrastructure and
 applications. You can use AWS's managed services to deploy centralized
 Prometheus and Grafana instances.
 
-*Note for single account deployments: AWS Managed Grafana requires
+::: info
+Note for single account deployments: AWS Managed Grafana requires
 either AWS SSO or a SAML provider to sign in. If you're not using an AWS
-Organization with SSO enabled, you'll need a SAML provider to continue.*
+Organization with SSO enabled, you'll need a SAML provider to continue.
+:::
 
 ### AWS Managed Prometheus
 
@@ -27,10 +28,8 @@ infra/
     prometheus-workspace/
 ```
 
-Apply [prometheus-workspace
-module](https://github.com/thoughtbot/flightdeck/tree/main/aws/prometheus-workspace)
-from Flightdeck in the [Operations
-account](#aws-accounts).
+Apply [prometheus-workspace module](https://github.com/thoughtbot/flightdeck/tree/main/aws/prometheus-workspace)
+from Flightdeck in the [Operations account](#aws-accounts).
 
 Update your production workload platform configuration to use the
 Prometheus workspace:
@@ -45,56 +44,41 @@ module "workload_platform" {
 }
 ```
 
-Apply the workload platform module to start writing to the Prometheus
-workspace.
+Apply the workload platform module to start writing to the Prometheus workspace.
 
 ### AWS Managed Grafana
 
-AWS provides managed Grafana instances, but there is currently no
-support for deploying Grafana using Terraform or Cloudformation, so you
-need to create the workspace through the AWS Console.
+AWS provides managed Grafana instances, but there is currently no support for
+deploying Grafana using Terraform or Cloudformation, so you need to create the
+workspace through the AWS Console.
 
 #### Creating the Workspace
 
 In the Operations account:
 
-  - TODO: TF module for the following configs
-
-      - Create a workspace named "Flightdeck'.
-
-      - Enable SSO or SAML.
-
-      - Use service-managed permissions.
-
-      - Enable Managed Service for Prometheus and CloudWatch.
-
-      - Enable Amazon SNS.
-
-      - TODO: document about organization access type + OUs
-
-  - Manual steps:
-
-      - Set yourself as an admin of the workspace.
-
-      - Add an SSO group to the workspace.
+- TODO: TF module for the following configs
+    - Create a workspace named "Flightdeck'.
+    - Enable SSO or SAML.
+    - Use service-managed permissions.
+    - Enable Managed Service for Prometheus and CloudWatch.
+    - Enable Amazon SNS.
+    - TODO: document about organization access type + OUs
+- Manual steps:
+    - Set yourself as an admin of the workspace.
+    - Add an SSO group to the workspace.
 
 TODO: Order of operation for prometheus workspace, grafana workspace,
 auth and data sources
 
 #### Setting up Dashboards
 
-  - From the Grafana workspace in the AWS Management Console, sign into
-    the managed Grafana instance.
-
-  - Under Settings, select API Keys.
-
-  - Create a new Admin API key named "Terraform" that expires after 30
-    days.
-
-  - Copy the API key.
-
-  - TODO: What to do with the copied API key
+- From the Grafana workspace in the AWS Management Console, sign into
+  the managed Grafana instance.
+- Under Settings, select API Keys.
+- Create a new Admin API key named "Terraform" that expires after 30
+  days.
+- Copy the API key.
+- TODO: What to do with the copied API key
 
 Once these modules are applied, the platform is fully deployed and you
-can proceed to build [CI/CD
-pipelines](https://mission-control.thoughtbot.com/branch/main/aws/book/admin/cicd.html).
+can proceed to build [CI/CD pipelines](#building-cicd-pipelines)

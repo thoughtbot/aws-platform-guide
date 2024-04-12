@@ -1,4 +1,3 @@
-
 ## Horizontal Scaling
 
 You can scale your application horizontally by adding more pods to your

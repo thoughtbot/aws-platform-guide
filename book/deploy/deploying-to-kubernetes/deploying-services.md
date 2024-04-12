@@ -1,4 +1,3 @@
-
 ### Deploying Services
 
 Deploying a service for a pod consists of two resources: a service to

@@ -1,4 +1,3 @@
-
 ### Authoring Kubernetes Manifests
 
 Kubernetes resources are described by manifests written in YAML. Every
@@ -44,5 +43,4 @@ spec:
 
 The spec will vary depending on the kind of object.
 
-For information about deploying services, see [deploying
-services](#deploying-services).
+For information about deploying services, see [deploying services](#deploying-services).

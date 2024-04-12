@@ -1,23 +1,20 @@
-
 ### Application Roles
 
 For applications, CI/CD pipelines, and developers to perform their tasks
 in AWS you will need three IAM roles for an application:
 
-  - Pod role: your application will use a Kubernetes service account to
-    assume this role using
-    [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
-    in order to access storage, databases, and secrets.
-
-  - Deploy role: your CI/CD pipelines will assume this role and will be
-    mapped to a Kubernetes group using
-    [aws-auth](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html)
-    in order to update the application during deployment.
-
-  - Developer role: developers will assume this role and will be mapped
-    to a Kubernetes group using
-    [aws-auth](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html)
-    in order to view application status.
+- Pod role: your application will use a Kubernetes service account to
+  assume this role using
+  [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
+  in order to access storage, databases, and secrets.
+- Deploy role: your CI/CD pipelines will assume this role and will be
+  mapped to a Kubernetes group using
+  [aws-auth](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html)
+  in order to update the application during deployment.
+- Developer role: developers will assume this role and will be mapped
+  to a Kubernetes group using
+  [aws-auth](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html)
+  in order to view application status.
 
 ![Application Roles](./images/application-roles.png)
 

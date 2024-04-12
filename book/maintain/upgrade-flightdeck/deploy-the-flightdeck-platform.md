@@ -1,4 +1,3 @@
-
 ### Deploy the Flightdeck platform
 
 ::: caution

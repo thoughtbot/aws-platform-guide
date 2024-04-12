@@ -1,4 +1,3 @@
-
 ### Create a new sandbox cluster
 
 ::: caution
@@ -16,8 +15,7 @@ infra/
 
 You can copy the configuration from the previous version of your
 cluster, updating the versions of Flightdeck and Kubernetes. We
-recommend running the latest version of Kubenetes [supported by
-EKS](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
+recommend running the latest version of Kubenetes [supported by EKS](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
 
 ```
 module "cluster" {

@@ -1,4 +1,3 @@
-
 ### Application Terraform Modules
 
 Application should be provisioned using Terraform. For each application

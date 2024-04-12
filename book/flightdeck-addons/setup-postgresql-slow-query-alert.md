@@ -1,4 +1,3 @@
-
 ## Set up PostgreSQL Slow Query Alert
 
 You can enable a slow query alert to monitor all SQL queries for a
@@ -15,39 +14,37 @@ slow query notifications will be made using Terraform.
     logging on the PostgreSQL RDS instance. You can enable query logs on
     RDS by updating either or both of these RDS parameter;
 
-      - [log\_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT):
-        Modify this parameter to determine the type of logs that should
-        be logged regardless of execution time. The default is **none**.
-        Possible options are;
+    - [log\_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT):
+      Modify this parameter to determine the type of logs that should
+      be logged regardless of execution time. The default is **none**.
+      Possible options are;
 
-        1.  **all**: Capture all logs .
+      1.  **all**: Capture all logs.
+      2.  **ddl**: Capture all data definition language (DDL)
+          statements such as *CREATE*, *ALTER*, and DROP.
+      3.  **mod**: Capture all DDL and data modification language
+          (DML) statements such as *INSERT*, *UPDATE*, and *DELETE*.
 
-        2.  **ddl**: Capture all data definition language (DDL)
-            statements such as *CREATE*, *ALTER*, and DROP.
+    - [log\_min\_duration\_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT):
+      Modify this parameter to set a threshold in milliseconds for
+      queries to be logged. This allows you to log all queries that
+      take longer than the set parameter value.
 
-        3.  **mod**: Capture all DDL and data modification language
-            (DML) statements such as *INSERT*, *UPDATE*, and *DELETE*.
+      The terraform code snippet below can be used to create a
+      PostgreSQL database parameter group to export all SQL queries
+      that run for over 5 seconds.
 
-      - [log\_min\_duration\_statement](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT):
-        Modify this parameter to set a threshold in milliseconds for
-        queries to be logged. This allows you to log all queries that
-        take longer than the set parameter value.
+      ```
+      resource "aws_db_parameter_group" "postgres_databae_parameter" {
+        name   = "postgres-database-parameter"
+        family = "postgres14"
 
-        The terraform code snippet below can be used to create a
-        PostgreSQL database parameter group to export all SQL queries
-        that run for over 5 seconds.
-
-        ```
-        resource "aws_db_parameter_group" "postgres_databae_parameter" {
-          name   = "postgres-database-parameter"
-          family = "postgres14"
-
-          parameter {
-            name  = "log_min_duration_statement"
-            value = "5000"
-          }
+        parameter {
+          name  = "log_min_duration_statement"
+          value = "5000"
         }
-        ```
+      }
+      ```
 
 2.  Publishing slow query logs to Cloudwatch Logs:
     Once query logging has been enabled in the RDS postgres instance,

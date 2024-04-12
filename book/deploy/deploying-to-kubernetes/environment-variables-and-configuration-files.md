@@ -1,4 +1,3 @@
-
 ### Environment Variables and Configuration Files
 
 Configuration for pods can provided as environment variables or files by

@@ -1,4 +1,3 @@
-
 ### AWS Code Pipeline
 
 Some of our clients deploy applications using
@@ -24,12 +23,10 @@ In order to deploy CI/CD pipelines on AWS, you will need the following:
   - An artifact bucket for your organization's build artifacts. You can
     provision one using the [artifact bucket Terraform
     module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/artifact-bucket).
-
   - A CodeBuild credential to trigger builds when pull requests are
     opened. You can set this up using the [CodeBuild credential
     Terraform
     module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/codebuild-credential).
-
   - A CodeStar connection to trigger pipeline runs when pull requests
     are merged. You can set this up using the [CodeStar connection
     Terraform
@@ -47,13 +44,11 @@ to complete the connection.
 
 #### Continuous Integration
 
-For each [application
-repository](#application-repository),
+For each [application repository](#application-repository),
 create CodeBuild projects to build Docker images and generate manifests.
 These projects can be triggered when pull requests are opened using
 webhooks. Build projects and related resources should be provisioned in
-the [Operations
-account](#aws-accounts).
+the [Operations account](#aws-accounts).
 
 ```
 infra/
@@ -63,43 +58,29 @@ infra/
 
 In order to build Docker images for an application, you'll need:
 
-  - A [Dockerfile](https://docs.docker.com/engine/reference/builder/).
-    This can be kept in the [application
-    repository](#application-repository).
-
-  - A
-    [buildspec](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
-    for building and pushing Docker images. This can also be kept in the
-    application repository.
-
-  - An [ECR
-    repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html).
-    You can use the [ECR repository Terraform
-    module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/ecr-repository)
-    to set this up.
-
-  - A [CodeBuild
-    project](https://docs.aws.amazon.com/codebuild/latest/userguide/working-with-build-projects.html)
-    for building Docker images. You can create one using the [ECR
-    project Terraform
-    module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/ecr-project).
-
-  - A [manifests
-    repository](#manifest-repository)
-    to store configuration and manifests for your application.
-
-  - A buildspec for generating application manifests. This can be stored
-    in the manifests repository and should contain
-    [Kustomize](https://kustomize.io/) or [Helm](https://helm.sh/)
-    commands for generating Kubernetes manifests. This buildspec must
-    produce YAML files as artifacts that can later be applied to the
-    cluster to deploy the application.
-
-  - A [CodeBuild
-    project](https://docs.aws.amazon.com/codebuild/latest/userguide/working-with-build-projects.html)
-    for generating application manifests. You can create one using the
-    [manifests project Terraform
-    module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/manifests-project).
+- A [Dockerfile](https://docs.docker.com/engine/reference/builder/).
+  This can be kept in the [application
+  repository](#application-repository).
+- A [buildspec](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
+  for building and pushing Docker images. This can also be kept in the
+  application repository.
+- An [ECR repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html).
+  You can use the [ECR repository Terraform
+  module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/ecr-repository)
+  to set this up.
+- A [CodeBuild project](https://docs.aws.amazon.com/codebuild/latest/userguide/working-with-build-projects.html)
+  for building Docker images. You can create one using the [ECR
+  project Terraform module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/ecr-project).
+- A [manifests repository](#manifest-repository) to store configuration and manifests for your application.
+- A buildspec for generating application manifests. This can be stored
+  in the manifests repository and should contain
+  [Kustomize](https://kustomize.io/) or [Helm](https://helm.sh/)
+  commands for generating Kubernetes manifests. This buildspec must
+  produce YAML files as artifacts that can later be applied to the
+  cluster to deploy the application.
+- A [CodeBuild project](https://docs.aws.amazon.com/codebuild/latest/userguide/working-with-build-projects.html)
+  for generating application manifests. You can create one using the
+  [manifests project Terraform module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/manifests-project).
 
 Once this root module is applied, CodeBuild will start building and
 storing Docker images for your application whenever developers open pull
@@ -119,25 +100,19 @@ infra/
     APPLICATION/
 ```
 
-  - An IAM role for deploying to each cluster. You can create one using
-    the [deploy role Terraform
-    module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/deploy-role).
-    This role must be provisioned in the same [Workload
-    account](#aws-accounts)
-    as the cluster.
-
-  - A buildspec for applying manifests to the cluster. You can use
-    kubectl and other commands to apply the manifests generated by your
-    manifests project.
-
-  - A CodeBuild project for applying manifests to the cluster. You can
-    set one up using the [deploy-project Terraform
-    module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/deploy-project).
-
-  - A CodePipeline pipeline for deploying the latest Docker images and
-    manifests to the cluster. You can create pipelines using the
-    [cicd-pipeline Terraform
-    module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/cicd-pipeline).
+- An IAM role for deploying to each cluster. You can create one using
+  the [deploy role Terraform module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/deploy-role).
+  This role must be provisioned in the same [Workload
+  account](#aws-accounts)
+  as the cluster.
+- A buildspec for applying manifests to the cluster. You can use
+  kubectl and other commands to apply the manifests generated by your
+  manifests project.
+- A CodeBuild project for applying manifests to the cluster. You can
+  set one up using the [deploy-project Terraform module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/deploy-project).
+- A CodePipeline pipeline for deploying the latest Docker images and
+  manifests to the cluster. You can create pipelines using the
+  [cicd-pipeline Terraform module](https://github.com/thoughtbot/terraform-eks-cicd/tree/main/modules/cicd-pipeline).
 
 Once a pipeline is provisioned, the CodeBuild projects for building
 Docker images and manifests will be triggered whenever a pull request is

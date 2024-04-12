@@ -1,19 +1,15 @@
-
 ### Introduction to Kubernetes
 
 Kubernetes is a container orchestration platform. Kubernetes consists of
 several components:
 
-  - An object store for declaring Kubernetes resources
-
-  - The Kubernetes API, which allows clients to read and modify
-    resources
-
-  - Controllers, which are containers that use the Kubernetes API to
-    watch and update resources and make changes to your infrastructure
-    to reflect resources
-
-  - The Kubelet, which runs containers on nodes
+- An object store for declaring Kubernetes resources
+- The Kubernetes API, which allows clients to read and modify
+  resources
+- Controllers, which are containers that use the Kubernetes API to
+  watch and update resources and make changes to your infrastructure
+  to reflect resources
+- The Kubelet, which runs containers on nodes
 
 #### Controllers and Resources
 
@@ -117,7 +113,6 @@ sensitive nature.
 #### Manifests
 
 To create these resources in a Kubernetes cluster, developers usually
-author [Kubernetes
-manifests](#authoring-kubernetes-manifests)
+author [Kubernetes manifests](#authoring-kubernetes-manifests)
 in a Git repository which is automatically applied to the cluster by a
 CI/CD pipeline.

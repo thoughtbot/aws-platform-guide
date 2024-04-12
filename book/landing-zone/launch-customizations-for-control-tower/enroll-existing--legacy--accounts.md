@@ -1,4 +1,3 @@
-
 ### Enroll Existing (Legacy) Accounts
 
 ::: info
@@ -16,7 +15,6 @@ be managed by Control Tower, follow the steps below:
     automatically, and is [required for Control Tower to manage any
     account](https://docs.aws.amazon.com/controltower/latest/userguide/roles-how.html).
     Legacy accounts do not have it.
-
 2.  Add the legacy account configs to `accounts.yaml` in the
     landing-zone repo, with values for `AccountName` and `AccountEmail`
     that match current account details.

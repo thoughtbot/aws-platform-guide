@@ -1,4 +1,3 @@
-
 ## Cluster Capacity
 
 Compute capacity - that is, the ability to provision memory and CPU for

@@ -1,4 +1,3 @@
-
 ### Application Repository
 
 Source code for applications should also be managed in Git. We recommend

@@ -1,4 +1,3 @@
-
 ## Update SCIM tokens
 
 If you are using a SCIM integration to automatically provision new users
@@ -14,37 +13,22 @@ expiration. To update the token:
 
 1.  From the AWS sign in portal, sign into the Identity account as an
     administrator.
-
 2.  Navigate to IAM Identity Center.
-
 3.  Navigate to “Settings” in the left-hand navigation panel.
-
 4.  In the “Identity Source” panel, select “Actions” and then “Manage
     Provisioning.”
-
 5.  Click “Generate Token” to issue a new token.
-
 6.  Copy down the token value.
-
 7.  Visit AWS Secrets Manager.
-
 8.  Edit the value for the secret `aws-google-sso-sync`.
-
 9.  Update the `SCIMEndpointAccessToken` field to the new token you
     generated from the management account.
-
 10. Save the secret.
-
 11. As an administrator, re-apply the `sso-sync/lambda` module in the
     infrastructure to propagate the new secret to the sso-sync Lambda.
-
 12. Return to IAM Identity Center.
-
 13. Navigate to “Settings” in the left-hand navigation panel.
-
 14. In the “Identity Source” panel, select “Actions” and then “Manage
     Provisioning.”
-
 15. Select the old token that will soon be expiring.
-
 16. Click “Delete” to deactivate the older token.

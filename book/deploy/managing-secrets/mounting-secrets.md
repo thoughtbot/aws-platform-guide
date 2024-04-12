@@ -1,8 +1,6 @@
-
 ### Mounting Secrets
 
-Secrets are functionally identical to [config
-maps](#environment-variables-and-configuration-files),
+Secrets are functionally identical to [config maps](#environment-variables-and-configuration-files),
 but they can be configured with stricter permissions due to their
 sensitive nature. Secret manifests are not committed to Git.
 

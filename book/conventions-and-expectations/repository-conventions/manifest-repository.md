@@ -1,4 +1,3 @@
-
 ### Manifest Repository
 
 For each application repository being deployed, we will create an

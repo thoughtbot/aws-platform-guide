@@ -1,4 +1,3 @@
-
 ### Set up ingress for the new cluster
 
 ::: caution
