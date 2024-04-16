@@ -5,9 +5,9 @@ This is an advanced topic for platform engineers.
 :::
 
 [Flightdeck](https://github.com/thoughtbot/flightdeck) is a platform for
-deploying and managing applications on Kubernetes. Flightdeck consists of
-Terraform modules for deploying a curated set of preconfigured open source
-projects and AWS products.
+deploying and managing applications on Kubernetes, developed by thoughtbot.
+Flightdeck consists of Terraform modules for deploying a curated set of
+preconfigured open source projects and AWS products.
 
 ::: info
 The [Flightdeck template
