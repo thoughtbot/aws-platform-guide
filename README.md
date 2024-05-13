@@ -13,7 +13,7 @@ Your sponsorship goes to support the ongoing maintenance of this guide,
 [our blog], and all of [our open source projects].
 
 [Markdown source files]: book/
-[web-based version of the book]: https://thoughtbot.com/aws-platform-guide
+[web-based version of the guide]: https://thoughtbot.com/aws-platform-guide
 [sponsor us on GitHub]: https://github.com/sponsors/thoughtbot
 [our blog]: https://thoughtbot.com/blog
 [our open source projects]: http://thoughtbot.com/open-source
