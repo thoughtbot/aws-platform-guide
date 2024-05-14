@@ -2,11 +2,16 @@
 
 Source code for applications should also be managed in Git. We recommend
 that each application contain a Dockerfile for building Docker images
-and a buildspec for pushing them to an ECR repository.
+and a deploy folder to hold [Helm Charts'](https://thoughtbot.github.io/helm-charts) files.
 
 ```
 Dockerfile
-buildspec.yaml
+deploy/
+  production/
+    values.yaml
+  staging/
+    values.yaml
+  values.yaml
 ```
 
 ::: info
