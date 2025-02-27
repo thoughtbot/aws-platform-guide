@@ -19,8 +19,6 @@
 
 <<[conventions-and-expectations/repository-conventions/application-repository.md]
 
-<<[conventions-and-expectations/repository-conventions/manifest-repository.md]
-
 <<[conventions-and-expectations/terraform-conventions.md]
 
 
