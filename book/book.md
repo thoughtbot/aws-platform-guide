@@ -135,8 +135,6 @@
 
 <<[security-and-compliance.md]
 
-<<[security-and-compliance/security-incident-response-plan-template.md]
-
 
 <<[flightdeck-addons.md]
 
