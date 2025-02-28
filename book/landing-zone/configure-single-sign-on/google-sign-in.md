@@ -85,7 +85,7 @@ Enable SCIM for your Identity Center directory:
 
     ```
     module "secret" {
-      source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
+      source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.8.0"
 
       description = "Secrets for deploying the AWS/Google SSO Sync Lambda"
       name        = "aws-google-sso-sync"

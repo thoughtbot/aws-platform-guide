@@ -25,7 +25,7 @@ service account and an IAM role with the proper trust policy:
 
 ```
 module "pod_role" {
-  source = "github.com/thoughtbot/flightdeck//aws/service-account-role?ref=v0.9.0"
+  source = "github.com/thoughtbot/flightdeck//aws/service-account-role?ref=v0.12.1"
 
   cluster_names    = ["example-sandbox-v1"]
   name             = "example-pods"
@@ -72,7 +72,7 @@ to create your deploy role:
 
 ```
 module "deploy_role" {
-  source = "github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-eks-deploy-role?ref=v0.1.1"
+  source = "github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-eks-deploy-role?ref=v0.3.0"
 
   cluster_names         = ["example-sandbox-v1"]
   github_branches       = ["main"]
@@ -88,7 +88,7 @@ the platform configuration:
 
 ```
 module "platform" {
-  source = "github.com/thoughtbot/flightdeck//aws/platform?ref=v0.9.0"
+  source = "github.com/thoughtbot/flightdeck//aws/platform?ref=v0.12.1"
 
   # Other config
 
@@ -163,7 +163,7 @@ the platform configuration:
 
 ```
 module "platform" {
-  source = "github.com/thoughtbot/flightdeck//aws/platform?ref=v0.9.0"
+  source = "github.com/thoughtbot/flightdeck//aws/platform?ref=v0.12.1"
 
   # Other config
 

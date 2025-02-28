@@ -27,7 +27,7 @@ In order to build Docker images for an application, you'll need:
 
   ```
   module "ecr_repository" {
-    source = "github.com/thoughtbot/terraform-eks-cicd//modules/ecr-repository?ref=v0.1.0"
+    source = "github.com/thoughtbot/terraform-eks-cicd//modules/ecr-repository?ref=v0.3.0"
 
     name = "example-org/example-app"
 
@@ -48,7 +48,7 @@ In order to build Docker images for an application, you'll need:
 
   ```
   module "ecr_role" {
-    source = "github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-ecr-role?ref=v0.1.1"
+    source = "github.com/thoughtbot/terraform-eks-cicd//modules/github-actions-ecr-role?ref=v0.3.0"
 
     allow_github_pull_requests = true
     ecr_repositories           = [module.ecr_repository.name]

@@ -65,7 +65,7 @@ slow query notifications will be made using Terraform.
 
     ```
     module "postgres" {
-      source = "github.com/thoughtbot/terraform-aws-databases//rds-postgres/primary-instance?ref=v0.4.0"
+      source = "github.com/thoughtbot/terraform-aws-databases//rds-postgres/primary-instance?ref=v0.6.1"
 
       ...
       enabled_cloudwatch_logs_exports = ["postgresql"]
@@ -85,7 +85,7 @@ slow query notifications will be made using Terraform.
 
     ```
     module "cloudwatch_log_extract" {
-      source = "github.com/thoughtbot/flightdeck//aws/cloudwatch-log-extract?ref=v0.10.1"
+      source = "github.com/thoughtbot/flightdeck//aws/cloudwatch-log-extract?ref=v0.12.1"
 
       # Enter the Source CloudWatch log group to subscribe to for log messages.
       source_cloudwatch_log_group = "/aws/rds/instance/sandbox-database/postgresql"

@@ -23,7 +23,7 @@ your secret data.
   }
 
   module "rails_secret" {
-    source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
+    source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.8.0"
 
     description = "Secrets for the Rails application"
     name        = "example-app-secret"
@@ -40,7 +40,7 @@ your secret data.
 
   ```
   module "prismic_secret" {
-    source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
+    source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.8.0"
 
     description = "Secrets for accessing the Prismic API"
     name        = "example-prismic"
