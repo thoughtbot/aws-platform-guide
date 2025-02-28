@@ -19,7 +19,7 @@ updating the version of Flightdeck.
 ```
 module "platform" {
   # Use the latest version of Flightdeck
-  source = "github.com/thoughtbot/flightdeck//aws/platform?ref=UPDATE"
+  source = "github.com/thoughtbot/flightdeck//aws/platform?ref=v0.12.1"
 
   # Copy configuration from the previous deployment
   cluster_name = data.aws_eks_cluster.this.name

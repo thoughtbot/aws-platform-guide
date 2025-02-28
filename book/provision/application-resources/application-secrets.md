@@ -25,7 +25,7 @@ policies in Terraform:
 
 ```
 module "rails_secret" {
-  source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.4.0"
+  source = "github.com/thoughtbot/terraform-aws-secrets//secret?ref=v0.8.0"
 
   description = "Secrets for the Rails application"
   name        = "example-app-secret"
@@ -36,7 +36,7 @@ module "rails_secret" {
 }
 
 module "service_policy" {
-  source = "github.com/thoughtbot/flightdeck//aws/service-account-policy?ref=v0.9.0"
+  source = "github.com/thoughtbot/flightdeck//aws/service-account-policy?ref=v0.12.1"
 
   name       = "example-app-service"
   role_names = [module.service_role.name]

@@ -39,7 +39,7 @@ Add your new cluster to your deploy project:
 
 ```
 module "deploy_project" {
-  source = "github.com/thoughtbot/terraform-eks-cicd//modules/deploy-project?ref=v0.2.0"
+  source = "github.com/thoughtbot/terraform-eks-cicd//modules/deploy-project?ref=v0.3.0"
 
   cluster_names = [
     # Existing clusters
@@ -57,7 +57,7 @@ the new cluster.
 
 ```
 module "ordering_staging" {
-  source = "github.com/thoughtbot/terraform-eks-cicd//modules/cicd-pipeline?ref=v0.2.0"
+  source = "github.com/thoughtbot/terraform-eks-cicd//modules/cicd-pipeline?ref=v0.3.0"
 
   deployments = {
     # Deployment for existing cluster

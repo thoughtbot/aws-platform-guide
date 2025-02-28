@@ -20,7 +20,7 @@ recommend running the latest version of Kubenetes [supported by EKS](https://doc
 ```
 module "cluster" {
   # Update this to the latest version of Flightdeck
-  source = "github.com/thoughtbot/flightdeck//aws/cluster?ref=UPDATE"
+  source = "github.com/thoughtbot/flightdeck//aws/cluster?ref=v0.12.1"
 
   # Use the name of your previous cluster and bump the version
   name        = "mycompany-sandbox-v2"

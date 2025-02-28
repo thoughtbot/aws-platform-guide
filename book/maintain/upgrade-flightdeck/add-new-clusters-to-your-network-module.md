@@ -16,7 +16,7 @@ be creating.
 ```
 module "network" {
   # Use the latest version of Flightdeck
-  source = "github.com/thoughtbot/flightdeck//aws/network?ref=UPDATE"
+  source = "github.com/thoughtbot/flightdeck//aws/network?ref=v0.12.1"
 
   cluster_names          = [
     # Existing cluster

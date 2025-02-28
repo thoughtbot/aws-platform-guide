@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Directory containing the markdown files
+BOOK_DIR="./book"
+
+# Function to fetch the latest tag from a GitHub repository
+get_latest_tag() {
+  local repo_url=$1
+  local tags=$(gh api repos/$repo_url/tags)
+  if [[ $? -ne 0 ]]; then
+    echo "Error fetching tags for $repo_url" >&2
+    return 1
+  fi
+  echo "$tags" | jq -r 'if type=="array" and length>0 then .[0].name else empty end'
+}
+
+# Find and process all markdown files in the book directory
+find "$BOOK_DIR" -name "*.md" | while read -r file; do
+  # Extract the unique module URLs
+  grep -oE 'source = "github.com/thoughtbot/[^?"]+\?ref=[^"]+"' "$file" | sort | uniq | while read -r url; do
+    # Fetch the latest tag for the module
+    repo_url=$(echo "$url" | sed -E 's|source = "github.com/([^/]+/[^/]+).*|\1|')
+    latest_tag=$(get_latest_tag "$repo_url")
+    if [[ -z "$latest_tag" ]]; then
+      repo_url=$(echo "$url" | sed -E 's|source = "github.com/([^?]+)\?ref=.*|\1|')
+      latest_tag=$(get_latest_tag "$repo_url")
+
+      if [[ -z "$latest_tag" ]]; then
+        echo "No tag found for $repo_url" >&2
+        continue
+      fi
+      continue
+    fi
+    echo "Updating $url to $latest_tag in $file"
+    
+    # Replace the old ref with the latest tag
+    sed -i '' -E "s|(source = \"github.com/$repo_url[^?]*\?ref=)[^\"]+|\1$latest_tag|g" "$file"
+  done
+done
