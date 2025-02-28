@@ -22,14 +22,14 @@ and AWS.
 3.  Deploy the sso-sync Lambda to the Identity account using the
     instructions below.
 
-### SSOSync Lambda
+##### SSO Sync Lambda
 
 From the Google cloud console, [create a new
 project](https://console.cloud.google.com/projectcreate) for the
 Lambda’s credentials. Give it a name that makes it clear why the
 project exists, such as “aws-google-sso-sync.”
 
-#### To be performed by Google Admin:
+##### To be performed by Google Admin:
 
 Follow the [Google
 tutorial](https://developers.google.com/workspace/guides/create-credentials#service-account)
@@ -72,7 +72,7 @@ Now enable domain-wide delegation for your service account:
     <https://www.googleapis.com/auth/admin.directory.user.readonly>
 5.  Click **Authorize**.
 
-#### To be performed by Infra Dev:
+##### To be performed by Infra Dev:
 
 Enable SCIM for your Identity Center directory:
 
@@ -137,7 +137,7 @@ Enable SCIM for your Identity Center directory:
 IAM Identity Center will now automatically synchronize matched groups
 and users from your Google domain.
 
-## Updating the SCIM Token
+##### Updating the SCIM Token
 
 You will need to regularly update the SCIM token as it expires to
 continually provision users and groups: [Update SCIM tokens](#update-scim-tokens)

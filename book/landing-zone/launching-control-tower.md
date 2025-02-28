@@ -61,7 +61,6 @@ have completed all the [prerequisite steps](#landing-zone-prerequisites).
                 [permissions that allow AWS CloudTrail](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#kms-key-policy-update)
                 and AWS Config to use the chosen KMS key. You can use
                 the following statement:
-            2.
 
                 ```
                 {
