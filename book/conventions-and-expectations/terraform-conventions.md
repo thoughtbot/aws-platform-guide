@@ -2,8 +2,9 @@
 
 We use Terraform to maintain infrastructure as code.
 
-- [State Backends](#state-backends)
-- [Filenames](#filenames)
+- [Terraform Conventions](#terraform-conventions)
+  - [State Backends](#state-backends)
+  - [Filenames](#filenames)
 
 #### State Backends
 
@@ -18,7 +19,7 @@ repository](#infrastructure-repository).
 You can use the [Terraform state backend Cloudformation
 template](https://github.com/thoughtbot/cloudformation-terraform-state-backend)
 to create a secure Terraform state backend for each AWS account. When
-using Control Tower, you can use customizations for Control Tower to
+using Control Tower, you can use [Customizations for Control Tower](#launch-customizations-for-control-tower) to
 create a Terraform state backend as part of the baseline for each
 account.
 

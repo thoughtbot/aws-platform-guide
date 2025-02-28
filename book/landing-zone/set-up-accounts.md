@@ -4,8 +4,8 @@
 This is an advanced topic for platform engineers.
 :::
 
-In order to fully deploy the thoughtbot platform, it's recommended to set up the [conventional
-accounts](https://thoughtbot.atlassian.net/wiki/spaces/APG/pages/10649900):
+In order to fully deploy the platform, it's recommended to set up the [conventional
+accounts](#account-conventions):
 
 - Operations: CI/CD pipelines and centralized monitoring
 - Network: centralized DNS and networking

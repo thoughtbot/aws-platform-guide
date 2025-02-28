@@ -40,5 +40,4 @@ To install the platform, you can follow these guides:
 If you're using a single AWS account or not using Control Tower for
 another reason, you'll need to create the baseline role and S3 backend
 for Terraform by hand. Once these are in place, you can proceed with
-[deploying the ingress
-stack](#deploy-ingress-stack).
+[Provision Networks](#provision-networks).

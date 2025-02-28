@@ -1,6 +1,6 @@
 ## Landing Zone Prerequisites
 
-1.  Create 1Password for credentials (To be completed by the Client)
+1.  Create 1Password for credentials (to be completed by the Company administrator)
 2.  If not already available, create an external Identity provider for
     SSO and store credentials in 1Password. Sample AWS supported options
     include [Azure AD](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html),
@@ -30,7 +30,7 @@
     :::
 
 4.  Create the following group emails to be used for other dependency
-    accounts in AWS (To be completed by the Client), to use the below
+    accounts in AWS, to use the below
     email address naming convention, the `ACCOUNT_EMAIL_PREFIX` in your
     landing-zone configuration file should be `aws-`;
 
@@ -46,7 +46,7 @@
     10. aws-production@example.com
     11. sso-management@example.com
 
-5.  Create a Github organisation (To be completed by the Client).
+5.  Create a Github organization (to be completed by the Company administrator).
 6.  Create [necessary repositories](#repository-conventions) on GitHub.
 7.  Login to AWS and [enable MFA](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.html#enable-virt-mfa-for-root)
     on the root account for AWS, then you can [link the MFA to 1Password](https://support.1password.com/one-time-passwords/).

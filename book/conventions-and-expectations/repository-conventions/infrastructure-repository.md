@@ -26,4 +26,4 @@ creation in GitHub.
 GitHub docs for [Creating a repository from a
 template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-![Creating a GitHub repository from a template](./images/image-20230807-212358.png)
+![Creating a GitHub repository from a template](./images/flightdeck-template.png)

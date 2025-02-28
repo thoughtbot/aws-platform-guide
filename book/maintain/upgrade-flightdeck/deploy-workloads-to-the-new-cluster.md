@@ -3,8 +3,9 @@
 Update your continuous deployment workflow to deploy to your new sandbox
 cluster.
 
-- [GitHub Actions](#github-actions)
-- [AWS CodePipeline](#aws-codepipeline)
+- [Deploy workloads to the new cluster](#deploy-workloads-to-the-new-cluster)
+  - [GitHub Actions](#github-actions)
+  - [AWS CodePipeline](#aws-codepipeline)
 
 #### GitHub Actions
 
